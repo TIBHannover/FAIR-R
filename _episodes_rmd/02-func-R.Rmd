@@ -17,6 +17,7 @@ keypoints:
 - "Call a function using `name(...values...)`."
 - "R looks for variables in the current stack frame before looking for them at the top level."
 - "Use `help(thing)` to view help for something."
+- "Use `#` to add comments to programs."
 - "Put comments at the beginning of functions to provide help for that function."
 - "Annotate your code!"
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
@@ -68,6 +69,13 @@ fahrenheit_to_kelvin(32)
 # boiling point of water
 fahrenheit_to_kelvin(212)
 ```
+
+> ## Commenting
+>
+> We can add comments to our code using the `#` character. It is useful to
+> document our code in this way so that others (and us the next time we
+> read it) have an easier time following what the code is doing.
+{: .callout}
 
 We've successfully called the function that we defined, and we have access to the value that we returned.
 
