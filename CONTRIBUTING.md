@@ -42,19 +42,19 @@ and to meet some of our community members.
     and would like to add or change material,
     you can submit a pull request (PR).
     Instructions for doing this are [included below](#using-github).
-    While we would like substantial changes to be raised in an issue for input from maintainers 
-    before you work on a PR, **we always welcome PRs that correct typos and bugs**. 
-    If you are not sure if your proposed changes are substantial, we encourage you to submit an issue.  
+    While we would like substantial changes to be raised in an issue for input from maintainers
+    before you work on a PR, **we always welcome PRs that correct typos and bugs**.
+    If you are not sure if your proposed changes are substantial, we encourage you to submit an issue.
 
-Issues in this repository are tagged with [labels](../../labels) by the maintainers, 
+Issues in this repository are tagged with [labels](../../labels) by the maintainers,
 which you may find useful for navigating open issues.
 
 
 ## Where to Contribute
 
 1.  If you wish to change this lesson,
-    please work in <https://github.com/swcarpentry/r-novice-inflammation/>,
-    which can be viewed at <https://swcarpentry.github.io/r-novice-inflammation/>.
+    please work in <https://github.com/tibhannover/FAIR-R/>,
+    which can be viewed at <https://tibhannover.github.io/FAIR-R/>.
 
 2.  If you wish to change the example lesson,
     please work in <https://github.com/swcarpentry/lesson-example>,
@@ -151,8 +151,8 @@ You can also [reach us by email][contact].
 [github-flow]: https://guides.github.com/introduction/flow/
 [github-join]: https://github.com/join
 [how-contribute]: https://egghead.io/series/how-to-contribute-to-an-open-source-project-on-github
-[issues]: https://github.com/swcarpentry/r-novice-inflammation/issues/
-[repo]: https://github.com/swcarpentry/r-novice-inflammation/
+[issues]: https://github.com/tibhannover/FAIR-R/issues/
+[repo]: https://github.com/tibhannover/FAIR-R/
 [swc-issues]: https://github.com/issues?q=user%3Aswcarpentry
 [swc-lessons]: http://software-carpentry.org/lessons/
 [swc-site]: http://software-carpentry.org/
