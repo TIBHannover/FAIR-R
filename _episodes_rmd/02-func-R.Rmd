@@ -22,6 +22,7 @@ keypoints:
 - "Annotate your code!"
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
 - "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+source: Rmd
 ---
 
 ```{r, include = FALSE}
@@ -459,7 +460,7 @@ display(55)
 # two arguments
 display(55, 66)
 # three arguments
-display (55, 66, 77)
+display(55, 66, 77)
 ```
 
 As this example shows, arguments are matched from left to right, and any that haven't been given a value explicitly get their default value.

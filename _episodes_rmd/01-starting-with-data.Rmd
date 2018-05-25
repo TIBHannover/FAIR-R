@@ -17,6 +17,7 @@ keypoints:
 - "Objects are created on demand whenever a value is assigned to them."
 - "Use `apply` to calculate statistics across the rows or columns of a data frame."
 - "Use `plot` to create simple visualizations."
+source: Rmd
 ---
 
 ```{r, include = FALSE}

@@ -23,6 +23,7 @@ keypoints:
 - "Annotate your code!"
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
 - "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+source: Rmd
 ---
 
 
@@ -721,7 +722,7 @@ display(55, 66)
 
 ~~~
 # three arguments
-display (55, 66, 77)
+display(55, 66, 77)
 ~~~
 {: .language-r}
 
