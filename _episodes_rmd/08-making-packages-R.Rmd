@@ -104,15 +104,17 @@ rescale <- function(v) {
 }
 ```
 
-We will use RStudio, and the packages [`usethis`][usethis] and [`roxygen2` from episode 2 "Creating Functions"][02]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
+We will use RStudio, and the packages [`roxygen2` from episode 2 "Creating Functions"][02], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
 
 [02]: {{ page.root }}/02-func-R/
 [usethis]: https://cran.r-project.org/package=usethis
+[testthat]: https://cran.r-project.org/package=testthat
 
 ```{r, eval=FALSE}
-install.packages(c("roxygen2", "usethis"))
+install.packages(c("roxygen2", "testthat", "usethis"))
 # several can be combined, but only for installations
 library("roxygen2")
+library("testthat")
 library("usethis")
 ```
 
@@ -215,3 +217,4 @@ console.
 example(center)
 example(rescale)
 ```
+

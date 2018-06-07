@@ -1,0 +1,106 @@
+---
+title: "Unit-testing and refactoring"
+teaching: 30
+exercises: 0
+questions:
+- "What is the benefit of unit-testing my code?"
+- "How do I create and run unit-tests?"
+- "How do I integrate my function documentation into R's help pages system?"
+- "Why would I change my code after I got it to run?"
+objectives:
+- "Describe the required R package structure for testing."
+- "Create the required R package structure for testing."
+- "Use testthat functions to create and run tests."
+- "Changing code is not always necessary, but often useful."
+keypoints:
+- "Examples can be formalised into unit-tests."
+- "Tests provide a safety net for changing code."
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("16-supp-testthat-R-")
+```
+
+## Unit testing with the `testthat` package
+
+Computer code evolves. Functions may need to be updated to new usage goals,
+sped up when more data needs to be crunched, or cleaned up to make their code
+more readable for collaborators, reviewers, etc. You probably know the saying
+"Never change a running system!" We surely invested a lot of time already to make
+sure our functions work fine now. It is natural to be cautious about changing
+computer code and it rightly shouldn't be done on a whim.
+
+However, as you have probably learned in the Git lesson, branching is one way to
+try out code changes in a way that allows you to recover from mistake, and only
+merge successful changes.
+
+Unit test are another way to "span a safety net", and in R, the [`testthat` package][testthat]
+is commonly used. Because adding tests requires an expansion of the folder and file
+structure of an R package, we are going to use a second helper package: [`usethis`][usethis].
+
+Because we installed and loaded both packages alongside `roxygen2` earlier, you
+should be able to immediately:
+
+```{r use_test, eval=FALSE}
+use_test("center")
+```
+
+A new file should be created called and pre-filled with a little example. While
+following the explanation of each part, please delete the contents of that example
+test in order to prepare inserting our own. The string within `test_that("…", …)`
+is an explanation of what this tests actually tests. In case of our `center()`
+function we expect that "centering works".
+
+Next comes a specific `expect_`ation, usually that calling a given function with
+a defined set of arguments (inputs) is `_equal` to a known return value (outputs).
+In the function comments, we have already formalised a few of these as examples.
+Copy-and-paste them into the test file, remove the `# should return [1]`
+indicators of the expected results, and wrap the result values into a `c()` to
+enable R to compare the expected values with the output of the two `center()` tests.
+
+```{r center-test, eval=FALSE}
+test_that("centering works", {
+expect_equal(center(c(1, 2, 3)), c(-1, 0, 1))
+expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
+})
+```
+
+Don't worry that there is no output when you execute either one or both of the
+`expect_equal()` statements, or  the whole `test_that()` block. In good UNIX
+tradition, `testthat` does not bother you confirmations that things are working
+as expected. But there will be plenty of output when some expectations are not
+met, i.e. one or more unit tests fail.
+
+> ## Testing our rescaling functions
+  >
+  > Apply the above example of converting the examples into unit tests for the
+> `rescale` function as well.
+>
+  > > ## Solution
+  > > ~~~
+  > > test_that("rescaling works", {
+    > >   expect_equal(rescale(c(1, 2, 3)), c(0.0, 0.5, 1.0))
+    > >   expect_equal(rescale(c(1, 2, 3, 4, 5)), c(0.0, 0.25, 0.5, 0.75, 1.0))
+    > > })
+> > ~~~
+  > > {: .r}
+> {: .solution}
+{: .challenge}
+
+To conclude this section about creating unit tests, let's again commit our results,
+for example as "Span safety net for TDD & refactoring".
+
+Finally, have a look at the websites listed on `help(usethis)` to learn about
+how else it can assist you when building packages.
+
+
+## Test-driven development (TDD) and refactoring
+
+Remember that we updated `rescale()` with lower and upper bounds and default
+values at the end of [episode 2][02]? We had to manually test that change with a
+new example
+
+Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
+
