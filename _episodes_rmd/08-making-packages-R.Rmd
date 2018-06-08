@@ -199,11 +199,12 @@ In case you learned about Git already, also view the `.Rd` files in RStudio's
 > Which other messages would better explain the "Why?", or that would be more useful
 > when browsing the commit history later?
 > >
-> > ## Solution
+> > ## Hints
 > > 
-> > - "roxygenise() function comments into help pages" because it includes a hint to the 
-> > the command used
+> > - "roxygenise() function comments into help pages" because it mentions the 
+> > the package and command you used
 > > - "Integrate function docu into R's standard help pages"
+> > - "Render function docu as R's standard help pages"
 > > 
 > {: .solution}
 {: .challenge}
