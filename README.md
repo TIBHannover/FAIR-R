@@ -1,7 +1,7 @@
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/)
- [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--inflammation-E01563.svg)](https://swcarpentry.slack.com/messages/C9WDPCMUG)
+[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
+ [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--inflammation-E01563.svg)](https://swcarpentry.slack.com/messages/C9WDPCMUG) 
 
-FAIR-R
+r-novice-inflammation
 =====================
 
 Introduction to R for non-programmers using inflammation data.
@@ -38,7 +38,7 @@ repository. For making your contribution, we use the GitHub flow, which is
 nicely explained in the chapter [Contributing to a Project][pro-git] in Pro Git
 by Scott Chacon.
 
-General instructions for making contributions are summarized in [CONTRIBUTING.md](https://github.com/tibhannover/FAIR-R/blob/gh-pages/CONTRIBUTING.md).
+General instructions for making contributions are summarized in [CONTRIBUTING.md](https://github.com/swcarpentry/r-novice-inflammation/blob/gh-pages/CONTRIBUTING.md).
 When editing topic pages for R lessons, you should change the source R Markdown
 file (*.Rmd). Only changes to R markdown files and other supporting files (e.g. data files) should be committed to Git.
 
@@ -58,8 +58,8 @@ If you have questions or proposals, please send them to the [r-discuss][] mailin
 
 [dependencies]: https://github.com/swcarpentry/lesson-example#dependencies
 [design]: https://github.com/swcarpentry/lesson-example/blob/gh-pages/DESIGN.md
-[issues]: https://github.com/tibhannover/FAIR-R/issues
+[issues]: https://github.com/swcarpentry/r-novice-inflammation/issues
 [knitr]: https://cran.r-project.org/package=knitr
-[online]: http://swcarpentry.github.io/FAIR-R/
+[online]: http://swcarpentry.github.io/r-novice-inflammation/
 [pro-git]: http://git-scm.com/book/en/v2/GitHub-Contributing-to-a-Project
 [r-discuss]: http://lists.software-carpentry.org/mailman/listinfo/r-discuss_lists.software-carpentry.org
