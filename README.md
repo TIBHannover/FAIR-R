@@ -1,25 +1,17 @@
-[![Create a Slack Account with us](https://img.shields.io/badge/Create_Slack_Account-The_Carpentries-071159.svg)](https://swc-slack-invite.herokuapp.com/) 
- [![Slack Status](https://img.shields.io/badge/Slack_Channel-swc--r--inflammation-E01563.svg)](https://swcarpentry.slack.com/messages/C9WDPCMUG) 
+r-novice-inflammation FAIR-ified
+================================
 
-r-novice-inflammation
-=====================
-
-Introduction to R for non-programmers using inflammation data.
-
-Current maintainers:
-
-* [Daniel Chen](http://software-carpentry.org/team/#chen_daniel) (@chendaniely)
-* Katrin Leinweber (@katrinleinweber)
-* [Diya Das](https://software-carpentry.org/team/#das_diya) (@diyadas)
-
-The goal of this lesson is to teach novice programmers to write modular code to
-perform a data analysis. R is used to teach these skills because it is a
+The goal of this lesson is to teach intermediate programmers to write modular code to
+perform a data analysis in the context of [TIB's "FAIR Data & Software" workshop][FDS].
+R is used to teach these skills because it is a
 commonly used programming language in many scientific disciplines. However, the
 emphasis is not on teaching every aspect of R, but instead on
-language agnostic principles like automation with loops and encapsulation with
-functions (see [Best Practices for Scientific Computing][best-practices] to
-learn more). This lesson is a translation of the [Python version][py],
-and is also available in [MATLAB][MATLAB].
+language agnostic principles like encapsulation with
+functions (see [Best Practices for Scientific Computing][best-practices]).
+Their documentation, packaging and testing.
+This is one [interpretation of the FAIR principles for software][FDS].
+This lesson is a translation of the [Python version][py],
+which is also available in [MATLAB][MATLAB].
 
 The example used in this lesson analyzes a set of 12 data files with
 inflammation data collected from a trial for a new treatment for arthritis (the
@@ -27,6 +19,7 @@ data was simulated). Learners are shown how it is better to create a function
 and apply it to each of the 12 files using a loop instead of using copy-paste
 to analyze the 12 files individually.
 
+[FDS]: https://tibhannover.github.io/2018-07-09-FAIR-Data-and-Software/
 [best-practices]: http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745
 [py]: https://github.com/swcarpentry/python-novice-inflammation
 [MATLAB]: https://github.com/swcarpentry/matlab-novice-inflammation
