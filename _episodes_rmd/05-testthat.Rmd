@@ -7,10 +7,10 @@ questions:
 - "How do I create and run unit tests?"
 - "Why would I change my code after I got it to run?"
 objectives:
+- "Formalise documented examples as tests."
 - "Use testthat functions to create and run tests."
-- "Changing code is not always necessary, but often useful."
 keypoints:
-- "Examples can be formalised into unit-tests."
+- "Changing code is not always necessary, but often useful."
 - "Tests provide a safety net for changing code."
 - "Practice more TDD at [exercism.io](http://exercism.io/languages/)"
 source: Rmd
