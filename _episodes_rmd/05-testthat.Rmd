@@ -4,7 +4,7 @@ teaching: 30
 exercises: 0
 questions:
 - "What is the benefit of unit-testing my code?"
-- "How do I create and run unit-tests?"
+- "How do I create and run unit tests?"
 - "Why would I change my code after I got it to run?"
 objectives:
 - "Use testthat functions to create and run tests."
@@ -61,8 +61,8 @@ enable R to compare the expected values with the output of the two `center()` te
 
 ```{r center-test, eval=FALSE}
 test_that("centering works", {
-expect_equal(center(c(1, 2, 3)), c(-1, 0, 1))
-expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
+  expect_equal(center(c(1, 2, 3)), c(-1, 0, 1))
+  expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
 })
 ```
 
