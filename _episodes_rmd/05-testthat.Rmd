@@ -38,23 +38,25 @@ merge successful changes.
 
 Unit test are another way to "span a safety net", and in R, the [`testthat` package][testthat]
 is commonly used. Because adding tests requires an expansion of the folder and file
-structure of an R package, we are going to use a second helper package: [`usethis`][usethis].
+structure of an R package, we are going to use a helper package to do this for
+us: [`usethis`][usethis].
 
-Because we installed and loaded both packages alongside `roxygen2` earlier, you
+If you installed and loaded both packages alongside `roxygen2` earlier, you
 should be able to immediately:
 
 ```{r use_test, eval=FALSE}
 use_test("center")
 ```
 
-A new file should be created called and pre-filled with a little example. While
+A new file should be created called `test-center.R` and pre-filled with a little example. While
 following the explanation of each part, please delete the contents of that example
 test in order to prepare inserting our own. The string within `test_that("…", …)`
-is an explanation of what this tests actually tests. In case of our `center()`
+is an explanation of what this test actually tests. In case of our `center()`
 function we expect that "centering works".
 
-Next comes a specific `expect_`ation, usually that calling a given function with
-a defined set of arguments (inputs) is `_equal` to a known return value (outputs).
+Next comes a specific `expect_`ation, usually calling a given function with
+a defined set of arguments (inputs) to check whether that result is `_equal`
+to a known return value (outputs).
 In the function comments, we have already formalised a few of these as examples.
 Copy-and-paste them into the test file, remove the `# should return [1]`
 indicators of the expected results, and wrap the result values into a `c()` to
@@ -69,23 +71,23 @@ expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
 
 Don't worry that there is no output when you execute either one or both of the
 `expect_equal()` statements, or  the whole `test_that()` block. In good UNIX
-tradition, `testthat` does not bother you confirmations that things are working
+tradition, `testthat` does not bother you with confirming that things are working
 as expected. But there will be plenty of output when some expectations are not
 met, i.e. one or more unit tests fail.
 
 > ## Testing our rescaling functions
-  >
-  > Apply the above example of converting the examples into unit tests for the
+>
+> Apply the above example of converting the examples into unit tests for the
 > `rescale` function as well.
 >
-  > > ## Solution
-  > > ~~~
-  > > test_that("rescaling works", {
-    > >   expect_equal(rescale(c(1, 2, 3)), c(0.0, 0.5, 1.0))
-    > >   expect_equal(rescale(c(1, 2, 3, 4, 5)), c(0.0, 0.25, 0.5, 0.75, 1.0))
-    > > })
+> > ## Solution
 > > ~~~
-  > > {: .r}
+> > test_that("rescaling works", {
+> >   expect_equal(rescale(c(1, 2, 3)), c(0.0, 0.5, 1.0))
+> >   expect_equal(rescale(c(1, 2, 3, 4, 5)), c(0.0, 0.25, 0.5, 0.75, 1.0))
+> > })
+> > ~~~
+> > {: .r}
 > {: .solution}
 {: .challenge}
 
