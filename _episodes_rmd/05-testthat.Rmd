@@ -99,7 +99,86 @@ how else it can assist you when building packages.
 
 Remember that we updated `rescale()` with lower and upper bounds and default
 values at the end of [episode 2][02]? We had to manually test that change with a
-new example
+new example back then. We were repeating ourselves a bit more often than necessary
+back then, weren't we? Of course, there are ways to automate the testing of code
+changes, and to give you quick feedback whether your changes worked, or broke
+anything.
+
+To give ourselves this quick feedback, use `testthat`'s `auto_test_package()`
+and notice the hopefully all green and `OK` `Results`.
+
+With this safety net enabled, we will first update `test-rescale.R`, and then
+update the code in `rescale.R` This strategy of (re)writing (new)
+tests before (re)writing the code-to-be-tested is called
+"[test-driven design/development][TDD]". It is intended to reduce confirmation
+bias when coding. If one already worked hard to get the code to run, one may be
+_biased to_ let the tests _confirm_ what the code currently _does_, instead of
+challenging it with tests about what it _should_ do. The latter is similar to the
+scientific method of trying to disprove hypotheses, so that the truth remains.
+
+[02]: {{ page.root }}/03-func-R/
+[TDD]: https://en.wikipedia.org/wiki/Test-driven_development
+
+> ## Update `test-rescale.R` with the second example from the roxygen comments at the end of
+[episode 2][02].
+>
+> You can either wrap this example in its own `test_that()` with a fitting
+> description, or replace one of the existing tests. Either way, the test 
+> explanation(s) should afterwards be checked whether they still reflect the 
+> test code.
+> 
+> > ## Solution
+> > ~~~
+> > test_that("rescaling works with non-default arguments", {
+> >   expect_equal(rescale(c(1, 2, 3), 1, 2), c(1.0, 1.5, 2.0))
+> > })
+> > ~~~
+> > {: .r}
+> {: .solution}
+{: .challenge}
+
+Save the file and if `auto_test_package()` is still running, you should see one
+`Failed` `Result`. If you run the `expect_that("…", …)` or `expect_equal(…)`
+block interactively, an `Error` should appear. This exactly what we want to see
+before working on the code. Why?
+
+> ## Update `rescale.R` with a lower and upper bound argument and default values
+>
+> Don't copy-paste the code from earlier! Try instead to rely on the safety net
+> and update the function code interactively, saving every now and then to
+> trigger `auto_test_package()`.
+> 
+> > ## Solution
+> > ~~~
+> > rescale <- function(v, lower = 0, upper = 1) {
+> >   L <- min(v)
+> >   H <- max(v)
+> >   result <- (v - L) / (H - L) * (upper - lower) + lower
+> >   return(result)
+> > }
+> > ~~~
+> > {: .r}
+> > 
+> > Don't forget to update the roxygen comments with the new `@param`s. You may
+> > copy-paste these from [episode 2][02] ;-) Afterwards, also remember to `roxygenise()`
+> > again.
+> {: .solution}
+{: .challenge}
+
+While `auto_test_package()` is still running, play around with the code a bit more:
+
+- change the placement of `(` parentheses `)`
+- remove the `return()` statement to find out how R can implicitly return
+  the correct result
+- shorten the code to a 2 lines or even only 1 line
+
+Some of those changes will result in errors, some will make the code more readable.
+With automatic testing we can more quickly reach a sensible balance between investing
+time and energy into improving our code, and recovering from the mistakes we'll
+inevitably make. If you want to learn more about improving code internally, without
+changing its external behavior (AKA "refactoring"), we recommend that you try out [exercism.io](http://exercism.io/languages/). They have standardised many problem sets
+across many programming languages, and you can code your solution against pre-defined
+tests.
 
 Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
 
