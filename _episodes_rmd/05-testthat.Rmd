@@ -12,6 +12,7 @@ objectives:
 keypoints:
 - "Examples can be formalised into unit-tests."
 - "Tests provide a safety net for changing code."
+- "Practice more TDD at [exercism.io](http://exercism.io/languages/)"
 source: Rmd
 ---
 
@@ -172,13 +173,10 @@ While `auto_test_package()` is still running, play around with the code a bit mo
   the correct result
 - shorten the code to a 2 lines or even only 1 line
 
-Some of those changes will result in errors, some will make the code more readable.
+Some of those changes will result in errors, some will make the code more readable,
+some will make it faster or slower.
 With automatic testing we can more quickly reach a sensible balance between investing
-time and energy into improving our code, and recovering from the mistakes we'll
-inevitably make. If you want to learn more about improving code internally, without
-changing its external behavior (AKA "refactoring"), we recommend that you try out [exercism.io](http://exercism.io/languages/). They have standardised many problem sets
-across many programming languages, and you can code your solution against pre-defined
-tests.
+our time and energy into testing code improvement, while recovering from mistakes.
 
 Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
 
