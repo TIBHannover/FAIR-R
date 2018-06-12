@@ -5,11 +5,8 @@ exercises: 0
 questions:
 - "What is the benefit of unit-testing my code?"
 - "How do I create and run unit-tests?"
-- "How do I integrate my function documentation into R's help pages system?"
 - "Why would I change my code after I got it to run?"
 objectives:
-- "Describe the required R package structure for testing."
-- "Create the required R package structure for testing."
 - "Use testthat functions to create and run tests."
 - "Changing code is not always necessary, but often useful."
 keypoints:
