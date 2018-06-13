@@ -18,7 +18,7 @@ source: Rmd
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("16-supp-testthat-R-")
+knitr_fig_path("05-testthat-R-")
 ```
 
 ## Unit testing with the `testthat` package
@@ -99,7 +99,7 @@ how else it can assist you when building packages.
 ## Test-driven development (TDD)
 
 Remember that we updated `rescale()` with lower and upper bounds and default
-values at the end of [episode 2][02]? We had to manually test that change with a
+values at the end of [the functions episode][ep-func]? We had to manually test that change with a
 new example back then. We were repeating ourselves a bit more often than necessary
 back then, weren't we? Of course, there are ways to automate the testing of code
 changes, and to give you quick feedback whether your changes worked, or broke
@@ -118,11 +118,9 @@ _biased to_ let the tests _confirm_ what the code currently _does_, instead of
 challenging it with tests about what it _should_ do. The latter is similar to the
 scientific method of trying to disprove hypotheses, so that the truth remains.
 
-[02]: {{ page.root }}/03-func-R/
 [TDD]: https://en.wikipedia.org/wiki/Test-driven_development
 
-> ## Update `test-rescale.R` with the second example from the roxygen comments at the end of
-[episode 2][02].
+> ## Update `test-rescale.R` with the second example from the roxygen comments at the end of [episode 2][ep-func].
 >
 > You can either wrap this example in its own `test_that()` with a fitting
 > description, or replace one of the existing tests. Either way, the test 
@@ -162,7 +160,7 @@ before working on the code. Why?
 > > {: .r}
 > > 
 > > Don't forget to update the roxygen comments with the new `@param`s. You may
-> > copy-paste these from [episode 2][02] ;-) Afterwards, also remember to `roxygenise()`
+> > copy-paste these from [episode the functions episode][ep-func] ;-) Afterwards, also remember to `roxygenise()`
 > > again.
 > {: .solution}
 {: .challenge}
@@ -182,3 +180,6 @@ our time and energy into testing code improvement, while recovering from mistake
 
 Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
 
+[ep-func]: {{ page.root }}/03-func-R/
+[usethis]: https://cran.r-project.org/package=usethis
+[testthat]: https://cran.r-project.org/package=testthat

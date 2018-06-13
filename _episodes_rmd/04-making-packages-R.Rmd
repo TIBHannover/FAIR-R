@@ -22,7 +22,7 @@ source: Rmd
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("08-making-packages-R-")
+knitr_fig_path("04-making-packages-R-")
 ```
 
 Why should you make your own R packages?
@@ -107,11 +107,7 @@ rescale <- function(v) {
 }
 ```
 
-We will use RStudio, and the packages [`roxygen2` from episode 2 "Creating Functions"][02], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
-
-[02]: {{ page.root }}/02-func-R/
-[usethis]: https://cran.r-project.org/package=usethis
-[testthat]: https://cran.r-project.org/package=testthat
+We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
 
 ```{r, eval=FALSE}
 install.packages(c("roxygen2", "testthat", "usethis"))
@@ -125,7 +121,7 @@ In this lesson, we will start building a "personal package". This is meant to
 collect any kind of R code that is useful to _you_. As you continue to evolve it
 after this lesson, you may move codes that belong to the same publication, topic
 or a distinct project, into their own packages. Here we begin to realise the
-benefit of [formally documenting the functions already in the episode 2][02]: 
+benefit of [formally documenting the functions already in the the functions episode][ep-func]: 
 We can publish more quickly, because we didn't leave much unfished clean-up business.
 
 To start working on this personal package, please open RStudio's `File` menu and 
@@ -228,3 +224,6 @@ your personal package. A good resource to find more guidance on packaging R code
 is [ROpenSci's onboarding guide][ROSPG].
 
 [ROSPG]: https://onboarding.ropensci.org/packaging_guide.html
+[ep-func]: {{ page.root }}/03-func-R/
+[usethis]: https://cran.r-project.org/package=usethis
+[testthat]: https://cran.r-project.org/package=testthat
