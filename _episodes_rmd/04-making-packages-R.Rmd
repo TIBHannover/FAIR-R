@@ -138,7 +138,7 @@ building this package.
 <img src="../fig/08-RStudio-new-package.png" alt="New package in RStudio" width="500" />
 
 This should open a new RStudio window, within which we'll first create an "Initial
-commit" in RStudio's `Git` tab. This helps us differentiate between RStudio's  
+commit" in RStudio's `Git` tab. This helps us differentiate between RStudio's 
 "skelleton" content of a package, and the "meat" we add later.
 
 <img src="../fig/08-RStudio-new-package-git.png" alt="Default package files in RStudio's Git pane" width="500" />
