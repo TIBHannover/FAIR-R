@@ -38,8 +38,16 @@ is commonly used. Because adding tests requires an expansion of the folder and f
 structure of an R package, we are going to use a helper package to do this for
 us: [`usethis`][usethis].
 
-If you installed and loaded both packages alongside `roxygen2` earlier, you
-should be able to immediately:
+
+~~~
+install.packages(c("testthat", "usethis"))
+# several can be combined, but only for installations
+library("testthat")
+library("usethis")
+~~~
+{: .language-r}
+
+Afterwards, type:
 
 
 ~~~

@@ -79,14 +79,11 @@ or a distinct project, into their own packages. Here we begin to realise the
 benefit of [formally documenting the functions already in the episode 2][02]: 
 We can publish more quickly, because we didn't leave much unfished clean-up business.
 
-We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
+We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
 
 ```{r, eval=FALSE}
-install.packages(c("roxygen2", "testthat", "usethis"))
-# several can be combined, but only for installations
+install.packages("roxygen2")
 library("roxygen2")
-library("testthat")
-library("usethis")
 ```
 
 To start working on this personal package, please open RStudio's `File` menu and 
@@ -216,5 +213,3 @@ is [ROpenSci's onboarding guide][ROSPG].
 
 [ROSPG]: https://onboarding.ropensci.org/packaging_guide.html
 [ep-func]: {{ page.root }}/03-func-R/
-[usethis]: https://cran.r-project.org/package=usethis
-[testthat]: https://cran.r-project.org/package=testthat
