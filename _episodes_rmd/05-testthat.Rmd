@@ -169,7 +169,7 @@ While `auto_test_package()` is still running, play around with the code a bit mo
 
 - change the placement of `(` parentheses `)`
 - remove the `return()` statement to find out how R can implicitly return
-  the correct result
+  the last calculated value within a function
 - shorten the code to 2 lines, or even only 1
 
 Some of those changes will result in errors, some will make the code more readable,
