@@ -45,17 +45,20 @@ An R package requires four components:
 [WRE]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-structure
 
 
-### DESCRIPTION file
+### `DESCRIPTION` file
 
 ~~~
 Package: PackageName
-Title: One Descriptive Sentence (Title Case)
-Description: One descriptive paragraph explaining why the package exists and what
-  it is useful for. Similar to a paper abstract.
-Version: Semantic version number (major.minor.patch)  # see semver.org
-Authors@R: person("First", "Last", "first.last@example.com",
-  role = c("aut", "cre"))  # see ?person for all possibilities 
-License: Abbreviation for an open source license
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
 ~~~
 {: .source}
 
@@ -122,7 +125,8 @@ advantage of the console's auto-complete just like for any other package. Type
 > that information?
 >
 > Assuming you have an ORCiD, you may want to associate your R package with it.
-> Find out how to add this information!
+> Find out how to add this information, and which additional changes you can make
+> to the `DESCRIPTION` file.
 > >
 > > ## Hint
 > > 
@@ -138,7 +142,10 @@ advantage of the console's auto-complete just like for any other package. Type
 > > The date is added in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
 > > `date: 2018-07-12`.
 > > 
-> > The ORCiD has to be inserted in `person()` as `comment = c(ORCID = "0000-…-…-…")`.
+> > Before inserting the ORCiD, we have to merge the `Author` and `Maintainer`
+> > fields into a machine-readable `Authors@R` field using the `person(…)`.
+> > function. Look up its help page and convert your information.
+> > Afterwards, add your ORCiD as a `comment = c(ORCID = "…")`.
 > {: .solution}
 {: .challenge}
 
