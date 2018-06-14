@@ -11,7 +11,7 @@ objectives:
 - "Describe the required structure of R packages."
 - "Create the required structure of a simple R package."
 - "Build and install the package in RStudio."
-- "Use roxygen2 to convert function docu into help pages."
+- "Use roxygen2 to document functions."
 keypoints:
 - "A package is the basic unit of reusability in R."
 - "Every package must have a `DESCRIPTION` file and an `R` directory containing code. These are created by us."
