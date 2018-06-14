@@ -171,6 +171,7 @@ While `auto_test_package()` is still running, play around with the code a bit mo
 - remove the `return()` statement to find out how R can implicitly return
   the last calculated value within a function
 - shorten the code to 2 lines, or even only 1
+- rename arguments to something more self-explanatory (basic "[refactoring]")
 
 Some of those changes will result in errors, some will make the code more readable,
 some will make it faster or slower.
@@ -181,5 +182,6 @@ our time and energy into testing code improvement, while recovering from mistake
 Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
 
 [ep-func]: {{ page.root }}/03-func-R/
+[refactoring]: https://en.wikipedia.org/wiki/Code_refactoring
 [usethis]: https://cran.r-project.org/package=usethis
 [testthat]: https://cran.r-project.org/package=testthat
