@@ -121,9 +121,6 @@ met, i.e. one or more unit tests fail.
 To conclude this section about creating unit tests, let's again commit our results,
 for example as "Span safety net for TDD".
 
-Finally, have a look at the websites listed on `help(usethis)` to learn about
-how else it can assist you when building packages.
-
 
 ## Test-driven development (TDD)
 
@@ -207,8 +204,6 @@ some will make it faster or slower.
 To stop `auto_test_package()` in the console, press `Esc` or the red `STOP` button.
 With automatic testing we can more quickly reach a sensible balance between investing
 our time and energy into testing code improvement, while recovering from mistakes.
-
-Finally, have a look at the websites listed under "See Also" in `help(testthat)`.
 
 [ep-func]: {{ page.root }}/03-func-R/
 [refactoring]: https://en.wikipedia.org/wiki/Code_refactoring
