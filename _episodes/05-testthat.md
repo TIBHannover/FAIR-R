@@ -55,7 +55,18 @@ use_test("center")
 ~~~
 {: .language-r}
 
-A new file should be created called `test-center.R` and pre-filled with a little example. While
+A new file should be created and the console should show:
+
+~~~
+✔ Adding 'testthat' to Suggests field in DESCRIPTION
+✔ Creating 'tests/testthat/'
+✔ Writing 'tests/testthat.R'
+✔ Writing 'tests/testthat/test-center.R'
+● Modify 'test-center.R'
+~~~
+{: .source}
+
+The file is pre-filled with a little example. While
 following the explanation of each part, please delete the contents of that example
 test in order to prepare inserting our own. The string within `test_that("…", …)`
 is an explanation of what this test actually tests. In case of our `center()`
