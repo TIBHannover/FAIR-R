@@ -115,13 +115,9 @@ search()
 ```
 
 This means you can now take
-advantage of the console's auto-complete just like for every other package. Type
-`cen` and/or `resc`, then `TAB` and insert some example values.
-
-```{r center-rescale-packaged-test}
-center(c(1, 2, 3))
-rescale(c(1, 2, 3))
-```
+advantage of the console's auto-complete just like for any other package. Type
+`cen` and/or `resc`, then `TAB` try some examples like `center(c(1, 2, 3))` or 
+`rescale(c(1, 2, 3))`.
 
 > ## Provide citation metadata in the `DESCRIPTION` file
 >
