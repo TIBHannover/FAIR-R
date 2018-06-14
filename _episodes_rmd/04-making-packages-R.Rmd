@@ -70,42 +70,6 @@ Suggestion: organize in a logical manner so that you know which file holds which
 
 ### Making your first R package
 
-Let's turn our `center.R` and `rescale.R` functions into an R package.
-
-```{r center-rescale-to-package}
-#' Centering Data
-#' 
-#' @param data The numeric vector to be centered
-#' @param desired The numeric value around which the data should be centered (default = 0)
-#'
-#' @return A new vector containing the original data centered around the desired value.
-#'
-#' @examples
-#'   center(c(1, 2, 3))  # should return [1] -1  0  1
-#'   center(c(1, 2, 3), 1)  # should return [1] 0 1 2
-
-center <- function(data, desired = 0) {
-  new_data <- (data - mean(data)) + desired
-  return(new_data)
-}
-
-#' Rescaling vectors to lie in the range 0 to 1
-#'
-#' @param v A numeric vector
-#'
-#' @return The rescaled numeric vector
-#'
-#' @examples
-#'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
-#'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
-
-rescale <- function(v) {
-  L <- min(v)
-  H <- max(v)
-  result <- (v - L) / (H - L)
-  return(result)
-}
-```
 
 We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
 
@@ -127,6 +91,10 @@ We can publish more quickly, because we didn't leave much unfished clean-up busi
 To start working on this personal package, please open RStudio's `File` menu and 
 select `New Project… > New Directory… > R Package`. Give it a unique, but useful
 name. Your own will work just fine. Bonus points for squeezing in an `R` ;-)
+
+Also add the `source files` we created earlier (`center.R` and `rescale.R`), so
+that we have some example code right away.
+
 In case you have learned about version control already, it would be a good 
 practice to `create a git repository` now and apply what you learned to document
 building this package.
