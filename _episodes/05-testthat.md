@@ -212,5 +212,5 @@ our time and energy into testing code improvement, while recovering from mistake
 
 [ep-func]: {{ page.root }}/03-func-R/
 [refactoring]: https://en.wikipedia.org/wiki/Code_refactoring
-[usethis]: https://cran.r-project.org/package=usethis
-[testthat]: https://cran.r-project.org/package=testthat
+[usethis]: https://usethis.r-lib.org/
+[testthat]: https://testthat.r-lib.org/
