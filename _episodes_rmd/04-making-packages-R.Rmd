@@ -70,6 +70,12 @@ Suggestion: organize in a logical manner so that you know which file holds which
 
 ### Making your first R package
 
+In this lesson, we will start building a "personal package". This is meant to
+collect any kind of R code that is useful to _you_. As you continue to evolve it
+after this lesson, you may move codes that belong to the same publication, topic
+or a distinct project, into their own packages. Here we begin to realise the
+benefit of [formally documenting the functions already in the episode 2][02]: 
+We can publish more quickly, because we didn't leave much unfished clean-up business.
 
 We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func], as well as [`usethis`][usethis], [`testthat`][testthat]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
 
@@ -81,13 +87,6 @@ library("testthat")
 library("usethis")
 ```
 
-In this lesson, we will start building a "personal package". This is meant to
-collect any kind of R code that is useful to _you_. As you continue to evolve it
-after this lesson, you may move codes that belong to the same publication, topic
-or a distinct project, into their own packages. Here we begin to realise the
-benefit of [formally documenting the functions already in the the functions episode][ep-func]: 
-We can publish more quickly, because we didn't leave much unfished clean-up business.
-
 To start working on this personal package, please open RStudio's `File` menu and 
 select `New Project… > New Directory… > R Package`. Give it a unique, but useful
 name. Your own will work just fine. Bonus points for squeezing in an `R` ;-)
@@ -96,7 +95,7 @@ Also add the `source files` we created earlier (`center.R` and `rescale.R`), so
 that we have some example code right away.
 
 In case you have learned about version control already, it would be a good 
-practice to `create a git repository` now and apply what you learned to document
+practice to `create a git repository` now and `git commit` each step of
 building this package.
 
 <img src="../fig/08-RStudio-new-package.png" alt="New package in RStudio" width="500" />
