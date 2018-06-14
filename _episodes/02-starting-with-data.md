@@ -77,7 +77,7 @@ The filename needs to be a character string (or [string]({{ page.root }}/referen
 >
 > `read.csv` actually has many more arguments that you may find useful when
 > importing your own data in the future. You can learn more about these
-> options in this supplementary [lesson]({{ page.root }}/11-supp-read-write-csv/).
+> options in this supplementary [lesson](https://swcarpentry.github.io/r-novice-inflammation//11-supp-read-write-csv/).
 {: .callout}
 
 > ## Loading Data with Headers
@@ -268,7 +268,7 @@ plot(avg_day_inflammation)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-starting-with-data-plot-avg-inflammation-1.png" title="plot of chunk plot-avg-inflammation" alt="plot of chunk plot-avg-inflammation" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-starting-with-data-plot-avg-inflammation-1.png" title="plot of chunk plot-avg-inflammation" alt="plot of chunk plot-avg-inflammation" style="display: block; margin: auto;" />
 
 Above, we gave the function `plot` a vector of numbers corresponding to the average inflammation per day across all patients.
 `plot` created a scatter plot where the y-axis is the average inflammation level and the x-axis is the order, or index, of the values in the vector, which in this case correspond to the 40 days of treatment.
@@ -282,7 +282,7 @@ plot(max_day_inflammation)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-starting-with-data-plot-max-inflammation-1.png" title="plot of chunk plot-max-inflammation" alt="plot of chunk plot-max-inflammation" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-starting-with-data-plot-max-inflammation-1.png" title="plot of chunk plot-max-inflammation" alt="plot of chunk plot-max-inflammation" style="display: block; margin: auto;" />
 
 
 ~~~
@@ -291,7 +291,7 @@ plot(min_day_inflammation)
 ~~~
 {: .language-r}
 
-<img src="../fig/rmd-01-starting-with-data-plot-min-inflammation-1.png" title="plot of chunk plot-min-inflammation" alt="plot of chunk plot-min-inflammation" style="display: block; margin: auto;" />
+<img src="../fig/rmd-02-starting-with-data-plot-min-inflammation-1.png" title="plot of chunk plot-min-inflammation" alt="plot of chunk plot-min-inflammation" style="display: block; margin: auto;" />
 
 The maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there's a mistake in our calculations or something is wrong with our data.
 

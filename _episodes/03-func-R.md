@@ -148,12 +148,12 @@ This is our first taste of how larger programs are built: we define basic
 operations, then combine them in ever-larger chunks to get the effect we want.
 Real-life functions will usually be larger than the ones shown here--typically half a dozen to a few dozen lines--but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.
 
-> ## Chaining Functions
+> ## Nesting Functions
 >
 > This example showed the output of `fahrenheit_to_kelvin` assigned to `temp_K`, which
 > is then passed to `kelvin_to_celsius` to get the final result. It is also possible
-> to perform this calculation in one line of code, by "chaining" functions
-> together, like so:
+> to perform this calculation in one line of code, by "nesting" one function
+> inside another, like so:
 >
 > 
 > ~~~
@@ -331,100 +331,8 @@ head(centered)
 ~~~
 {: .output}
 
-It's hard to tell from the default output whether the result is correct, but there are a few simple tests that will reassure us:
-
-
-~~~
-# original min
-min(dat[, 4])
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 0
-~~~
-{: .output}
-
-
-
-~~~
-# original mean
-mean(dat[, 4])
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 1.75
-~~~
-{: .output}
-
-
-
-~~~
-# original max
-max(dat[, 4])
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 3
-~~~
-{: .output}
-
-
-
-~~~
-# centered min
-min(centered)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] -1.75
-~~~
-{: .output}
-
-
-
-~~~
-# centered mean
-mean(centered)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 0
-~~~
-{: .output}
-
-
-
-~~~
-# centered max
-max(centered)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 1.25
-~~~
-{: .output}
-
-That seems almost right: the original mean was about 1.75, so the lower bound from zero is now about -1.75.
-The mean of the centered data is 0.
-We can even go further and check that the standard deviation hasn't changed:
+It's hard to tell from the default output whether the result is correct, but there is one
+test that will reassure us: the standard deviation hasn't changed.
 
 
 ~~~
@@ -508,9 +416,8 @@ center <- function(data, desired) {
 {: .language-r}
 
 This is a good practice to begin with. Keeping the documentation exactly next to 
-the code helps keeping the docu up to date when the code has to be changed. 
-However, such comments are not what we saw when using `?read.csv` to view a help 
-page.
+the code helps keeping the former in sync with code changes. 
+However, when using `?…` or `help(…)` we do not see such informal comments.
 
 How can we create conveniently readable help pages for our own functions? By
 using the [roxygen2] package!
@@ -603,7 +510,7 @@ successfully apply a function and integrate it into larger analysis pipelines.
 
 If you are using RStudio, a nice shortcut is `CTRL`+`Shift`+`Alt`+`R`. Place the 
 cursor inside the function name or body, press that shortcut, 
-the roxygen2 function docu skeleton will be inserted. Note that we are not using 
+a roxygen2 comment skeleton will be inserted. Note that we are not using 
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
 You can safely ignore it for now, or delete it.
 
@@ -613,7 +520,7 @@ You can safely ignore it for now, or delete it.
 >
 > Write a function `rescale` that takes a vector as input and returns a corresponding vector of values scaled to lie in the range 0 to 1.
 > Please create a new file for this and save it as `rescale.R`.
-> (If $L$ and $H$ are the lowest and highest values in the original vector, then the replacement for a value $v$ should be $(v-L) / (H-L)$.)
+> (If `L` and `H` are the lowest and highest values in the original vector, then the replacement for a value `v` should be `(v-L) / (H-L)`.)
 > Be sure to document your function with roxygen2 comments.
 >
 > Test that your `rescale` function is working properly using `min`, `max`, and `plot`.
