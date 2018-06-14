@@ -109,6 +109,18 @@ met, i.e. one or more unit tests fail.
 > > ~~~
 > > {: .r}
 > {: .solution}
+> 
+> Think about the [DRY principle]({{ page.root }}/03-func-R/#composing-functions)).
+> Is it necessary to keep the `@examples` in the documentation when you are using
+> them in the tests? Which factors would you consider in your decision?
+>
+> > ## Hint
+> > 
+> > Examples are a good starting point, but not every test case will be a useful
+> > example, and vice versa. The examples help users to figure out how to apply
+> > your functions. The test cases help the package developer(s) improve the code.
+> > 
+> {: .solution}
 {: .challenge}
 
 To conclude this section about creating unit tests, let's again commit our results,
