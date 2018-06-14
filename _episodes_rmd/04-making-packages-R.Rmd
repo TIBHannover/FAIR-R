@@ -151,15 +151,15 @@ advantage of the console's auto-complete just like for any other package. Type
 
 ## Converting function documentation to help pages
 
-Remember that we added some documentation as roxygen2 comments? Let's try and look
-it up:
+Remember that we added some documented our functions with roxygen2 comments?
+Let's try and look it up:
 
-```{r error=TRUE}
+```{r eval=FALSE}
 ?center
 help(rescale)
 ```
 
-> ## Why `No documentation…`? We did write it!
+> ## Why `No documentation for '…' in specified packages and libraries`? We did write it!
 >
 > Why do you think the documentation of our package can not be found. Hint: Look
 > at the commit diff.

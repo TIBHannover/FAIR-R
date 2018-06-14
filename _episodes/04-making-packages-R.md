@@ -154,39 +154,17 @@ advantage of the console's auto-complete just like for any other package. Type
 
 ## Converting function documentation to help pages
 
-Remember that we added some documentation as roxygen2 comments? Let's try and look
-it up:
+Remember that we added some documented our functions with roxygen2 comments?
+Let's try and look it up:
 
 
 ~~~
 ?center
-~~~
-{: .language-r}
-
-
-
-~~~
-No documentation for 'center' in specified packages and libraries:
-you could try '??center'
-~~~
-{: .output}
-
-
-
-~~~
 help(rescale)
 ~~~
 {: .language-r}
 
-
-
-~~~
-No documentation for 'rescale' in specified packages and libraries:
-you could try '??rescale'
-~~~
-{: .output}
-
-> ## Why `No documentation…`? We did write it!
+> ## Why `No documentation for '…' in specified packages and libraries`? We did write it!
 >
 > Why do you think the documentation of our package can not be found. Hint: Look
 > at the commit diff.
