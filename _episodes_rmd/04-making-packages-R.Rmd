@@ -54,8 +54,7 @@ Description: One descriptive paragraph explaining why the package exists and wha
   it is useful for. Similar to a paper abstract.
 Version: Semantic version number (major.minor.patch)  # see semver.org
 Authors@R: person("First", "Last", "first.last@example.com",
-  role = c("aut", "cre"),  # see ?person for all possibilities 
-  comment = c(ORCID = "0000-…-…-…")))
+  role = c("aut", "cre"))  # see ?person for all possibilities 
 License: Abbreviation for an open source license
 ~~~
 {: .source}
@@ -124,6 +123,32 @@ center(c(1, 2, 3))
 rescale(c(1, 2, 3))
 ```
 
+> ## Provide citation metadata in the `DESCRIPTION` file
+>
+> R supports citing R packages. Have a look at the output of `citation(YouRName)`.
+> Does anything seem to be missing? If yes, how and where do you think we can add
+> that information?
+>
+> Assuming you have an ORCiD, you may want to associate your R package with it.
+> Find out how to add this information!
+> >
+> > ## Hint
+> > 
+> > One useful resource to find the answer to such technical details is GitHub.
+> > Search for `org:ROpenSci filename:DESCRIPTION` plus
+> > [`2018`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+2018)
+> > or [`orcid`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+orcid)
+> > for example.
+> {: .solution}
+> 
+> > ## Solution
+> > 
+> > The date is added in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
+> > `date: 2018-07-12`.
+> > 
+> > The ORCiD has to be inserted in `person()` as `comment = c(ORCID = "0000-…-…-…")`.
+> {: .solution}
+{: .challenge}
 
 ## Converting function documentation to help pages
 
