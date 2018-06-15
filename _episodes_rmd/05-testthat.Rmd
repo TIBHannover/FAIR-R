@@ -1,7 +1,7 @@
 ---
 title: "Unit-Testing And Test-driven Development"
 teaching: 30
-exercises: 0
+exercises: 15
 questions:
 - "What is the benefit of unit-testing my code?"
 - "How do I create and run unit tests?"
