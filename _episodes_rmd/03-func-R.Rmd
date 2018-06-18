@@ -23,6 +23,7 @@ keypoints:
 - "Annotate your code!"
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
 - "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+- "Make code more readable by passing arguments preferably by name."
 source: Rmd
 ---
 
@@ -500,33 +501,6 @@ center(more_data)
 
 This is handy: if we usually want a function to work one way, but occasionally need it to do something else, we can allow people to pass an argument when they need to but provide a default to make the normal case easier.
 
-The example below shows how R matches values to arguments
-
-```{r}
-display <- function(a = 1, b = 2, c = 3) {
-  result <- c(a, b, c)
-  names(result) <- c("a", "b", "c")  # This names each element of the vector
-  return(result)
-}
-
-# no arguments
-display()
-# one argument
-display(55)
-# two arguments
-display(55, 66)
-# three arguments
-display(55, 66, 77)
-```
-
-As this example shows, arguments are matched from left to right, and any that haven't been given a value explicitly get their default value.
-We can override this behavior by naming the value as we pass it in:
-
-```{r}
-# only setting the value of c
-display(c = 77)
-```
-
 > ## Matching Arguments
 >
 > To be precise, R has three ways that arguments are supplied
@@ -539,28 +513,6 @@ display(c = 77)
 > Arguments are matched in the manner outlined above in *that order*: by
 > complete name, then by partial matching of names, and finally by position.
 {: .callout}
-
-With that in hand, let's look at the help for `read.csv()`:
-
-```{r, eval=FALSE}
-?read.csv
-```
-
-There's a lot of information there, but the most important part is the first couple of lines:
-
-```{r, eval=FALSE}
-read.csv(file, header = TRUE, sep = ",", quote = "\"",
-         dec = ".", fill = TRUE, comment.char = "", ...)
-```
-
-This tells us that `read.csv()` has one argument, `file`, that doesn't have a default value, and six others that do.
-Now we understand why the following gives an error:
-
-```{r, results="hide", error = TRUE}
-dat <- read.csv(FALSE, "data/inflammation-01.csv")
-```
-
-It fails because `FALSE` is assigned to `file` and the filename is assigned to the argument `header`.
 
 > ## A Function with Default Argument Values
 >
@@ -614,10 +566,20 @@ rescale <- function(v, lower = 0, upper = 1) {
 ```
 
 ```{r rescale-test2}
-answer <- rescale(dat[, 4], lower = 2, upper = 5)
+answer <- rescale(v = dat[, 4], lower = 2, upper = 5)
 min(answer)
 max(answer)
-answer <- rescale(dat[, 4], lower = -5, upper = -2)
+answer <- rescale(dat[, 4], -5, -2)
 min(answer)
 max(answer)
 ```
+
+Compare both `rescale` calls: Which is more understandable? Although passing
+arguments purely by position is very convenient, because you have to typo less,
+it's usually better to write the argument name. Most code is more often read,
+than edited, so the reader (maybe your future self) may loose more time 
+understanding the code (e.g. by having to look up non-obvious details) than you
+saved by typing less. Also, good IDE (integrated development environment) will
+reduce your typing with auto-completion. Thus, it is generally better to only omit
+very argument names like `data`, `filename`, etc. because their meaning is obvious
+from their value and/or context (`file = "path/to/file.xyz"`).
