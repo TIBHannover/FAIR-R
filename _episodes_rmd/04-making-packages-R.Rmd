@@ -76,7 +76,7 @@ In this lesson, we will start building a "[personal package][PP]". This is meant
 collect any kind of R code that is useful to _you_. As you continue to evolve it
 after this lesson, you may move codes that belong to the same publication, topic
 or a distinct project, into their own packages. Here we begin to realise the
-benefit of [formally documenting the functions already in the episode 2][02]: 
+benefit of already documenting the functions formally earlier: 
 We can publish more quickly, because we didn't leave much unfished clean-up business.
 
 [PP]: https://hilaryparker.com/2013/04/03/personal-r-packages/
