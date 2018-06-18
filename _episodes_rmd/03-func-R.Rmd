@@ -293,7 +293,7 @@ library("roxygen2")
 
 It can convert "formal" documentation comments (lines starting with `#'`) into the 
 standard R format for help pages. You will learn  more about taking advantage of 
-this conversion in [episode 8 "Making Packages in R"]({{ page.root }}/08-making-packages-R/).
+this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/).
 
 > ## Technical details of R's help page format
 >
@@ -309,7 +309,7 @@ this conversion in [episode 8 "Making Packages in R"]({{ page.root }}/08-making-
 
 For now, let's just lay a solid foundation of using [roxygen2's `#'` notation][roxygen2]
 for documenting functions. Please compare the following to the informal comments 
-we used above and in [episode 1 "Analyzing Patient Data"]({{ page.root }}/01-starting-with-data/):
+we used above and in the ["Analyzing Patient Data" episode]({{ page.root }}/02-starting-with-data/):
 
 ```{r center-roxygen}
 #' Centering Data (or another descriptive title for your function)
@@ -349,7 +349,7 @@ analyze <- function(filename) {
 > ## Functions to Create Graphs
 >
 > Write a function called `analyze` that takes a filename as an argument
-> and displays the three graphs produced in the [previous lesson][01] (average, min and max inflammation over time).
+> and displays the three graphs produced in the [previous lesson][start-ep] (average, min and max inflammation over time).
 > `analyze("data/inflammation-01.csv")` should produce the graphs already shown,
 > while `analyze("data/inflammation-02.csv")` should produce corresponding graphs for the second data set.
 > Be sure to document your function with roxygen2 comments.
@@ -435,7 +435,7 @@ rescale <- function(v) {
 > {: .solution}
 {: .challenge}
 
-[01]: {{ page.root }}/01-starting-with-data/
+[start-ep]: {{ page.root }}/02-starting-with-data/
 
 ```{r rescale-test1, include=FALSE}
 answer <- rescale(dat[, 4])
