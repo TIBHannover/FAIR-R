@@ -307,15 +307,15 @@ this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/
 [LaTeX]: https://www.latex-project.org/
 [roxygen2]: https://cran.r-project.org/package=roxygen2/vignettes/rd.html
 
-For now, let's just lay a solid foundation of using [roxygen2's `#'` notation][roxygen2]
+For now, let's prepare a solid foundation of using [roxygen2's `#'` notation][roxygen2]
 for documenting functions. Please compare the following to the informal comments 
 we used above and in the ["Analyzing Patient Data" episode]({{ page.root }}/02-starting-with-data/):
 
 ```{r center-roxygen}
-#' Centering Data (or another descriptive title for your function)
+#' Centering Data
 #' 
 #' @param data The numeric vector to be centered
-#' @param desired The numeric value around which the data should be centered
+#' @param desired The numeric value around which the data will be centered
 #'
 #' @return A new vector containing the original data centered around the desired value.
 #'
@@ -329,7 +329,7 @@ center <- function(data, desired) {
 
 Unsurprisingly, the first line should be a short, descriptive title. Additional 
 text paragraphs are possible after leaving one line blank with only a `#'`.
-The descriptive tags (preceded by an `@` symbol) hold the most important info. 
+The descriptive tags (preceded by an `@` symbol) hold the most important details. 
 `@param` documents a function's input parameters, while `@return` explains its 
 output. An accurate description of the in- and output data (types) helps to 
 successfully apply a function and integrate it into larger analysis pipelines.
