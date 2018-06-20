@@ -8,6 +8,7 @@ questions:
 - "Which features make a dataset more or less reusable?"
 - "How can we add datasets to R packages?"
 objectives:
+- "Use `tidyr::gather()` to convert wide data to its long form."
 keypoints:
 - "Excel & co. incentivise the wide data format, which may spread variables across columns."
 source: Rmd
@@ -42,29 +43,29 @@ head(dat_labelled)
 ```
 
 Now we have labelled our observations with `patient_ID` as the column/variable
-name and `patient_…` as the values. Next we are going to "melt" the dataframe,
+name and `patient_…` as the values. Next we are going to "gather" the observations,
 meaning that we:
 
-1. "pin" `patient_ID` as the ID variable, 
-1. define `day` as the common ID of all the `V1`, `V2`, etc. variables, and 
-1. define a name for the newly created column, in which the values from the
-   messy variables will be gathered.
+1. define `day` as the common `key` of all the `V1`, `V2`, etc. variables, 
+1. define a name for the newly created column, in which the `value`s from the
+   messy variables will be gathered, and
+1. specify which variables we want to gather into key-value pairs.  
 
 Because the days shouldn't remain labelled with `V`s, we also convert them to
 numbers. Since `melt()` turned the variable names into factor levels of `day`,
 `as.numeric()` understands that they are already in order. No `sub("V", "")` or
 other character (literally) "assinations" are necessary.
 
-```{r inflammation-melt}
-dat_long <- reshape2::melt(data = dat_labelled,
-                           id.vars = "patient_ID",
-                           variable.name = "day",
-                           value.name = "inflmmation_score")
 dat_long$day <- as.numeric(dat_long$day)
+```{r inflammation-gather}
+dat_long <- tidyr::gather(dat_labelled,
+                         key = "day",
+                         value = "inflammation_score",
+                         V1:V40)
 tail(dat_long)
 ```
 
-Notice the row numbers? Because we "lengthened" the dataset to a single
+Notice the row numbers? Because we gathered observations into one column, and thus one
 observation per row, the `r nrow(dat_long)` rows now are the product of the
 initial `r nrow(dat)` rows and `r ncol(dat)` columns.
 
