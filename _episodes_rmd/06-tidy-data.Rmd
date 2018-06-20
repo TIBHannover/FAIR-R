@@ -51,12 +51,7 @@ meaning that we:
    messy variables will be gathered, and
 1. specify which variables we want to gather into key-value pairs.  
 
-Because the days shouldn't remain labelled with `V`s, we also convert them to
-numbers. Since `melt()` turned the variable names into factor levels of `day`,
-`as.numeric()` understands that they are already in order. No `sub("V", "")` or
-other character (literally) "assinations" are necessary.
 
-dat_long$day <- as.numeric(dat_long$day)
 ```{r inflammation-gather}
 dat_long <- tidyr::gather(dat_labelled,
                          key = "day",
@@ -69,3 +64,10 @@ Notice the row numbers? Because we gathered observations into one column, and th
 observation per row, the `r nrow(dat_long)` rows now are the product of the
 initial `r nrow(dat)` rows and `r ncol(dat)` columns.
 
+Because the days shouldn't remain labelled with `V`s, we also convert them to
+numbers. This works with either `as.factor()` and `as.numeric()` after another,
+or nested, or via `sub(pattern = "V", replacement = "")`. 
+
+```{r inflammation-days}
+dat_long$day <- as.numeric(as.factor(dat_long$day))
+```
