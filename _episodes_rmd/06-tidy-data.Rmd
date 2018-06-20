@@ -1,0 +1,70 @@
+---
+title: "Tidying & packaging datasets"
+teaching: 30
+exercises: 10
+questions:
+- "Which different forms can one dataset have?"
+- "Which advantages and disadvantages do these forms have?"
+- "Which features make a dataset more or less reusable?"
+- "How can we add datasets to R packages?"
+objectives:
+keypoints:
+- "Excel & co. incentivise the wide data format, which may spread variables across columns."
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("06-tidy-data-R-")
+```
+
+## Tidying our inflammation datasets
+
+In the preparations episode, we read in, visualised, centered and rescaled a
+dataset about inflammation in 60 patients measured over 40 days. Let's pretend
+we need to tidy it up for further analysis and publication.
+
+```{r inflammation-wide}
+dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE)
+colnames(dat); rownames(dat)
+```
+
+You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
+we should label the data first, starting with pseudonyms for the patients. If
+this were real data from real human patients, we would have acquired the written
+and informed consent to the pseudonymous data publication right in the beginning
+of the study, during approval by the ethics committee of our study.
+
+```{r inflammation-label}
+patient_ID <- paste("patient", sep = "_", seq(60))
+dat_labelled <- cbind(dat, patient_ID)
+head(dat_labelled)
+```
+
+Now we have labelled our observations with `patient_ID` as the column/variable
+name and `patient_…` as the values. Next we are going to "melt" the dataframe,
+meaning that we:
+
+1. "pin" `patient_ID` as the ID variable, 
+1. define `day` as the common ID of all the `V1`, `V2`, etc. variables, and 
+1. define a name for the newly created column, in which the values from the
+   messy variables will be  be gathered.
+
+Because the days shouldn't remain labelled with `V`s, we also convert them to
+numbers. Since `melt()` turned the variable names into factor levels of `day`,
+`as.numeric()` understands that they are already in order. No `sub("V", "")` or
+other character (literally) "assinations" are necessary.
+
+```{r inflammation-melt}
+dat_long <- reshape2::melt(data = dat_labelled,
+                           id.vars = "patient_ID",
+                           variable.name = "day",
+                           value.name = "inflmmation_score")
+dat_long$day <- as.numeric(dat_long$day)
+tail(dat_long)
+```
+
+Notice the row numbers? Because we "lengthened" the dataset to a single
+observation per row, the `r nrow(dat_long)` rows now are the product of the
+initial `r nrow(dat)` rows and `r ncol(dat)` columns.
+
