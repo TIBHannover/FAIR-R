@@ -48,7 +48,7 @@ meaning that we:
 1. "pin" `patient_ID` as the ID variable, 
 1. define `day` as the common ID of all the `V1`, `V2`, etc. variables, and 
 1. define a name for the newly created column, in which the values from the
-   messy variables will be  be gathered.
+   messy variables will be gathered.
 
 Because the days shouldn't remain labelled with `V`s, we also convert them to
 numbers. Since `melt()` turned the variable names into factor levels of `day`,
