@@ -335,6 +335,8 @@ The descriptive tags (preceded by an `@` symbol) hold the most important details
 output. An accurate description of the in- and output data (types) helps to 
 successfully apply a function and integrate it into larger analysis pipelines.
 
+Please create a new file for the above function and save it as `center.R`.
+
 ```{r challenge-more-advanced-function-analyze, eval=FALSE, include=FALSE}
 analyze <- function(filename) {
   dat <- read.csv(file = filename, header = FALSE)
@@ -463,7 +465,7 @@ dat <- read.csv(header = FALSE, file = "data/inflammation-01.csv")
 dat <- read.csv(FALSE, "data/inflammation-01.csv")
 ```
 
-To understand what's going on, and make our own functions easier to use, let's re-define our `center` function as follows. Please create a new file for this and save it as `center.R`.
+To understand what's going on, and make our own functions easier to use, let's re-define our `center` function as follows.
 
 ```{r center-default}
 #' Centering Data
