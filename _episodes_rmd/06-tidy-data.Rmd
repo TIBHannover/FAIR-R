@@ -79,4 +79,12 @@ or nested:
 
 ```{r inflammation-days}
 dat_long$day <- as.numeric(as.factor(dat_long$day))
+str(dat_long)
+```
+
+The structure of our inflammation dataset is now a lot tidier than before and we
+can finally package it up in an R-supported format. Rename the dataframe to some-
+thing more self-descriptive than `dat...`, using for example
+`inflammation_scores <- dat_long` and then run `use_data(inflammation_scores)`.
+
 ```
