@@ -93,4 +93,43 @@ for others and your future self, datasets benefit from a documentation as well.
 Please read through [r-pkgs.had.co.nz/data.html#documenting-data](http://r-pkgs.had.co.nz/data.html#documenting-data)
 and keep in mind, that the descriptive tags for datasets are not entirely the
 same as the those for function documentation.
-```
+
+> ## Challange: Document the dataset!
+>
+> 1. Which file should we create to document our dataset?
+> 1. Which items of our dataset should be documented?
+> 1. How could the documentation file look in the end?
+>
+> > ## Solutions
+> > 1. `R/inflammation_scores.R`
+> > 1. `patient_ID`, `day` & `inflammation_score`
+> > 1. See below:
+> > 
+> > #' Inflammation Scores Of Patients During Study...
+> > #'
+> > #' @source Inflammation scores in patients that... This study was pre-registered at
+> > #'   \url{http://wwww.alltrials.net/study...}.
+> > #' @format A data frame with the variables/columns:
+> > #' \describe{
+> > #'  \item{patient_ID}{A factor prepresenting the different patients}
+> > #'  \item{day}{Day of the inflammation measurement}
+> > #'  \item{inflammation_score}{Measured as described in the methods section of ...}
+> > #' }
+> > #' "inflammation_scores"
+> {: .solution}
+{: .challenge}
+
+After saving the raw data, the data creation script, the tidy dataset,and
+the documentation file, what is left to do in our little personal package?
+
+> ## Challange: Last packaging steps (for now; an incomplete list)
+>
+> > ## Solutions
+> > 1. Run `roxygen2::roxygenise()`.
+> > 1. Run RStudio's `Build > Check`. Do any errors remain?
+> > 1. After `Build > Install and Restart`, start writing your paper as a vignette.
+> > 1. Commit the accumulated changes. Which commits would you suggest?
+> > 
+> {: .solution}
+{: .challenge}
+
