@@ -40,9 +40,10 @@ head(rownames(dat), 10)
 
 You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
 we should label the data first, starting with pseudonyms for the patients. If
-this were real data from real human patients, we would have acquired the written
-and informed consent to the pseudonymous data publication right in the beginning
-of the study, during approval by the ethics committee of our study.
+this were real data from real human patients, we would have acquired their written
+and informed consent to the pseudonymous data publication before collecting it,
+and during approval of our study by the ethics committee. We would also have 
+pre-registered our study, e.g. on [AllTrials.net](http://www.alltrials.net/).
 
 ```{r inflammation-label}
 patient_ID <- paste("patient", sep = "_", seq(60))
