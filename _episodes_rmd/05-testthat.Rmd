@@ -105,7 +105,7 @@ met, i.e. one or more unit tests fail.
 > > {: .r}
 > {: .solution}
 > 
-> Think about the [DRY principle]({{ page.root }}/03-func-R/#composing-functions)).
+> Think about the [DRY principle]({{ page.root }}/03-func-R/#composing-functions).
 > Is it necessary to keep the `@examples` in the documentation when you are using
 > them in the tests? Which factors would you consider in your decision?
 >
