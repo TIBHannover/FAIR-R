@@ -67,7 +67,7 @@ initial `r nrow(dat)` rows and `r ncol(dat)` columns.
 
 Because the days shouldn't remain labelled with `V`s, we also convert them to
 numbers. This works with either `as.factor()` and `as.numeric()` after another,
-or nested, or via `sub(pattern = "V", replacement = "")`. 
+or nested: 
 
 ```{r inflammation-days}
 dat_long$day <- as.numeric(as.factor(dat_long$day))
