@@ -23,12 +23,19 @@ knitr_fig_path("06-tidy-data-R-")
 
 In the preparations episode, we read in, visualised, centered and rescaled a
 dataset about inflammation in 60 patients measured over 40 days. Let's pretend
-we need to tidy it up for further analysis and publication.
+we need to tidy it up for further publication alongside the package we have been
+constructing.
+
+First, run `library(usethis)` and `use_data_raw()` and note the `Next:` instructions
+in the console. In particular, copy the `inflammation-*.csv` files to `data-raw`
+and start a `tidy-inflammation.R` file there to which you add the necessary lines
+of the following code examples. Think about which of them are purely for interactive
+checks of the tidying process. You needn't save those to "data creation scripts".
 
 ```{r inflammation-wide}
-dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE)
 colnames(dat)
 rownames(dat)
+dat <- read.csv(file = "inflammation-01.csv", header = FALSE)
 ```
 
 You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
