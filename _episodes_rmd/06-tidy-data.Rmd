@@ -3,14 +3,14 @@ title: "Tidying & packaging datasets"
 teaching: 30
 exercises: 10
 questions:
-- "Which different forms can one dataset have?"
-- "Which advantages and disadvantages do these forms have?"
+- "What are possible forms that a dataset can have?"
+- "What advantages and disadvantages do these forms have?"
 - "Which features make a dataset more or less reusable?"
 - "How can we add datasets to R packages?"
 objectives:
 - "Use `tidyr::gather()` to convert wide data to its long form."
 keypoints:
-- "Excel & co. incentivise the wide data format, which may spread variables across columns."
+- "Spreadsheets incentivise the wide data format, which may spread variables across columns."
 source: Rmd
 ---
 
@@ -27,7 +27,8 @@ we need to tidy it up for further analysis and publication.
 
 ```{r inflammation-wide}
 dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE)
-colnames(dat); rownames(dat)
+colnames(dat)
+rownames(dat)
 ```
 
 You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
