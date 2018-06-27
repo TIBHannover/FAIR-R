@@ -33,9 +33,9 @@ of the following code examples. Think about which of them are purely for interac
 checks of the tidying process. You needn't save those to "data creation scripts".
 
 ```{r inflammation-wide}
-colnames(dat)
-rownames(dat)
 dat <- read.csv(file = "inflammation-01.csv", header = FALSE)
+head(colnames(dat), 10)
+head(rownames(dat), 10)
 ```
 
 You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
