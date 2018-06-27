@@ -87,4 +87,11 @@ can finally package it up in an R-supported format. Rename the dataframe to some
 thing more self-descriptive than `dat...`, using for example
 `inflammation_scores <- dat_long` and then run `use_data(inflammation_scores)`.
 
+## Documenting datasets
+
+Just as a good function documentation makes your code more accessible and reusable
+for others and your future self, datasets benefit from a documentation as well.
+Please read through [r-pkgs.had.co.nz/data.html#documenting-data](http://r-pkgs.had.co.nz/data.html#documenting-data)
+and keep in mind, that the descriptive tags for datasets are not entirely the
+same as the those for function documentation.
 ```
