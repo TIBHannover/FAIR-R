@@ -63,7 +63,7 @@ meaning that we:
 ```{r inflammation-gather}
 dat_long <- tidyr::gather(dat_labelled,
                          key = "day",
-                         value = "inflammation_score",
+                         value = "inflammatory_response",
                          V1:V40)
 tail(dat_long)
 ```
@@ -84,7 +84,7 @@ str(dat_long)
 The structure of our inflammation dataset is now a lot tidier than before and we
 can finally package it up in an R-supported format. Rename the dataframe to some-
 thing more self-descriptive than `dat...`, using for example
-`inflammation_scores <- dat_long` and then run `use_data(inflammation_scores)`.
+`inflammation <- dat_long` and then run `use_data(inflammation)`.
 
 ## Documenting datasets
 
@@ -101,11 +101,11 @@ same as the those for function documentation.
 > 1. How could the documentation file look in the end?
 >
 > > ## Solutions
-> > 1. `R/inflammation_scores.R`
-> > 1. `patient_ID`, `day` & `inflammation_score`
+> > 1. `R/inflammation.R`
+> > 1. `patient_ID`, `day` & `inflammatory_response`
 > > 1. See below:
 > > 
-> > #' Inflammation Scores Of Patients During Study...
+> > #' Inflammation In Patients During Study...
 > > #'
 > > #' @source Inflammation scores in patients that... This study was pre-registered at
 > > #'   \url{http://wwww.alltrials.net/study...}.
@@ -113,9 +113,9 @@ same as the those for function documentation.
 > > #' \describe{
 > > #'  \item{patient_ID}{A factor prepresenting the different patients}
 > > #'  \item{day}{Day of the inflammation measurement}
-> > #'  \item{inflammation_score}{Measured as described in the methods section of ...}
+> > #'  \item{inflammatory_response}{Measured as described in the methods section of ...}
 > > #' }
-> > #' "inflammation_scores"
+> > #' "inflammation"
 > {: .solution}
 {: .challenge}
 
