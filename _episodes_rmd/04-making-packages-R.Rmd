@@ -37,7 +37,7 @@ An R package requires four components:
 *   a `DESCRIPTION` file with metadata about the package
 *   an `R` directory with the code
 *   a `man` directory with documentation (we will create this automatically)
-*   a `NAMESPACE` file listing user-level functions in the package (we will also create this automatically)
+*   a `NAMESPACE` file listing user-level ("exported") functions in the package (we will also create this automatically)
 
 *There are other optional components. [Read the "R packages" book][r-pkgs-desc] and/or the original ["Writing R Extensions" documentation][WRE] for much more information.*
 
@@ -175,6 +175,24 @@ After `Install and Restart`-ing again, looking up the documentation should work.
 
 What exactly does `roxygen2` do? It reads lines that begin with `#'` as the function documentation for your package.
 Descriptive tags are preceded with the `@` symbol. For example, `@param` has information about the input parameters for the function.
+
+### Exporting "user-level" function
+
+We haven't talked about the `NAMESPACE` file yet! It belongs to the package skeleton,
+and was set up by RStudio with an `exportPattern`. Any file name in `R/` that
+matches it is automatically exported, meaning offered to users of your package
+in the console's tab-completion.
+
+In case you want to publish your package and keep some functions hidden (maybe
+because they only do auxiliary tasks), you should delete this default file, tag
+the functions you _do want to expose_ with `@export` and rerun `roxygenise()`.
+
+Learn more about this from the ["R packages" book][r-pkgs-name].
+
+[r-pkgs-name]: http://r-pkgs.had.co.nz/namespace.html
+
+
+### Finishing up
 
 Please take a look at RStudio's `Files` panes now. The `/man` directory should
 now contain one LaTeX-like formatted `.Rd` file for each function.
