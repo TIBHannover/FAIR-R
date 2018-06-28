@@ -9,8 +9,10 @@ questions:
 - "How can we add datasets to R packages?"
 objectives:
 - "Use `tidyr::gather()` to convert wide data to its long form."
+- "Find self-descriptive variable/column names."
 keypoints:
 - "Spreadsheets incentivise the wide data format, which may spread variables across columns."
+- "If variables in different dataset are comparable methodologically, their variable/column names should be spelled exactly alike."
 source: Rmd
 ---
 
