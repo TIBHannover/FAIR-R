@@ -148,7 +148,7 @@ advantage of the console's auto-complete just like for any other package. Type
 > {: .solution}
 {: .challenge}
 
-## Converting function documentation to help pages
+### Converting function documentation to help pages
 
 Remember that we added some documented our functions with roxygen2 comments?
 Let's try and look it up:

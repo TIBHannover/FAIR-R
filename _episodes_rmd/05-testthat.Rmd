@@ -21,7 +21,7 @@ source("../bin/chunk-options.R")
 knitr_fig_path("05-testthat-R-")
 ```
 
-## Unit testing with the `testthat` package
+### Unit testing with the `testthat` package
 
 Computer code evolves. Functions may need to be updated to new usage goals,
 sped up when more data needs to be crunched, or cleaned up to make their code
@@ -122,7 +122,7 @@ To conclude this section about creating unit tests, let's again commit our resul
 for example as "Span safety net for TDD".
 
 
-## Test-driven development (TDD)
+### Test-driven development (TDD)
 
 Remember that we updated `rescale()` with lower and upper bounds and default
 values at the end of [the functions episode][ep-func]? We had to manually test that change with a
