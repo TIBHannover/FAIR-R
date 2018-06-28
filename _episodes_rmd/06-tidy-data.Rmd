@@ -13,6 +13,7 @@ objectives:
 keypoints:
 - "Spreadsheets incentivise the wide data format, which may spread variables across columns."
 - "If variables in different dataset are comparable methodologically, their variable/column names should be spelled exactly alike."
+- "(Raw) Data can be packaged by itself (and/or alongside related cleaning and analysis code)."
 source: Rmd
 ---
 
