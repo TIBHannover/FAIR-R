@@ -104,9 +104,10 @@ same as the those for function documentation.
 > 1. How could the documentation file look in the end?
 >
 > > ## Solutions
+> > 
 > > 1. `R/inflammation.R`
 > > 1. `patient_ID`, `day` & `inflammatory_response`
-> > 1. See below:
+> > 1. Like this:
 > > ~~~
 > > #' Inflammation In Patients During Study...
 > > #'
@@ -129,6 +130,7 @@ the documentation file, what is left to do in our little personal package?
 > ## Challange: Last packaging steps (for now; an incomplete list)
 >
 > > ## Solutions
+> > 
 > > 1. Run `roxygen2::roxygenise()`.
 > > 1. Run RStudio's `Build > Check`. Do any errors remain?
 > > 1. After `Build > Install and Restart`, start writing your paper as a vignette.
