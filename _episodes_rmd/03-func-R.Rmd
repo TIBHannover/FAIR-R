@@ -211,7 +211,8 @@ Real-life functions will usually be larger than the ones shown here--typically h
 ### Interactive Testing
 
 Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly.
-To see how to do this, let's write a function to center a dataset around a particular value:
+To see how to do this, let's write a function to center a dataset around a particular value.
+Please create a new file for this and save it as `center.R`.
 
 ```{r}
 center <- function(data, desired) {
@@ -334,8 +335,6 @@ The descriptive tags (preceded by an `@` symbol) hold the most important details
 `@param` documents a function's input parameters, while `@return` explains its 
 output. An accurate description of the in- and output data (types) helps to 
 successfully apply a function and integrate it into larger analysis pipelines.
-
-Please create a new file for the above function and save it as `center.R`.
 
 ```{r challenge-more-advanced-function-analyze, eval=FALSE, include=FALSE}
 analyze <- function(filename) {
