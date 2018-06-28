@@ -299,7 +299,7 @@ this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/
 
 > ## Technical details of R's help page format
 >
-> Help pages are rendered not directly from the roxygen2 comments, but from 
+> Help pages are rendered not directly from the roxygen comments, but from 
 > `.Rd` files that use a markup language similar to [LaTeX]. 
 > [roxygen2] generates those `.Rd` files from the formal function documentation
 > comments. Therefore, R coders not have to write these LaTeX-like files separately,
@@ -354,7 +354,7 @@ analyze <- function(filename) {
 > and displays the three graphs produced in the [previous lesson][start-ep] (average, min and max inflammation over time).
 > `analyze("data/inflammation-01.csv")` should produce the graphs already shown,
 > while `analyze("data/inflammation-02.csv")` should produce corresponding graphs for the second data set.
-> Be sure to document your function with roxygen2 comments.
+> Be sure to document your function with roxygen comments.
 >
 > > ## Solution
 > > ~~~
@@ -382,7 +382,7 @@ analyze <- function(filename) {
 
 If you are using RStudio, a nice shortcut is `CTRL`+`Shift`+`Alt`+`R`. Place the 
 cursor inside the function name or body, press that shortcut, 
-a roxygen2 comment skeleton will be inserted. Note that we are not using 
+a roxygen comment skeleton will be inserted. Note that we are not using 
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
 You can safely ignore it for now, or delete it.
 
@@ -409,7 +409,7 @@ rescale <- function(v) {
 > Write a function `rescale` that takes a vector as input and returns a corresponding vector of values scaled to lie in the range 0 to 1.
 > Please create a new file for this and save it as `rescale.R`.
 > (If `L` and `H` are the lowest and highest values in the original vector, then the replacement for a value `v` should be `(v-L) / (H-L)`.)
-> Be sure to document your function with roxygen2 comments.
+> Be sure to document your function with roxygen comments.
 >
 > Test that your `rescale` function is working properly using `min`, `max`, and `plot`.
 >

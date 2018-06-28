@@ -11,7 +11,7 @@ objectives:
 - "Describe the required structure of R packages."
 - "Create the required structure of a simple R package."
 - "Build and install the package in RStudio."
-- "Use roxygen2 to document functions."
+- "Use `roxygen2` to document functions."
 keypoints:
 - "A package is the basic unit of reusability in R."
 - "Every package must have a `DESCRIPTION` file and an `R` directory containing code. We have to fill these manually."
@@ -150,7 +150,7 @@ advantage of the console's auto-complete just like for any other package. Type
 
 ### Converting function documentation to help pages
 
-Remember that we added some documented our functions with roxygen2 comments?
+Remember that we added some documented our functions with roxygen comments?
 Let's try and look it up:
 
 ```{r eval=FALSE}
