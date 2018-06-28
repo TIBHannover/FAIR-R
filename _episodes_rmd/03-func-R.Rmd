@@ -396,7 +396,6 @@ You can safely ignore it for now, or delete it.
 #' @examples
 #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 #'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
-
 rescale <- function(v) {
   L <- min(v)
   H <- max(v)
@@ -478,7 +477,6 @@ save our `center.R` file as `center2.R` and re-define the function as follows.
 #' @examples
 #'   center(c(1, 2, 3))  # should return [1] -1  0  1
 #'   center(c(1, 2, 3), 1)  # should return [1] 0 1 2
-
 center2 <- function(data, desired = 0) {
   new_data <- (data - mean(data)) + desired
   return(new_data)
@@ -534,7 +532,6 @@ This is handy: if we usually want a function to work one way, but occasionally n
 > > #' @examples
 > > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
-> > 
 > > rescale2 <- function(v, lower = 0, upper = 1) {
 > >   L <- min(v)
 > >   H <- max(v)
@@ -558,7 +555,6 @@ This is handy: if we usually want a function to work one way, but occasionally n
 #' @examples
 #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 #'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
-
 rescale <- function(v, lower = 0, upper = 1) {
   L <- min(v)
   H <- max(v)
