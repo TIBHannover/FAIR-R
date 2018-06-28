@@ -92,8 +92,8 @@ To start working on this personal package, please open RStudio's `File` menu and
 select `New Project… > New Directory… > R Package`. Give it a unique, but useful
 name. Your own will work just fine. Bonus points for squeezing in an `R` ;-)
 
-Also add the `source files` we created earlier (`center.R` and `rescale.R`), so
-that we have some example code right away.
+Also add the `source files` we created earlier (the first versions of `center.R`
+and `rescale.R`), so that we have some example code right away.
 
 <img src="../fig/08-RStudio-new-package.png" alt="New package in RStudio" width="500" />
 

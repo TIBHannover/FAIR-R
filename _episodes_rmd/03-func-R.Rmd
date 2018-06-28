@@ -464,7 +464,8 @@ dat <- read.csv(header = FALSE, file = "data/inflammation-01.csv")
 dat <- read.csv(FALSE, "data/inflammation-01.csv")
 ```
 
-To understand what's going on, and make our own functions easier to use, let's re-define our `center` function as follows.
+To understand what's going on, and make our own functions easier to use, let's
+save our `center.R` file as `center2.R` and re-define the function as follows.
 
 ```{r center-default}
 #' Centering Data
@@ -478,7 +479,7 @@ To understand what's going on, and make our own functions easier to use, let's r
 #'   center(c(1, 2, 3))  # should return [1] -1  0  1
 #'   center(c(1, 2, 3), 1)  # should return [1] 0 1 2
 
-center <- function(data, desired = 0) {
+center2 <- function(data, desired = 0) {
   new_data <- (data - mean(data)) + desired
   return(new_data)
 }
@@ -517,7 +518,7 @@ This is handy: if we usually want a function to work one way, but occasionally n
 
 > ## A Function with Default Argument Values
 >
-> Rewrite the `rescale` function so that it scales a vector to lie between 0 and 1 by default, but will allow the caller to specify lower and upper bounds if they want.
+> Save the `rescale` function as `rescale2.R` and rewrite it to scale a vector to lie between 0 and 1 by default, but will allow the caller to specify lower and upper bounds if they want.
 > Compare your implementation to your neighbor's: do the two functions always behave the same way?
 >
 > > ## Solution
@@ -534,7 +535,7 @@ This is handy: if we usually want a function to work one way, but occasionally n
 > > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
 > > 
-> > rescale <- function(v, lower = 0, upper = 1) {
+> > rescale2 <- function(v, lower = 0, upper = 1) {
 > >   L <- min(v)
 > >   H <- max(v)
 > >   result <- (v - L) / (H - L) * (upper - lower) + lower
