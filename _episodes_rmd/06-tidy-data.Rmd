@@ -107,13 +107,13 @@ same as the those for function documentation.
 > > 
 > > #' Inflammation In Patients During Study...
 > > #'
-> > #' @source Inflammation scores in patients that... This study was pre-registered at
-> > #'   \url{http://wwww.alltrials.net/study...}.
+> > #' @source Pre-registration: \url{http://wwww.alltrials.net/study...}.
+> > #'   Method: \url{...}.
 > > #' @format A data frame with the variables/columns:
 > > #' \describe{
 > > #'  \item{patient_ID}{A factor prepresenting the different patients}
-> > #'  \item{day}{Day of the inflammation measurement}
-> > #'  \item{inflammatory_response}{Measured as described in the methods section of ...}
+> > #'  \item{day}{Number of days after start of the study}
+> > #'  \item{inflammatory_response}{Measured daily as described in the methods section of ...}
 > > #' }
 > > #' "inflammation"
 > {: .solution}
