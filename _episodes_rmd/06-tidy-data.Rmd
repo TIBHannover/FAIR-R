@@ -46,7 +46,7 @@ and during approval of our study by the ethics committee. We would also have
 pre-registered our study, e.g. on [AllTrials.net](http://www.alltrials.net/).
 
 ```{r inflammation-label}
-patient_ID <- paste("patient", sep = "_", seq(60))
+patient_ID <- paste("patient", sep = "_", seq(nrow(dat)))
 dat_labelled <- cbind(dat, patient_ID)
 head(dat_labelled)
 ```
