@@ -104,7 +104,7 @@ same as the those for function documentation.
 > > 1. `R/inflammation.R`
 > > 1. `patient_ID`, `day` & `inflammatory_response`
 > > 1. See below:
-> > 
+> > ~~~
 > > #' Inflammation In Patients During Study...
 > > #'
 > > #' @source Pre-registration: \url{http://wwww.alltrials.net/study...}.
@@ -115,7 +115,8 @@ same as the those for function documentation.
 > > #'  \item{day}{Number of days after start of the study}
 > > #'  \item{inflammatory_response}{Measured daily as described in the methods section of ...}
 > > #' }
-> > #' "inflammation"
+> > "inflammation"
+> > ~~~
 > {: .solution}
 {: .challenge}
 
