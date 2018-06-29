@@ -8,8 +8,7 @@ questions:
 - "How do I integrate my function documentation into R's help pages system?"
 - "What helper tools does RStudio provide me with?"
 objectives:
-- "Describe the required structure of R packages."
-- "Create the required structure of a simple R package."
+- "Let RStudio create the required structure of a simple R package and review it."
 - "Build and install the package in RStudio."
 - "Use `roxygen2` to document functions."
 keypoints:
@@ -31,44 +30,6 @@ Why should you make your own R packages?
 
 An R package is the **basic unit of reusable code**.
 If you want to reuse code later or want others to be able to use your code, you should put it in a package.
-
-An R package requires four components:
-
-*   a `DESCRIPTION` file with metadata about the package
-*   an `R` directory with the code
-*   a `man` directory with documentation (we will create this automatically)
-*   a `NAMESPACE` file listing user-level ("exported") functions in the package (we will also create this automatically)
-
-*There are other optional components. [Read the "R packages" book][r-pkgs-desc] and/or the original ["Writing R Extensions" documentation][WRE] for much more information.*
-
-[r-pkgs-desc]: http://r-pkgs.had.co.nz/description.html
-[WRE]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-structure
-
-
-### `DESCRIPTION` file
-
-~~~
-Package: PackageName
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-Encoding: UTF-8
-LazyData: true
-~~~
-{: .source}
-
-The package name can only contain letters and numbers and has to start with a letter.
-
-### .R files
-
-Functions don't all have to be in one file or each in separate files.
-How you organize them is up to you.
-Suggestion: organize in a logical manner so that you know which file holds which functions.
 
 ### Making your first R package
 
@@ -116,6 +77,46 @@ This means you can now take
 advantage of the console's auto-complete just like for any other package. Type
 `cen` and/or `resc`, then `TAB` and test some examples like `center(c(1, 2, 3))` or 
 `rescale(c(1, 2, 3))`.
+
+## Folder and file structure of an R package
+
+An R package requires four components:
+
+*   a `DESCRIPTION` file with metadata about the package
+*   an `R` directory with the code
+*   a `man` directory with documentation (we will create this automatically)
+*   a `NAMESPACE` file listing user-level ("exported") functions in the package (we will also create this automatically)
+
+*There are other optional components. [Read the "R packages" book][r-pkgs-desc] and/or the original ["Writing R Extensions" documentation][WRE] for much more information.*
+
+[r-pkgs-desc]: http://r-pkgs.had.co.nz/description.html
+[WRE]: https://cran.r-project.org/doc/manuals/r-release/R-exts.html#Package-structure
+
+### .R files
+
+Functions don't all have to be in one file or each in separate files.
+How you organize them is up to you.
+Suggestion: organize in a logical manner so that you know which file holds which functions.
+
+### `DESCRIPTION` file
+
+~~~
+Package: PackageName
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Author: Who wrote it
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: What license is it under?
+Encoding: UTF-8
+LazyData: true
+~~~
+{: .source}
+
+The package name can only contain letters and numbers and has to start with a letter.
+
 
 > ## Provide citation metadata in the `DESCRIPTION` file
 >
