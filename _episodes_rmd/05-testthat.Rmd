@@ -148,7 +148,7 @@ scientific method of trying to disprove hypotheses, so that the truth remains.
 > ## Update `test-center.R` with the argument default from [`center2.R`][ep-func].
 >
 > Think about which parts of the test code you need to change, to "break" the 
-> existing implementation (with only the `desired` argument, but no ` = 0` default)
+> existing implementation (with only the `desired` argument, but no `= 0` default)
 > but to get it working again once the default is added to the function's code.
 > 
 > > ## Solution
