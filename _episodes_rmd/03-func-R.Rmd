@@ -475,8 +475,8 @@ save our `center.R` file as `center2.R` and re-define the function as follows.
 #' @return A new vector containing the original data centered around the desired value.
 #'
 #' @examples
-#'   center(c(1, 2, 3))  # should return [1] -1  0  1
-#'   center(c(1, 2, 3), 1)  # should return [1] 0 1 2
+#'   center2(c(1, 2, 3))  # should return [1] -1  0  1
+#'   center2(c(1, 2, 3), 1)  # should return [1] 0 1 2
 center2 <- function(data, desired = 0) {
   new_data <- (data - mean(data)) + desired
   return(new_data)
@@ -488,7 +488,7 @@ If we call the function with two arguments, it works as it did before:
 
 ```{r}
 test_data <- c(0, 0, 0, 0)
-center(test_data, 3)
+center2(test_data, 3)
 ```
 
 But we can also now call `center()` with just one argument, in which case `desired` is automatically assigned the default value of `0`:
@@ -496,7 +496,7 @@ But we can also now call `center()` with just one argument, in which case `desir
 ```{r}
 more_data <- 5 + test_data
 more_data
-center(more_data)
+center2(more_data)
 ```
 
 This is handy: if we usually want a function to work one way, but occasionally need it to do something else, we can allow people to pass an argument when they need to but provide a default to make the normal case easier.
@@ -530,8 +530,8 @@ This is handy: if we usually want a function to work one way, but occasionally n
 > > #' @return The rescaled numeric vector
 > > #'
 > > #' @examples
-> > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
-> > #'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
+> > #'   rescale2(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
+> > #'   rescale2(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
 > > rescale2 <- function(v, lower = 0, upper = 1) {
 > >   L <- min(v)
 > >   H <- max(v)
@@ -553,9 +553,9 @@ This is handy: if we usually want a function to work one way, but occasionally n
 #' @return The rescaled numeric vector
 #'
 #' @examples
-#'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
-#'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
-rescale <- function(v, lower = 0, upper = 1) {
+#'   rescale2(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
+#'   rescale2(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
+rescale2 <- function(v, lower = 0, upper = 1) {
   L <- min(v)
   H <- max(v)
   result <- (v - L) / (H - L) * (upper - lower) + lower
@@ -564,15 +564,15 @@ rescale <- function(v, lower = 0, upper = 1) {
 ```
 
 ```{r rescale-test2}
-answer <- rescale(v = dat[, 4], lower = 2, upper = 5)
+answer <- rescale2(v = dat[, 4], lower = 2, upper = 5)
 min(answer)
 max(answer)
-answer <- rescale(dat[, 4], -5, -2)
+answer <- rescale2(dat[, 4], -5, -2)
 min(answer)
 max(answer)
 ```
 
-Compare both `rescale` calls: Which is more understandable? Although passing
+Compare both `rescale2` calls: Which is more understandable? Although passing
 arguments purely by position is very convenient, because you have to typo less,
 it's usually better to write the argument name. Most code is more often read,
 than edited, so the reader (maybe your future self) may loose more time 
