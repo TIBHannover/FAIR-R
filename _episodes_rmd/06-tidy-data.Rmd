@@ -89,6 +89,12 @@ can finally package it up in an R-supported format. Rename the dataframe to some
 thing more self-descriptive than `dat...`, using for example
 `inflammation <- dat_long` and then run `use_data(inflammation)`.
 
+> ## In case you need to "widen" a long/tidy dataset again:
+> Use the opposite of `gather()`: [`spread()`](https://tidyr.tidyverse.org/reference/spread.html).
+> You can learn more about both in the [Data Carpentry's "Data Manipulation" lesson](http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html#spreading)
+> or the ["R for Data Science" book](http://r4ds.had.co.nz/tidy-data.html#spreading).
+{: .callout}
+
 ## Documenting datasets
 
 Just as a good function documentation makes your code more accessible and reusable
