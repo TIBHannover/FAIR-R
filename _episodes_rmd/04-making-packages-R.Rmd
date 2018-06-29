@@ -42,13 +42,6 @@ We can publish more quickly, because we didn't leave much unfished clean-up busi
 
 [PP]: https://hilaryparker.com/2013/04/03/personal-r-packages/
 
-We will use RStudio, and the packages [`roxygen2` from the functions episode][ep-func]. These make creating packages in R relatively simple. They can be installed from CRAN like this:
-
-```{r, eval=FALSE}
-install.packages("roxygen2")
-library("roxygen2")
-```
-
 To start working on this personal package, please open RStudio's `File` menu and 
 select `New Project… > New Directory… > R Package`. Give it a unique, but useful
 name. Your own will work just fine. Bonus points for squeezing in an `R` ;-)
@@ -167,7 +160,7 @@ help(rescale)
 > > ## Solution
 > > 
 > > We did not yet tell R to actually generate the `man`ual files and folders in
-> > our package. This needs to be done with `roxygenise()`
+> > our package. This needs to be done with `roxygen2::roxygenise()`
 > > 
 > {: .solution}
 {: .challenge}
