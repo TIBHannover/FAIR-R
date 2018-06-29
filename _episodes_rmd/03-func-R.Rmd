@@ -234,7 +234,7 @@ center(z, 3)
 That looks right, so let's try center on our real data. We'll center the inflammation data from day 4 around 0:
 
 ```{r}
-dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE)
+dat <- read.csv(file = "inflammation.csv", header = FALSE)
 centered <- center(dat[, 4], 0)
 head(centered)
 ```
@@ -352,7 +352,7 @@ analyze <- function(filename) {
 >
 > Write a function called `analyze` that takes a filename as an argument
 > and displays the three graphs produced in the [previous lesson][start-ep] (average, min and max inflammation over time).
-> `analyze("data/inflammation-01.csv")` should produce the graphs already shown,
+> `analyze("inflammation.csv")` should produce the graphs already shown,
 > while `analyze("data/inflammation-02.csv")` should produce corresponding graphs for the second data set.
 > Be sure to document your function with roxygen comments.
 >
@@ -365,7 +365,7 @@ analyze <- function(filename) {
 > > #' @return Plots of the average, min, and max inflammation over time.
 > > #'
 > > #' @examples 
-> > #'   analyze("data/inflammation-01.csv")
+> > #'   analyze("inflammation.csv")
 > > analyze <- function(filename) {
 > >   dat <- read.csv(file = filename, header = FALSE)
 > >   avg_day_inflammation <- apply(dat, 2, mean)
@@ -449,18 +449,18 @@ plot(dat[, 4], answer)  # This hasn't been introduced yet, but it may be
 
 ### Defining Defaults
 
-We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "data/inflammation-01.csv", header = FALSE)`.
+We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "inflammation.csv", header = FALSE)`.
 In fact, we can pass the arguments to `read.csv` without naming them:
 
 ```{r}
-dat <- read.csv("data/inflammation-01.csv", FALSE)
+dat <- read.csv("inflammation.csv", FALSE)
 ```
 
 However, the position of the arguments matters if they are not named.
 
 ```{r, error = TRUE}
-dat <- read.csv(header = FALSE, file = "data/inflammation-01.csv")
-dat <- read.csv(FALSE, "data/inflammation-01.csv")
+dat <- read.csv(header = FALSE, file = "inflammation.csv")
+dat <- read.csv(FALSE, "inflammation.csv")
 ```
 
 To understand what's going on, and make our own functions easier to use, let's

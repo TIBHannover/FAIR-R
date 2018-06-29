@@ -31,7 +31,7 @@ The data sets are stored in [comma-separated values]({{ page.root }}/reference/#
 The first few rows of our first file look like this:
 
 ```{r echo = FALSE}
-tmp <- read.csv("data/inflammation-01.csv", header = FALSE, nrows = 5)
+tmp <- read.csv("inflammation.csv", header = FALSE, nrows = 5)
 write.table(tmp, quote = FALSE, sep = ",", row.names = FALSE, col.names = FALSE)
 rm(tmp)
 ```
@@ -46,7 +46,7 @@ To do all that, we'll have to learn a little bit about programming.
 
 ### Loading Data
 
-Let's import the file called `inflammation-01.csv` into our R environment. To import the file, first we need to tell our computer where the file is. We do that by choosing a working directory, that is, a local directory on our computer containing the files we need. This is very important in R. If we forget this step we'll get an error message saying that the file does not exist. We can set the working directory using the function `setwd`. For this example, we change the path to our new directory at the desktop:
+Let's import the file called `inflammation.csv` into our R environment. To import the file, first we need to tell our computer where the file is. We do that by choosing a working directory, that is, a local directory on our computer containing the files we need. This is very important in R. If we forget this step we'll get an error message saying that the file does not exist. We can set the working directory using the function `setwd`. For this example, we change the path to our new directory at the desktop:
 
 ```{r, eval = FALSE}
 setwd("~/Desktop/FAIR-R/")
@@ -58,13 +58,13 @@ Alternatively you can change the working directory using the RStudio GUI using t
 The data file is located in the directory `data` inside the working directory. Now we can load the data into R using `read.csv`:
 
 ```{r, results = "hide"}
-(dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE))
+(dat <- read.csv(file = "inflammation.csv", header = FALSE))
 ```
 
 The expression `read.csv(...)` is a [function call]({{ page.root }}/reference/#function-call) that asks R to run the function `read.csv`.
 
 `read.csv` has two [arguments]({{ page.root }}/reference/#argument): the name of the file we want to read, and whether the first line of the file contains names for the columns of data.
-The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04. In case of our `inflammation-01.csv` example, R auto-generates column names in the sequence `V1` (for "variable 1"), `V2`, and so on, until `V30`.
+The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04. In case of our `inflammation.csv` example, R auto-generates column names in the sequence `V1` (for "variable 1"), `V2`, and so on, until `V30`.
 
 > ## Other Options for Reading CSV Files
 >
@@ -78,7 +78,7 @@ The filename needs to be a character string (or [string]({{ page.root }}/referen
 > What happens if you forget to put `header = FALSE`? The default value is `header = TRUE`, which you can check with `?read.csv` or `help(read.csv)`. What do you expect will happen if you leave the default value? Before you run any code, think about what will happen to the first few rows of your data frame, and its overall size. Then run the following code and see if your expectations agree:
 >
 > ~~~
-> read.csv(file = "data/inflammation-01.csv")
+> read.csv(file = "inflammation.csv")
 > ~~~
 > {: .r}
 {: .challenge}
@@ -94,7 +94,7 @@ A function will perform its given action on whatever value is passed to the argu
 For example, in this case if we provided the name of a different file to the argument `file`, `read.csv` would read that instead.
 We'll learn more about the details of functions and their arguments in the next lesson.
 
-Since we included the whole line in parentheses, the console will display the full contents of the file `inflammation-01.csv`, which we read in assigned to the variable `dat`.
+Since we included the whole line in parentheses, the console will display the full contents of the file `inflammation.csv`, which we read in assigned to the variable `dat`.
 Try it out.
 
 We can think of a variable as a container with a name, such as `x`, `current_temperature`, or `subject_id` that contains one or more values.
