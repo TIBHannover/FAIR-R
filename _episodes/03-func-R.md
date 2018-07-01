@@ -510,7 +510,8 @@ successfully apply a function and integrate it into larger analysis pipelines.
 > {: .solution}
 {: .challenge}
 
-If you are using RStudio, a nice shortcut is `CTRL`+`Shift`+`Alt`+`R`. Place the 
+If you are using RStudio, a nice shortcut is
+<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd>. Place the 
 cursor inside the function name or body, press that shortcut, 
 a roxygen comment skeleton will be inserted. Note that we are not using 
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
