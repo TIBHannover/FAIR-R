@@ -3,7 +3,7 @@
 # Instead, please edit 05-testthat.md in _episodes_rmd/
 title: "Unit-Testing And Test-driven Development"
 teaching: 30
-exercises: 0
+exercises: 15
 questions:
 - "What is the benefit of unit-testing my code?"
 - "How do I create and run unit tests?"
@@ -20,7 +20,7 @@ source: Rmd
 
 
 
-## Unit testing with the `testthat` package
+### Unit testing with the `testthat` package
 
 Computer code evolves. Functions may need to be updated to new usage goals,
 sped up when more data needs to be crunched, or cleaned up to make their code
@@ -83,8 +83,7 @@ enable R to compare the expected values with the output of the two `center()` te
 
 ~~~
 test_that("centering works", {
-  expect_equal(center(c(1, 2, 3)), c(-1, 0, 1))
-  expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
+  expect_equal(center(c(1, 2, 3), 0), c(-1, 0, 1))
 })
 ~~~
 {: .language-r}
@@ -110,7 +109,7 @@ met, i.e. one or more unit tests fail.
 > > {: .r}
 > {: .solution}
 > 
-> Think about the [DRY principle]({{ page.root }}/03-func-R/#composing-functions)).
+> Think about the [DRY principle]({{ page.root }}/03-func-R/#composing-functions).
 > Is it necessary to keep the `@examples` in the documentation when you are using
 > them in the tests? Which factors would you consider in your decision?
 >
@@ -127,21 +126,21 @@ To conclude this section about creating unit tests, let's again commit our resul
 for example as "Span safety net for TDD".
 
 
-## Test-driven development (TDD)
+### Test-driven development (TDD)
 
 Remember that we updated `rescale()` with lower and upper bounds and default
 values at the end of [the functions episode][ep-func]? We had to manually test that change with a
 new example back then. We were repeating ourselves a bit more often than necessary
 back then, weren't we? Of course, there are ways to automate the testing of code
-changes, and to give you quick feedback whether your changes worked, or broke
+changes, which gives you quick feedback whether your changes worked, or broke
 anything.
 
-To give ourselves this quick feedback, use `testthat`'s `auto_test_package()`
+To do that, we use `testthat`'s `auto_test_package()`
 in the console, or in RStudio's `Build` pane the `More > Test Package` menu option, 
 and notice the hopefully all green and `OK` `Results`.
 
-With this safety net enabled, we will first update `test-rescale.R`, and then
-update the code in `rescale.R` This strategy of (re)writing (new)
+With this safety net enabled, we will first update `test-center.R`, and then
+update the code in `center.R` with the `desired = 0` default argument. This strategy of (re)writing (new)
 tests before (re)writing the code-to-be-tested is called
 "[test-driven design/development][TDD]". It is intended to reduce confirmation
 bias when coding. If one already worked hard to get the code to run, one may be
@@ -151,7 +150,45 @@ scientific method of trying to disprove hypotheses, so that the truth remains.
 
 [TDD]: https://en.wikipedia.org/wiki/Test-driven_development
 
-> ## Update `test-rescale.R` with the second example from the roxygen comments at the end of [episode 2][ep-func].
+> ## Update `test-center.R` with the argument default from [`center2.R`][ep-func].
+>
+> Think about which parts of the test code you need to change, to "break" the 
+> existing implementation (with only the `desired` argument, but no `= 0` default)
+> but to get it working again once the default is added to the function's code.
+> 
+> > ## Solution
+> > ~~~
+> > test_that("centering works with and without default arguments", {
+> >   expect_equal(center(c(1, 2, 3) # `, 0` has to be deleted
+> >                                        ), c(-1, 0, 1))
+> >   expect_equal(center(c(1, 2, 3), 1), c(0, 1, 2))
+> > })
+> > ~~~
+> > {: .r}
+> {: .solution}
+{: .challenge}
+
+Save the file and if `auto_test_package()` is still running, you should see one
+`Failed` `Result`. If you run the `expect_that("…", …)` or `expect_equal(…)`
+block interactively, an `Error` should appear. This exactly what we want to see
+before working on the code. Why?
+
+> ## Update `center.R` with the argument default from [`center2.R`][ep-func].
+>
+> Don't copy-paste the code from earlier! Try instead to rely on the safety net
+> and update the function code interactively, saving every now and then to
+> trigger `auto_test_package()`. Don't forget to update the roxygen comments with 
+> and to `roxygenise()` again.
+> 
+> > ## Solution
+> > 
+> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/#defining-defaults)
+> > 
+> {: .solution}
+{: .challenge}
+
+
+> ## Also update both `rescale` files with the argument defaults example from [`rescale2`][ep-func].
 >
 > You can either wrap this example in its own `test_that()` with a fitting
 > description, or replace one of the existing tests. Either way, the test 
@@ -167,11 +204,6 @@ scientific method of trying to disprove hypotheses, so that the truth remains.
 > > {: .r}
 > {: .solution}
 {: .challenge}
-
-Save the file and if `auto_test_package()` is still running, you should see one
-`Failed` `Result`. If you run the `expect_that("…", …)` or `expect_equal(…)`
-block interactively, an `Error` should appear. This exactly what we want to see
-before working on the code. Why?
 
 > ## Update `rescale.R` with a lower and upper bound argument and default values
 >
@@ -189,10 +221,6 @@ before working on the code. Why?
 > > }
 > > ~~~
 > > {: .r}
-> > 
-> > Don't forget to update the roxygen comments with the new `@param`s. You may
-> > copy-paste these from [episode the functions episode][ep-func] ;-) Afterwards, also remember to `roxygenise()`
-> > again.
 > {: .solution}
 {: .challenge}
 

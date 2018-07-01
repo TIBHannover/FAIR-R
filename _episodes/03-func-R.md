@@ -3,7 +3,7 @@
 # Instead, please edit 03-func-R.md in _episodes_rmd/
 title: "Creating Functions"
 teaching: 30
-exercises: 0
+exercises: 30
 questions:
 - "How do I make a function?"
 - "How can I test my functions manually?"
@@ -25,6 +25,7 @@ keypoints:
 - "Annotate your code!"
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
 - "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+- "Make code more readable by passing arguments preferably by name."
 source: Rmd
 ---
 
@@ -268,10 +269,11 @@ Real-life functions will usually be larger than the ones shown here--typically h
 > 2.  If `mySum(3)` returns 13, why does `mySum(input_2 = 3)` return an error?
 {: .challenge}
 
-### Testing and Documenting
+### Interactive Testing
 
 Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly.
-To see how to do this, let's write a function to center a dataset around a particular value:
+To see how to do this, let's write a function to center a dataset around a particular value.
+Please create a new file for this and save it as `center.R`.
 
 
 ~~~
@@ -318,7 +320,7 @@ That looks right, so let's try center on our real data. We'll center the inflamm
 
 
 ~~~
-dat <- read.csv(file = "data/inflammation-01.csv", header = FALSE)
+dat <- read.csv(file = "inflammation.csv", header = FALSE)
 centered <- center(dat[, 4], 0)
 head(centered)
 ~~~
@@ -399,7 +401,7 @@ all.equal(sd(dat[, 4]), sd(centered))
 It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis.
 We have one more task first, though: we should write some [documentation]({{ page.root }}/reference#documentation) for our function to remind ourselves later what it's for and how to use it.
 
-## Writing Documentation
+### Writing Documentation
 
 A common way to put documentation in software is to add "informal" comments like this:
 
@@ -431,11 +433,11 @@ library("roxygen2")
 
 It can convert "formal" documentation comments (lines starting with `#'`) into the 
 standard R format for help pages. You will learn  more about taking advantage of 
-this conversion in [episode 8 "Making Packages in R"]({{ page.root }}/08-making-packages-R/).
+this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/).
 
 > ## Technical details of R's help page format
 >
-> Help pages are rendered not directly from the roxygen2 comments, but from 
+> Help pages are rendered not directly from the roxygen comments, but from 
 > `.Rd` files that use a markup language similar to [LaTeX]. 
 > [roxygen2] generates those `.Rd` files from the formal function documentation
 > comments. Therefore, R coders not have to write these LaTeX-like files separately,
@@ -445,16 +447,16 @@ this conversion in [episode 8 "Making Packages in R"]({{ page.root }}/08-making-
 [LaTeX]: https://www.latex-project.org/
 [roxygen2]: https://cran.r-project.org/package=roxygen2/vignettes/rd.html
 
-For now, let's just lay a solid foundation of using [roxygen2's `#'` notation][roxygen2]
+For now, let's prepare a solid foundation of using [roxygen2's `#'` notation][roxygen2]
 for documenting functions. Please compare the following to the informal comments 
-we used above and in [episode 1 "Analyzing Patient Data"]({{ page.root }}/01-starting-with-data/):
+we used above and in the ["Analyzing Patient Data" episode]({{ page.root }}/02-starting-with-data/):
 
 
 ~~~
-#' Centering Data (or another descriptive title for your function)
+#' Centering Data
 #' 
 #' @param data The numeric vector to be centered
-#' @param desired The numeric value around which the data should be centered
+#' @param desired The numeric value around which the data will be centered
 #'
 #' @return A new vector containing the original data centered around the desired value.
 #'
@@ -469,7 +471,7 @@ center <- function(data, desired) {
 
 Unsurprisingly, the first line should be a short, descriptive title. Additional 
 text paragraphs are possible after leaving one line blank with only a `#'`.
-The descriptive tags (preceded by an `@` symbol) hold the most important info. 
+The descriptive tags (preceded by an `@` symbol) hold the most important details. 
 `@param` documents a function's input parameters, while `@return` explains its 
 output. An accurate description of the in- and output data (types) helps to 
 successfully apply a function and integrate it into larger analysis pipelines.
@@ -479,10 +481,10 @@ successfully apply a function and integrate it into larger analysis pipelines.
 > ## Functions to Create Graphs
 >
 > Write a function called `analyze` that takes a filename as an argument
-> and displays the three graphs produced in the [previous lesson][01] (average, min and max inflammation over time).
-> `analyze("data/inflammation-01.csv")` should produce the graphs already shown,
+> and displays the three graphs produced in the [previous lesson][start-ep] (average, min and max inflammation over time).
+> `analyze("inflammation.csv")` should produce the graphs already shown,
 > while `analyze("data/inflammation-02.csv")` should produce corresponding graphs for the second data set.
-> Be sure to document your function with roxygen2 comments.
+> Be sure to document your function with roxygen comments.
 >
 > > ## Solution
 > > ~~~
@@ -493,7 +495,7 @@ successfully apply a function and integrate it into larger analysis pipelines.
 > > #' @return Plots of the average, min, and max inflammation over time.
 > > #'
 > > #' @examples 
-> > #'   analyze("data/inflammation-01.csv")
+> > #'   analyze("inflammation.csv")
 > > analyze <- function(filename) {
 > >   dat <- read.csv(file = filename, header = FALSE)
 > >   avg_day_inflammation <- apply(dat, 2, mean)
@@ -510,7 +512,7 @@ successfully apply a function and integrate it into larger analysis pipelines.
 
 If you are using RStudio, a nice shortcut is `CTRL`+`Shift`+`Alt`+`R`. Place the 
 cursor inside the function name or body, press that shortcut, 
-a roxygen2 comment skeleton will be inserted. Note that we are not using 
+a roxygen comment skeleton will be inserted. Note that we are not using 
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
 You can safely ignore it for now, or delete it.
 
@@ -521,7 +523,7 @@ You can safely ignore it for now, or delete it.
 > Write a function `rescale` that takes a vector as input and returns a corresponding vector of values scaled to lie in the range 0 to 1.
 > Please create a new file for this and save it as `rescale.R`.
 > (If `L` and `H` are the lowest and highest values in the original vector, then the replacement for a value `v` should be `(v-L) / (H-L)`.)
-> Be sure to document your function with roxygen2 comments.
+> Be sure to document your function with roxygen comments.
 >
 > Test that your `rescale` function is working properly using `min`, `max`, and `plot`.
 >
@@ -548,18 +550,18 @@ You can safely ignore it for now, or delete it.
 > {: .solution}
 {: .challenge}
 
-[01]: {{ page.root }}/01-starting-with-data/
+[start-ep]: {{ page.root }}/02-starting-with-data/
 
 
 
 ### Defining Defaults
 
-We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "data/inflammation-01.csv", header = FALSE)`.
+We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "inflammation.csv", header = FALSE)`.
 In fact, we can pass the arguments to `read.csv` without naming them:
 
 
 ~~~
-dat <- read.csv("data/inflammation-01.csv", FALSE)
+dat <- read.csv("inflammation.csv", FALSE)
 ~~~
 {: .language-r}
 
@@ -567,8 +569,8 @@ However, the position of the arguments matters if they are not named.
 
 
 ~~~
-dat <- read.csv(header = FALSE, file = "data/inflammation-01.csv")
-dat <- read.csv(FALSE, "data/inflammation-01.csv")
+dat <- read.csv(header = FALSE, file = "inflammation.csv")
+dat <- read.csv(FALSE, "inflammation.csv")
 ~~~
 {: .language-r}
 
@@ -579,7 +581,8 @@ Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'f
 ~~~
 {: .error}
 
-To understand what's going on, and make our own functions easier to use, let's re-define our `center` function as follows. Please create a new file for this and save it as `center.R`.
+To understand what's going on, and make our own functions easier to use, let's
+save our `center.R` file as `center2.R` and re-define the function as follows.
 
 
 ~~~
@@ -591,10 +594,9 @@ To understand what's going on, and make our own functions easier to use, let's r
 #' @return A new vector containing the original data centered around the desired value.
 #'
 #' @examples
-#'   center(c(1, 2, 3))  # should return [1] -1  0  1
-#'   center(c(1, 2, 3), 1)  # should return [1] 0 1 2
-
-center <- function(data, desired = 0) {
+#'   center2(c(1, 2, 3))  # should return [1] -1  0  1
+#'   center2(c(1, 2, 3), 1)  # should return [1] 0 1 2
+center2 <- function(data, desired = 0) {
   new_data <- (data - mean(data)) + desired
   return(new_data)
 }
@@ -607,7 +609,7 @@ If we call the function with two arguments, it works as it did before:
 
 ~~~
 test_data <- c(0, 0, 0, 0)
-center(test_data, 3)
+center2(test_data, 3)
 ~~~
 {: .language-r}
 
@@ -637,7 +639,7 @@ more_data
 
 
 ~~~
-center(more_data)
+center2(more_data)
 ~~~
 {: .language-r}
 
@@ -649,95 +651,6 @@ center(more_data)
 {: .output}
 
 This is handy: if we usually want a function to work one way, but occasionally need it to do something else, we can allow people to pass an argument when they need to but provide a default to make the normal case easier.
-
-The example below shows how R matches values to arguments
-
-
-~~~
-display <- function(a = 1, b = 2, c = 3) {
-  result <- c(a, b, c)
-  names(result) <- c("a", "b", "c")  # This names each element of the vector
-  return(result)
-}
-
-# no arguments
-display()
-~~~
-{: .language-r}
-
-
-
-~~~
-a b c 
-1 2 3 
-~~~
-{: .output}
-
-
-
-~~~
-# one argument
-display(55)
-~~~
-{: .language-r}
-
-
-
-~~~
- a  b  c 
-55  2  3 
-~~~
-{: .output}
-
-
-
-~~~
-# two arguments
-display(55, 66)
-~~~
-{: .language-r}
-
-
-
-~~~
- a  b  c 
-55 66  3 
-~~~
-{: .output}
-
-
-
-~~~
-# three arguments
-display(55, 66, 77)
-~~~
-{: .language-r}
-
-
-
-~~~
- a  b  c 
-55 66 77 
-~~~
-{: .output}
-
-As this example shows, arguments are matched from left to right, and any that haven't been given a value explicitly get their default value.
-We can override this behavior by naming the value as we pass it in:
-
-
-~~~
-# only setting the value of c
-display(c = 77)
-~~~
-{: .language-r}
-
-
-
-~~~
- a  b  c 
- 1  2 77 
-~~~
-{: .output}
 
 > ## Matching Arguments
 >
@@ -752,44 +665,9 @@ display(c = 77)
 > complete name, then by partial matching of names, and finally by position.
 {: .callout}
 
-With that in hand, let's look at the help for `read.csv()`:
-
-
-~~~
-?read.csv
-~~~
-{: .language-r}
-
-There's a lot of information there, but the most important part is the first couple of lines:
-
-
-~~~
-read.csv(file, header = TRUE, sep = ",", quote = "\"",
-         dec = ".", fill = TRUE, comment.char = "", ...)
-~~~
-{: .language-r}
-
-This tells us that `read.csv()` has one argument, `file`, that doesn't have a default value, and six others that do.
-Now we understand why the following gives an error:
-
-
-~~~
-dat <- read.csv(FALSE, "data/inflammation-01.csv")
-~~~
-{: .language-r}
-
-
-
-~~~
-Error in read.table(file = file, header = header, sep = sep, quote = quote, : 'file' must be a character string or connection
-~~~
-{: .error}
-
-It fails because `FALSE` is assigned to `file` and the filename is assigned to the argument `header`.
-
 > ## A Function with Default Argument Values
 >
-> Rewrite the `rescale` function so that it scales a vector to lie between 0 and 1 by default, but will allow the caller to specify lower and upper bounds if they want.
+> Save the `rescale` function as `rescale2.R` and rewrite it to scale a vector to lie between 0 and 1 by default, but will allow the caller to specify lower and upper bounds if they want.
 > Compare your implementation to your neighbor's: do the two functions always behave the same way?
 >
 > > ## Solution
@@ -803,10 +681,9 @@ It fails because `FALSE` is assigned to `file` and the filename is assigned to t
 > > #' @return The rescaled numeric vector
 > > #'
 > > #' @examples
-> > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
-> > #'   rescale(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
-> > 
-> > rescale <- function(v, lower = 0, upper = 1) {
+> > #'   rescale2(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
+> > #'   rescale2(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0
+> > rescale2 <- function(v, lower = 0, upper = 1) {
 > >   L <- min(v)
 > >   H <- max(v)
 > >   result <- (v - L) / (H - L) * (upper - lower) + lower
@@ -821,7 +698,7 @@ It fails because `FALSE` is assigned to `file` and the filename is assigned to t
 
 
 ~~~
-answer <- rescale(dat[, 4], lower = 2, upper = 5)
+answer <- rescale2(v = dat[, 4], lower = 2, upper = 5)
 min(answer)
 ~~~
 {: .language-r}
@@ -850,7 +727,7 @@ max(answer)
 
 
 ~~~
-answer <- rescale(dat[, 4], lower = -5, upper = -2)
+answer <- rescale2(dat[, 4], -5, -2)
 min(answer)
 ~~~
 {: .language-r}
@@ -875,3 +752,13 @@ max(answer)
 [1] -2
 ~~~
 {: .output}
+
+Compare both `rescale2` calls: Which is more understandable? Although passing
+arguments purely by position is very convenient, because you have to typo less,
+it's usually better to write the argument name. Most code is more often read,
+than edited, so the reader (maybe your future self) may loose more time 
+understanding the code (e.g. by having to look up non-obvious details) than you
+saved by typing less. Also, good IDE (integrated development environment) will
+reduce your typing with auto-completion. Thus, it is generally better to only omit
+very argument names like `data`, `filename`, etc. because their meaning is obvious
+from their value and/or context (`file = "path/to/file.xyz"`).
