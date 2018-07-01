@@ -35,10 +35,10 @@ If you want to reuse code later or want others to be able to use your code, you 
 
 In this lesson, we will start building a "[personal package][PP]". This is meant to
 collect any kind of R code that is useful to _you_. As you continue to evolve it
-after this lesson, you may move codes that belong to the same publication, topic
+after this lesson, you may move code that belongs to the same publication, topic
 or a distinct project, into their own packages. Here we begin to realise the
 benefit of already documenting the functions formally earlier: 
-We can publish more quickly, because we didn't leave much unfished clean-up business.
+We can publish more quickly, because we didn't leave much unfinished clean-up business.
 
 [PP]: https://hilaryparker.com/2013/04/03/personal-r-packages/
 
@@ -51,7 +51,7 @@ and `rescale.R`), so that we have some example code right away.
 
 <img src="../fig/08-RStudio-new-package.png" alt="New package in RStudio" width="500" />
 
-In case you have learned about version control already, it would be a good 
+In case you have learned about version control already, it would be good 
 practice to `create a git repository` now and `git commit` each step of
 building this package.
 
@@ -177,7 +177,7 @@ and was set up by RStudio with an `exportPattern`. Any file name in `R/` that
 matches it is automatically exported, meaning offered to users of your package
 in the console's tab-completion.
 
-In case you want to publish your package and keep some functions hidden (maybe
+If you want to publish your package and keep some functions hidden (maybe
 because they only do auxiliary tasks), you should delete this default file, tag
 the functions you _do want to expose_ with `@export` and rerun `roxygenise()`.
 
