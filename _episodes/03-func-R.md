@@ -173,8 +173,8 @@ Real-life functions will usually be larger than the ones shown here--typically h
 
 > ## Create a Function
 >
-> In the last lesson, we learned to **c**ombine elements into a vector using the `c` function,
-> e.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
+> R has a built-in function to **c**ombine elements into a vector: the `c` function.
+> E.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
 > Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector `y` with four elements.
 > Write a function called `fence` that takes two vectors as arguments, called
 > `original` and `wrapper`, and returns a new vector that has the wrapper vector
@@ -183,6 +183,7 @@ Real-life functions will usually be larger than the ones shown here--typically h
 > 
 > ~~~
 > best_practice <- c("Write", "programs", "for", "people", "not", "computers")
+> dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
 > asterisk <- "***"  # R interprets a variable with a single value as a vector
 >                    # with one element.
 > fence(best_practice, asterisk)
@@ -196,41 +197,27 @@ Real-life functions will usually be larger than the ones shown here--typically h
 > [7] "computers" "***"      
 > ~~~
 > {: .output}
->
-> > ## Solution
-> > ~~~
-> > fence <- function(original, wrapper) {
-> >   answer <- c(wrapper, original, wrapper)
-> >   return(answer)
-> > }
-> > ~~~
-> > {: .r}
-> {: .solution}
->
-> If the variable `v` refers to a vector, then `v[1]` is the vector's first element and `v[length(v)]` is its last (the function `length` returns the number of elements in a vector).
-> Write a function called `outside` that returns a vector made up of just the first and last elements of its input:
->
+> 
+> 
 > 
 > ~~~
-> dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
-> outside(dry_principle)
+> fence(dry_principle, asterisk)
 > ~~~
 > {: .language-r}
 > 
 > 
 > 
 > ~~~
-> [1] "Don't"  "others"
+> [1] "***"      "Don't"    "repeat"   "yourself" "or"       "others"  
+> [7] "***"     
 > ~~~
 > {: .output}
 >
 > > ## Solution
 > > ~~~
-> > outside <- function(v) {
-> >   first <- v[1]
-> >    last <- v[length(v)]
-> >    answer <- c(first, last)
-> >    return(answer)
+> > fence <- function(original, wrapper) {
+> >   answer <- c(wrapper, original, wrapper)
+> >   return(answer)
 > > }
 > > ~~~
 > > {: .r}
@@ -316,7 +303,7 @@ center(z, 3)
 ~~~
 {: .output}
 
-That looks right, so let's try center on our real data. We'll center the inflammation data from day 4 around 0:
+That looks right, so let's try centering our real data. We'll center the inflammation data from day 4 around 0:
 
 
 ~~~
@@ -481,9 +468,8 @@ successfully apply a function and integrate it into larger analysis pipelines.
 > ## Functions to Create Graphs
 >
 > Write a function called `analyze` that takes a filename as an argument
-> and displays the three graphs produced in the [previous lesson][start-ep] (average, min and max inflammation over time).
-> `analyze("inflammation.csv")` should produce the graphs already shown,
-> while `analyze("data/inflammation-02.csv")` should produce corresponding graphs for the second data set.
+> and displays the graph produced in the [previous lesson][start-ep] (average inflammation over time).
+> `analyze("inflammation.csv")` should produce the graph already shown,
 > Be sure to document your function with roxygen comments.
 >
 > > ## Solution
@@ -492,18 +478,14 @@ successfully apply a function and integrate it into larger analysis pipelines.
 > > #'
 > > #' @param filename character string of a .csv file
 > > #'
-> > #' @return Plots of the average, min, and max inflammation over time.
+> > #' @return Plots the average inflammation over time.
 > > #'
 > > #' @examples 
 > > #'   analyze("inflammation.csv")
 > > analyze <- function(filename) {
 > >   dat <- read.csv(file = filename, header = FALSE)
-> >   avg_day_inflammation <- apply(dat, 2, mean)
+> >   avg_day_inflammation <- colMeans(dat)
 > >   plot(avg_day_inflammation)
-> >   max_day_inflammation <- apply(dat, 2, max)
-> >   plot(max_day_inflammation)
-> >   min_day_inflammation <- apply(dat, 2, min)
-> >   plot(min_day_inflammation)
 > > }
 > > ~~~
 > > {: .r}

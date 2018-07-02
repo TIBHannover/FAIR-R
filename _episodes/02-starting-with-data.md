@@ -49,7 +49,7 @@ To do all that, we'll have to learn a little bit about programming.
 
 ### Loading Data
 
-Let's import the file called `inflammation-01.csv` into our R environment. To import the file, first we need to tell our computer where the file is. We do that by choosing a working directory, that is, a local directory on our computer containing the files we need. This is very important in R. If we forget this step we'll get an error message saying that the file does not exist. We can set the working directory using the function `setwd`. For this example, we change the path to our new directory at the desktop:
+Let's import the file called `inflammation.csv` into our R environment. To import the file, first we need to tell our computer where the file is. We do that by choosing a working directory, that is, a local directory on our computer containing the files we need. This is very important in R. If we forget this step we'll get an error message saying that the file does not exist. We can set the working directory using the function `setwd`. For this example, we change the path to our new directory at the desktop:
 
 
 ~~~
@@ -71,7 +71,7 @@ The data file is located in the directory `data` inside the working directory. N
 The expression `read.csv(...)` is a [function call]({{ page.root }}/reference/#function-call) that asks R to run the function `read.csv`.
 
 `read.csv` has two [arguments]({{ page.root }}/reference/#argument): the name of the file we want to read, and whether the first line of the file contains names for the columns of data.
-The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04. In case of our `inflammation-01.csv` example, R auto-generates column names in the sequence `V1` (for "variable 1"), `V2`, and so on, until `V30`.
+The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. We'll talk more about the value `FALSE`, and its converse `TRUE`, in lesson 04. In case of our `inflammation.csv` example, R auto-generates column names in the sequence `V1` (for "variable 1"), `V2`, and so on, until `V30`.
 
 > ## Other Options for Reading CSV Files
 >
@@ -101,7 +101,7 @@ A function will perform its given action on whatever value is passed to the argu
 For example, in this case if we provided the name of a different file to the argument `file`, `read.csv` would read that instead.
 We'll learn more about the details of functions and their arguments in the next lesson.
 
-Since we included the whole line in parentheses, the console will display the full contents of the file `inflammation-01.csv`, which we read in assigned to the variable `dat`.
+Since we included the whole line in parentheses, the console will display the full contents of the file `inflammation.csv`, which we read in assigned to the variable `dat`.
 Try it out.
 
 We can think of a variable as a container with a name, such as `x`, `current_temperature`, or `subject_id` that contains one or more values.
@@ -109,7 +109,7 @@ We can create a new variable and assign a value to it using `<-`
 
 Once a variable is created, we can use the variable name to refer to the value it was assigned. The variable name now acts as a tag.
 
-To see the value of a variable, we can print it by typing the name of the variable and hitting `Enter` (or `return`).
+To see the value of a variable, we can print it by typing the name of the variable and hitting <kbd>Return</kbd> (or <kbd>Enter</kbd>).
 In general, R will print to the console any object returned by a function or operation *unless* we assign it to a variable.
 
 
@@ -182,26 +182,11 @@ The output tells us that is a data frame. Think of this structure as a spreadshe
 Data frames are very useful for storing data and you will use them frequently when programming in R.
 A typical data frame of experimental data contains individual observations in rows and variables in columns.
 
-What if we need the maximum inflammation for all patients, or the average for each day?
-As the diagram below shows, we want to perform the operation across a margin of the data frame:
-
-<img src="../fig/r-operations-across-margins.svg" alt="Operations Across Margins" />
-
-To support this, we can use the `apply` function.
-
-> ## Getting Help
->
-> To learn about a function in R, e.g. `apply`, we can read its help
-> documention by running `help(apply)` or `?apply`.
-{: .callout}
-
-`apply` allows us to repeat a function on all of the rows (`MARGIN = 1`) or columns (`MARGIN = 2`) of a data frame.
-
-Thus, to obtain the average inflammation of each patient we will need to calculate the mean of all of the rows (`MARGIN = 1`) of the data frame.
+What if we need the average inflammation of each patient, or the average for each day?
 
 
 ~~~
-avg_patient_inflammation <- apply(dat, 1, mean)
+avg_patient_inflammation <- rowMeans(dat)
 ~~~
 {: .language-r}
 
@@ -209,58 +194,27 @@ And to obtain the average inflammation of each day we will need to calculate the
 
 
 ~~~
-avg_day_inflammation <- apply(dat, 2, mean)
+avg_day_inflammation <- colMeans(dat)
 ~~~
 {: .language-r}
 
-Since the second argument to `apply` is `MARGIN`, the above command is equivalent to `apply(dat, MARGIN = 2, mean)`.
-We'll learn why this is so in the next lesson.
-
-> ## Efficient Alternatives
+> ## Versatile Alternatives
 >
-> Some common operations have more efficient alternatives. For example, you
-> can calculate the row-wise or column-wise means with `rowMeans` and
-> `colMeans`, respectively.
+> The common row- or column-wise `mean()` operations have the above shortcuts.
+> But what if you need to perform other calculations? In base R, the family of
+> `apply` functions will help you do that, see `help(apply)` or `?apply`. You
+> can also learn about the modern approach with [purrr][purrr]`::`[map()][map].
 {: .callout}
 
-> ## Using the Apply Function on Patient Data
->
-> Challenge: the apply function can be used to summarize datasets and subsets
-> of data across rows and columns using the MARGIN argument.
-> Suppose you want to calculate the mean inflammation for specific days and patients
-> in the patient dataset (i.e. 60 patients across 40 days).
->
-> Please use a combination of the apply function and indexing to:
->
-> 1. calculate the mean inflammation for patients 1 to 5 over the whole 40 days
-> 1. calculate the mean inflammation for days 1 to 10 (across all patients).
-> 1. calculate the mean inflammation for every second day (across all patients).
->
-> Think about the number of rows and columns you would expect as the result before each
-> apply call and check your intuition by applying the mean function.
->
-> > ## Solution
-> > ~~~
-> > # 1.
-> > apply(dat[1:5, ], 1, mean)
-> > # 2.
-> > apply(dat[, 1:10], 2, mean)
-> > # 3.
-> > apply(dat[, seq(1, 40, by = 2)], 2, mean)
-> > ~~~
-> > {: .r}
-> {: .solution}
-{: .challenge}
-
+[purrr]: https://purrr.tidyverse.org/
+[map]: https://purrr.tidyverse.org/reference/map.html
 
 ### Plotting
 
 The mathematician Richard Hamming once said, "The purpose of computing is insight, not numbers," and the best way to develop insight is often to visualize data.
 Visualization deserves an entire lecture (or course) of its own, but we can explore a few of R's plotting features.
 
-Let's take a look at the average inflammation over time.
-Recall that we already calculated these values above using `apply(dat, 2, mean)` and saved them in the variable `avg_day_inflammation`.
-Plotting the values is done with the function `plot`.
+Let's take a look at `avg_day_inflammation` using the function `plot`.
 
 
 ~~~
@@ -273,29 +227,10 @@ plot(avg_day_inflammation)
 Above, we gave the function `plot` a vector of numbers corresponding to the average inflammation per day across all patients.
 `plot` created a scatter plot where the y-axis is the average inflammation level and the x-axis is the order, or index, of the values in the vector, which in this case correspond to the 40 days of treatment.
 The result is roughly a linear rise and fall, which is suspicious: based on other studies, we expect a sharper rise and slower fall.
-Let's have a look at two other statistics: the maximum and minimum inflammation per day.
-
-
-~~~
-max_day_inflammation <- apply(dat, 2, max)
-plot(max_day_inflammation)
-~~~
-{: .language-r}
-
-<img src="../fig/rmd-02-starting-with-data-plot-max-inflammation-1.png" title="plot of chunk plot-max-inflammation" alt="plot of chunk plot-max-inflammation" style="display: block; margin: auto;" />
-
-
-~~~
-min_day_inflammation <- apply(dat, 2, min)
-plot(min_day_inflammation)
-~~~
-{: .language-r}
-
-<img src="../fig/rmd-02-starting-with-data-plot-min-inflammation-1.png" title="plot of chunk plot-min-inflammation" alt="plot of chunk plot-min-inflammation" style="display: block; margin: auto;" />
-
-The maximum value rises and falls perfectly smoothly, while the minimum seems to be a step function. Neither result seems particularly likely, so either there's a mistake in our calculations or something is wrong with our data.
+So, either there's a mistake in our calculations or something is wrong with our data.
+In the next episode, we'll create some functions to help us 
 
 > ## Plotting Data
 >
-> Create a plot showing the standard deviation of the inflammation data for each day across all patients.
+> Create a plot showing the average inflammation for each patient across all days.
 {: .challenge}
