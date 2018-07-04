@@ -103,7 +103,7 @@ Please read through [r-pkgs.had.co.nz/data.html#documenting-data](http://r-pkgs.
 and keep in mind, that the descriptive tags for datasets are not entirely the
 same as the those for function documentation.
 
-> ## Challange: Document the dataset!
+> ## Challenge: Document the dataset!
 >
 > 1. Which file should we create to document our dataset?
 > 1. Which items of our dataset should be documented?
@@ -134,10 +134,10 @@ same as the those for function documentation.
 
 [MD]: https://rmarkdown.rstudio.com/authoring_basics.html
 
-After saving the raw data, the data creation script, the tidy dataset,and
+After saving the raw data, the data creation script, the tidy dataset, and
 the documentation file, what is left to do in our little personal package?
 
-> ## Challange: Last packaging steps (for now; an incomplete list)
+> ## Challenge: Last packaging steps (for now; an incomplete list)
 >
 > > ## Solutions
 > > 
