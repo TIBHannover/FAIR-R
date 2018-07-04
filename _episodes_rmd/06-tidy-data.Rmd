@@ -1,0 +1,151 @@
+---
+title: "Tidying & packaging datasets"
+teaching: 30
+exercises: 10
+questions:
+- "What are possible forms that a dataset can have?"
+- "What advantages and disadvantages do these forms have?"
+- "Which features make a dataset more or less reusable?"
+- "How can we add datasets to R packages?"
+objectives:
+- "Use `tidyr::gather()` to convert wide data to its long form."
+- "Find self-descriptive variable/column names."
+keypoints:
+- "Spreadsheets incentivise the wide data format, which may spread variables across columns."
+- "If variables in different dataset are comparable methodologically, their variable/column names should be spelled exactly alike."
+- "(Raw) Data can be packaged by itself (and/or alongside related cleaning and analysis code)."
+source: Rmd
+---
+
+```{r, include = FALSE}
+source("../bin/chunk-options.R")
+knitr_fig_path("06-tidy-data-R-")
+```
+
+## Tidying our inflammation datasets
+
+In the preparations episode, we read in, visualised, centered and rescaled a
+dataset about inflammation in 60 patients measured over 40 days. Let's pretend
+we need to tidy it up for further publication alongside the package we have been
+constructing.
+
+First, run `library(usethis)` and `use_data_raw()` and note the `Next:` instructions
+in the console. In particular, copy the `inflammation-*.csv` files to `data-raw`
+and start a `tidy-inflammation.R` file there to which you add the necessary lines
+of the following code examples. Think about which of them are purely for interactive
+checks of the tidying process! Don't save those to the "data creation script".
+
+```{r inflammation-wide}
+dat <- read.csv(file = "inflammation-01.csv", header = FALSE)
+head(colnames(dat), 10)
+head(rownames(dat), 10)
+```
+
+You probably noticed that neither "patients" nor "days" is listed anywhere. Thus,
+we should label the data first, starting with pseudonyms for the patients. If
+this were real data from real human patients, we would have acquired their written
+and informed consent to the pseudonymous data publication before collecting it,
+and during approval of our study by the ethics committee. We would also have 
+pre-registered our study, e.g. on [AllTrials.net](http://www.alltrials.net/).
+
+```{r inflammation-label}
+patient_ID <- paste("patient", sep = "_", seq(nrow(dat)))
+dat_labelled <- cbind(dat, patient_ID)
+head(dat_labelled)
+```
+
+Now we have labelled our observations with `patient_ID` as the column/variable
+name and `patient_…` as the values. Next we are going to "gather" the observations,
+meaning that we:
+
+1. define `day` as the common `key` of all the `V1`, `V2`, etc. variables, 
+1. define a name for the newly created column, in which the `value`s from the
+   messy variables will be gathered, and
+1. specify which variables we want to gather into key-value pairs.
+
+```{r inflammation-gather}
+dat_long <- tidyr::gather(dat_labelled,
+                         key = "day",
+                         value = "inflammatory_response",
+                         V1:V40)
+tail(dat_long)
+```
+
+Notice the row numbers? Because we gathered observations into one column, and thus one
+observation per row, the `r nrow(dat_long)` rows now are the product of the
+initial `r nrow(dat)` rows and `r ncol(dat)` columns.
+
+Because the days shouldn't remain labelled with `V`s, we also convert them to
+numbers. This works with either `as.factor()` and `as.numeric()` after another,
+or nested: 
+
+```{r inflammation-days}
+dat_long$day <- as.numeric(as.factor(dat_long$day))
+str(dat_long)
+```
+
+The structure of our inflammation dataset is now a lot tidier than before and we
+can finally package it up in an R-supported format. Rename the dataframe to some-
+thing more self-descriptive than `dat...`, using for example
+`inflammation <- dat_long` and then run `use_data(inflammation)`.
+
+> ## In case you need to "widen" a long/tidy dataset again:
+> Use the opposite of `gather()`: [`spread()`](https://tidyr.tidyverse.org/reference/spread.html).
+> You can learn more about both in the [Data Carpentry's "Data Manipulation" lesson](http://www.datacarpentry.org/R-ecology-lesson/03-dplyr.html#spreading)
+> or the ["R for Data Science" book](http://r4ds.had.co.nz/tidy-data.html#spreading).
+{: .callout}
+
+## Documenting datasets
+
+Just as a good function documentation makes your code more accessible and reusable
+for others and your future self, datasets benefit from a documentation as well.
+Please read through [r-pkgs.had.co.nz/data.html#documenting-data](http://r-pkgs.had.co.nz/data.html#documenting-data)
+and keep in mind, that the descriptive tags for datasets are not entirely the
+same as the those for function documentation.
+
+> ## Challenge: Document the dataset!
+>
+> 1. Which file should we create to document our dataset?
+> 1. Which items of our dataset should be documented?
+> 1. How could the documentation file look in the end?
+>
+> > ## Solutions
+> > 
+> > 1. `R/inflammation.R`
+> > 1. `patient_ID`, `day` & `inflammatory_response`
+> > 1. Like this:
+> > ~~~
+> > #' Inflammation In Patients During Study...
+> > #'
+> > #' @source Pre-registration: \url{http://wwww.alltrials.net/study...}.
+> > #'   Method: \url{...}.
+> > #' @format A data frame with the variables/columns:
+> > #' \describe{
+> > #'  \item{patient_ID}{A factor prepresenting the different patients}
+> > #'  \item{day}{Number of days after start of the study}
+> > #'  \item{inflammatory_response}{Measured daily as described in the methods section of ...}
+> > #' }
+> > "inflammation"
+> > ~~~
+> > Note that this is exactly the ["LaTeX-like" syntax mentioned in the "Writing Documentation" section](https://tibhannover.github.io/FAIR-R/03-func-R/#technical-details-of-rs-help-page-format).
+> > With `usethis::use_roxygen_md()`, we can reduce most of those `\commands` to the [simpler Markdown format][MD].
+> {: .solution}
+{: .challenge}
+
+[MD]: https://rmarkdown.rstudio.com/authoring_basics.html
+
+After saving the raw data, the data creation script, the tidy dataset, and
+the documentation file, what is left to do in our little personal package?
+
+> ## Challenge: Last packaging steps (for now; an incomplete list)
+>
+> > ## Solutions
+> > 
+> > 1. Run `roxygen2::roxygenise()`.
+> > 1. Run RStudio's `Build > Check`. Do any errors remain?
+> > 1. After `Build > Install and Restart`, start writing your paper as a vignette.
+> > 1. Commit the accumulated changes. Which commits would you suggest?
+> > 
+> {: .solution}
+{: .challenge}
+
