@@ -127,8 +127,12 @@ same as the those for function documentation.
 > > #' }
 > > "inflammation"
 > > ~~~
+> > Note that this is exactly the ["LaTeX-like" syntax mentioned in the "Writing Documentation" section](https://tibhannover.github.io/FAIR-R/03-func-R/#technical-details-of-rs-help-page-format).
+> > With `usethis::use_roxygen_md()`, we can reduce most of those `\commands` to the [simpler Markdown format][MD].
 > {: .solution}
 {: .challenge}
+
+[MD]: https://rmarkdown.rstudio.com/authoring_basics.html
 
 After saving the raw data, the data creation script, the tidy dataset,and
 the documentation file, what is left to do in our little personal package?
