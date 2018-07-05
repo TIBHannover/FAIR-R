@@ -71,9 +71,18 @@ dat_long <- tidyr::gather(dat_labelled,
 tail(dat_long)
 ```
 
-Notice the row numbers? Because we gathered observations into one column, and thus one
-observation per row, the `r nrow(dat_long)` rows now are the product of the
-initial `r nrow(dat)` rows and `r ncol(dat)` columns.
+Notice the last row number? Because we gathered observations into one column, and thus one
+observation per row, that number should be the product of the initial `r nrow(dat)`
+rows and `r ncol(dat)` columns. However, we should verify this with:
+
+```{r}
+nrow(dat_long)
+```
+
+This time, it matches, but dataframes also have row _names_, which may also be
+numeric, but don't necessarily represent a contiguous row _count_. That's why we
+should only rely on `nrow()` for counting. You can [read more about this on
+PerfectlyRandom.org: "Never trust the row names..." ](https://www.perfectlyrandom.org/2015/06/16/never-trust-the-row-names-of-a-dataframe-in-R/).
 
 Because the days shouldn't remain labelled with `V`s, we also convert them to
 numbers. This works with either `as.factor()` and `as.numeric()` after another,

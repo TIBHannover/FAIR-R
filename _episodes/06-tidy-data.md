@@ -136,9 +136,27 @@ tail(dat_long)
 ~~~
 {: .output}
 
-Notice the row numbers? Because we gathered observations into one column, and thus one
-observation per row, the 2400 rows now are the product of the
-initial 60 rows and 40 columns.
+Notice the last row number? Because we gathered observations into one column, and thus one
+observation per row, that number should be the product of the initial 60
+rows and 40 columns. However, we should verify this with:
+
+
+~~~
+nrow(dat_long)
+~~~
+{: .language-r}
+
+
+
+~~~
+[1] 2400
+~~~
+{: .output}
+
+This time, it matches, but dataframes also have row _names_, which may also be
+numeric, but don't necessarily represent a contiguous row _count_. That's why we
+should only rely on `nrow()` for counting. You can [read more about this on
+PerfectlyRandom.org: "Never trust the row names..." ](https://www.perfectlyrandom.org/2015/06/16/never-trust-the-row-names-of-a-dataframe-in-R/).
 
 Because the days shouldn't remain labelled with `V`s, we also convert them to
 numbers. This works with either `as.factor()` and `as.numeric()` after another,
