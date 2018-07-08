@@ -202,8 +202,7 @@ Instead, let's create a vector of 0s and then center that around 3.
 This will make it simple to see if our function is working as expected:
 
 ```{r, }
-z <- c(0, 0, 0, 0)
-z
+(z <- c(1, 2, 3))
 center(z, 3)
 ```
 
@@ -455,15 +454,14 @@ The key change is that the second argument is now written `desired = 0` instead 
 If we call the function with two arguments, it works as it did before:
 
 ```{r}
-test_data <- c(0, 0, 0, 0)
+test_data <- c(1, 2, 3)
 center2(test_data, 3)
 ```
 
 But we can also now call `center()` with just one argument, in which case `desired` is automatically assigned the default value of `0`:
 
 ```{r}
-more_data <- 5 + test_data
-more_data
+(more_data <- 5 + test_data)
 center2(more_data)
 ```
 

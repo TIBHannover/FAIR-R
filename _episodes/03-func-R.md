@@ -277,15 +277,14 @@ This will make it simple to see if our function is working as expected:
 
 
 ~~~
-z <- c(0, 0, 0, 0)
-z
+(z <- c(1, 2, 3))
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] 0 0 0 0
+[1] 1 2 3
 ~~~
 {: .output}
 
@@ -299,7 +298,7 @@ center(z, 3)
 
 
 ~~~
-[1] 3 3 3 3
+[1] 2 3 4
 ~~~
 {: .output}
 
@@ -591,7 +590,7 @@ If we call the function with two arguments, it works as it did before:
 
 
 ~~~
-test_data <- c(0, 0, 0, 0)
+test_data <- c(1, 2, 3)
 center2(test_data, 3)
 ~~~
 {: .language-r}
@@ -599,7 +598,7 @@ center2(test_data, 3)
 
 
 ~~~
-[1] 3 3 3 3
+[1] 2 3 4
 ~~~
 {: .output}
 
@@ -607,15 +606,14 @@ But we can also now call `center()` with just one argument, in which case `desir
 
 
 ~~~
-more_data <- 5 + test_data
-more_data
+(more_data <- 5 + test_data)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] 5 5 5 5
+[1] 6 7 8
 ~~~
 {: .output}
 
@@ -629,7 +627,7 @@ center2(more_data)
 
 
 ~~~
-[1] 0 0 0 0
+[1] -1  0  1
 ~~~
 {: .output}
 
