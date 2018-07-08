@@ -160,7 +160,7 @@ help(rescale)
 > > ## Solution
 > > 
 > > We did not yet tell R to actually generate the `man`ual files and folders in
-> > our package. This needs to be done with `roxygen2::roxygenise()`
+> > our package. This needs to be done with `roxygen2::roxygenise()`.
 > > 
 > {: .solution}
 {: .challenge}

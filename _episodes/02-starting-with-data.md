@@ -105,7 +105,7 @@ Since we included the whole line in parentheses, the console will display the fu
 Try it out.
 
 We can think of a variable as a container with a name, such as `x`, `current_temperature`, or `subject_id` that contains one or more values.
-We can create a new variable and assign a value to it using `<-`
+We can create a new variable and assign a value to it using `<-`.
 
 Once a variable is created, we can use the variable name to refer to the value it was assigned. The variable name now acts as a tag.
 
