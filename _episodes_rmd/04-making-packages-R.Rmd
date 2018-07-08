@@ -68,7 +68,7 @@ search()
 
 This means you can now take
 advantage of the console's auto-complete just like for any other package. Type
-`cen` and/or `resc`, then `TAB` and test some examples like `center(c(1, 2, 3))` or 
+`cen` and/or `resc`, then <kdb>Tab</kdb> and test some examples like `center(c(1, 2, 3))` or 
 `rescale(c(1, 2, 3))`.
 
 ## Folder and file structure of an R package

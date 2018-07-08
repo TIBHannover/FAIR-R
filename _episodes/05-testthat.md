@@ -234,7 +234,7 @@ While `auto_test_package()` is still running, play around with the code a bit mo
 
 Some of those changes will result in errors, some will make the code more readable,
 some will make it faster or slower.
-To stop `auto_test_package()` in the console, press `Esc` or the red `STOP` button.
+To stop `auto_test_package()` in the console, press <kdb>Esc</kdb> or the red `STOP` button.
 With automatic testing we can more quickly reach a sensible balance between investing
 our time and energy into testing code improvement, while recovering from mistakes.
 

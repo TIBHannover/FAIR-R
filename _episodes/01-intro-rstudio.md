@@ -49,14 +49,14 @@ console windows.
 
 If R is ready to accept commands, the R console shows a `>` prompt. If it
 receives a command (by typing, copy-pasting or sent from the script editor using
-<kbd>CTRL</kbd>+<kbd>Return</kbd>), R will try to execute it, and when ready, show the results and
+<kbd>Ctrl</kbd>+<kbd>Return</kbd>), R will try to execute it, and when ready, show the results and
 come back with a new `>`-prompt to wait for new commands.
 
 If R is still waiting for you to enter more data because it isn't complete yet,
 the console will show a `+` prompt. It means that you haven't finished entering
 a complete command. This is because you have not 'closed' a parenthesis or
 quotation. If you're in RStudio and this happens, click inside the console
-window and press `Esc`; this should help you out of trouble.
+window and press <kdb>Esc</kdb>; this should help you out of trouble.
 
 ### Commenting
 
