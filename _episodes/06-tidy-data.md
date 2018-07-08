@@ -29,7 +29,7 @@ we need to tidy it up for further publication alongside the package we have been
 constructing.
 
 First, run `library(usethis)` and `use_data_raw()` and note the `Next:` instructions
-in the console. In particular, copy the `inflammation-*.csv` files to `data-raw`
+in the console. In particular, copy the `inflammation.csv` file to `data-raw`
 and start a `tidy-inflammation.R` file there to which you add the necessary lines
 of the following code examples. Think about which of them are purely for interactive
 checks of the tidying process! Don't save those to the "data creation script".
