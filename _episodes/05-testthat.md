@@ -212,15 +212,7 @@ before working on the code. Why?
 > trigger `auto_test_package()`.
 > 
 > > ## Solution
-> > ~~~
-> > rescale <- function(v, lower = 0, upper = 1) {
-> >   L <- min(v)
-> >   H <- max(v)
-> >   result <- (v - L) / (H - L) * (upper - lower) + lower
-> >   return(result)
-> > }
-> > ~~~
-> > {: .r}
+> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/](#a-function-with-default-argument-values)
 > {: .solution}
 {: .challenge}
 
