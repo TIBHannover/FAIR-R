@@ -137,11 +137,8 @@ same as the those for function documentation.
 > > "inflammation"
 > > ~~~
 > > Note that this is exactly the ["LaTeX-like" syntax mentioned in the "Writing Documentation" section](https://tibhannover.github.io/FAIR-R/03-func-R/#technical-details-of-rs-help-page-format).
-> > If we wanted to rather write the docu in the [simpler Markdown format][MD],
-> > we could do so after running `usethis::use_roxygen_md()`. However, not every
-> > `\command` has a Markdown equivalent. In a learning-by-doing approach, try
-> > to convert one `\command` after the other, running `roxygen2::roxygenise()`
-> > each time and checking the Git diff results.
+> > We could reduce some of those `\commands` to the [simpler Markdown format][MD]
+> > with `usethis::use_roxygen_md()`.
 > {: .solution}
 {: .challenge}
 
@@ -154,6 +151,7 @@ the documentation file, what is left to do in our little personal package?
 >
 > > ## Solutions
 > > 
+> > 1. Run `roxygen2::roxygenise()`.
 > > 1. Run RStudio's `Build > Check`. Do any errors remain?
 > > 1. After `Build > Install and Restart`, start writing your paper as a vignette.
 > > 1. Commit the accumulated changes. Which commits would you suggest?
