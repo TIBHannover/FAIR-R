@@ -1,5 +1,5 @@
 ---
-title: "Making Packages in R"
+title: "Making Packages In R"
 teaching: 30
 exercises: 20
 questions:

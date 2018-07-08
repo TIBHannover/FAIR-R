@@ -1,5 +1,5 @@
 ---
-title: "Tidying & packaging datasets"
+title: "Tidying & Packaging Datasets"
 teaching: 30
 exercises: 10
 questions:
