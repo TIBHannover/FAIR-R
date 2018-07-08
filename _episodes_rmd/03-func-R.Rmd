@@ -206,7 +206,7 @@ This will make it simple to see if our function is working as expected:
 center(z, 3)
 ```
 
-That looks right, so let's try centering our real data. We'll center the inflammation data from day 4 around 0:
+That looks right, so let's try centering our inflammation data from day 4 around 0:
 
 ```{r}
 dat <- read.csv(file = "inflammation.csv", header = FALSE)

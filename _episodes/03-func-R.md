@@ -302,7 +302,7 @@ center(z, 3)
 ~~~
 {: .output}
 
-That looks right, so let's try centering our real data. We'll center the inflammation data from day 4 around 0:
+That looks right, so let's try centering our inflammation data from day 4 around 0:
 
 
 ~~~
