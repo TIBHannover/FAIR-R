@@ -17,7 +17,7 @@ objectives:
 - "Display simple graphs."
 keypoints:
 - "Objects are created on demand whenever a value is assigned to them."
-- "Use `apply` to calculate statistics across the rows or columns of a data frame."
+- "`apply`ing the mean calculation across rows or columns has shortcuts, but other statistics may need `?apply` or `?purrr`."
 - "Use `plot` to create simple visualizations."
 source: Rmd
 ---
@@ -105,7 +105,7 @@ Since we included the whole line in parentheses, the console will display the fu
 Try it out.
 
 We can think of a variable as a container with a name, such as `x`, `current_temperature`, or `subject_id` that contains one or more values.
-We can create a new variable and assign a value to it using `<-`
+We can create a new variable and assign a value to it using `<-`.
 
 Once a variable is created, we can use the variable name to refer to the value it was assigned. The variable name now acts as a tag.
 
@@ -190,7 +190,7 @@ avg_patient_inflammation <- rowMeans(dat)
 ~~~
 {: .language-r}
 
-And to obtain the average inflammation of each day we will need to calculate the mean of all of the columns (`MARGIN = 2`) of the data frame.
+And to obtain the average inflammation of each day we will need to calculate the mean of all of the columns of the data frame.
 
 
 ~~~

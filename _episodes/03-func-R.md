@@ -35,7 +35,7 @@ If we only had one data set to analyze, it would probably be faster to load the 
 But we have twelve files to check, and may have more in the future.
 In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.
 
-### Defining a Function
+### Defining functions
 
 Let's start by defining a function `fahrenheit_to_kelvin` that converts temperatures from Fahrenheit to Kelvin:
 
@@ -98,7 +98,7 @@ fahrenheit_to_kelvin(212)
 
 We've successfully called the function that we defined, and we have access to the value that we returned.
 
-### Composing Functions
+### Composing functions
 
 Now that we've seen how to turn Fahrenheit into Kelvin, it's easy to turn Kelvin into Celsius:
 
@@ -256,7 +256,7 @@ Real-life functions will usually be larger than the ones shown here--typically h
 > 2.  If `mySum(3)` returns 13, why does `mySum(input_2 = 3)` return an error?
 {: .challenge}
 
-### Interactive Testing
+### Testing functions interactively
 
 Once we start putting things in functions so that we can re-use them, we need to start testing that those functions are working correctly.
 To see how to do this, let's write a function to center a dataset around a particular value.
@@ -277,15 +277,14 @@ This will make it simple to see if our function is working as expected:
 
 
 ~~~
-z <- c(0, 0, 0, 0)
-z
+(z <- c(1, 2, 3))
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] 0 0 0 0
+[1] 1 2 3
 ~~~
 {: .output}
 
@@ -299,11 +298,11 @@ center(z, 3)
 
 
 ~~~
-[1] 3 3 3 3
+[1] 2 3 4
 ~~~
 {: .output}
 
-That looks right, so let's try centering our real data. We'll center the inflammation data from day 4 around 0:
+That looks right, so let's try centering our inflammation data from day 4 around 0:
 
 
 ~~~
@@ -388,7 +387,7 @@ all.equal(sd(dat[, 4]), sd(centered))
 It's still possible that our function is wrong, but it seems unlikely enough that we should probably get back to doing our analysis.
 We have one more task first, though: we should write some [documentation]({{ page.root }}/reference#documentation) for our function to remind ourselves later what it's for and how to use it.
 
-### Writing Documentation
+### Documenting functions
 
 A common way to put documentation in software is to add "informal" comments like this:
 
@@ -537,7 +536,7 @@ You can safely ignore it for now, or delete it.
 
 
 
-### Defining Defaults
+### Defining defaults
 
 We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "inflammation.csv", header = FALSE)`.
 In fact, we can pass the arguments to `read.csv` without naming them:
@@ -591,7 +590,7 @@ If we call the function with two arguments, it works as it did before:
 
 
 ~~~
-test_data <- c(0, 0, 0, 0)
+test_data <- c(1, 2, 3)
 center2(test_data, 3)
 ~~~
 {: .language-r}
@@ -599,7 +598,7 @@ center2(test_data, 3)
 
 
 ~~~
-[1] 3 3 3 3
+[1] 2 3 4
 ~~~
 {: .output}
 
@@ -607,15 +606,14 @@ But we can also now call `center()` with just one argument, in which case `desir
 
 
 ~~~
-more_data <- 5 + test_data
-more_data
+(more_data <- 5 + test_data)
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] 5 5 5 5
+[1] 6 7 8
 ~~~
 {: .output}
 
@@ -629,7 +627,7 @@ center2(more_data)
 
 
 ~~~
-[1] 0 0 0 0
+[1] -1  0  1
 ~~~
 {: .output}
 
