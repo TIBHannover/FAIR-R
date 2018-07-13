@@ -1,6 +1,6 @@
 ---
 title: "Unit-Testing And Test-driven Development"
-teaching: 30
+teaching: 45
 exercises: 15
 questions:
 - "What is the benefit of unit-testing my code?"

@@ -1,6 +1,6 @@
 ---
 title: "Creating Functions"
-teaching: 30
+teaching: 60
 exercises: 30
 questions:
 - "How do I make a function?"
