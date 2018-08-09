@@ -543,7 +543,7 @@ arguments purely by position is very convenient, because you have to typo less,
 it's usually better to write the argument name. Most code is more often read,
 than edited, so the reader (maybe your future self) may loose more time 
 understanding the code (e.g. by having to look up non-obvious details) than you
-saved by typing less. Also, good IDE (integrated development environment) will
+saved by typing less. Also, a good IDE (integrated development environment) will
 reduce your typing with auto-completion. Thus, it is generally better to only omit
-very argument names like `data`, `filename`, etc. because their meaning is obvious
-from their value and/or context (`file = "path/to/file.xyz"`).
+an argument name if its value clarifies it. For example, `read.csv("path/to/file.xyz")`
+is comprehensible even without `file = ` in front of it.
