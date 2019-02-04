@@ -277,7 +277,7 @@ this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/
 > Help pages are rendered not directly from the roxygen comments, but from 
 > `.Rd` files that use a markup language similar to [LaTeX]. 
 > [roxygen2] generates those `.Rd` files from the formal function documentation
-> comments. Therefore, R coders not have to write these LaTeX-like files separately,
+> comments. Therefore, R coders don't have to write these LaTeX-like files separately,
 > but instead document their functions alongside the code.
 {: .callout}
 
