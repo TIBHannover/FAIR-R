@@ -4,7 +4,10 @@ title: Setup
 permalink: /setup/
 ---
 
-This lesson assumes you have the [R software](https://cran.r-project.org/mirrors.html) and the [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) installed on your computer.
+This lesson assumes you have the following installed on your computer:
+
+1. the [R software](https://cloud.r-project.org/) itself, and
+1. [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/.
 
 You also need to download a dataset to follow this lesson:
 
