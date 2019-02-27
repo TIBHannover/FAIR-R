@@ -7,7 +7,7 @@ permalink: /setup/
 This lesson assumes you have the following installed on your computer:
 
 1. the [R software](https://cloud.r-project.org/) itself, and
-1. [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/.
+1. [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/).
 
 You also need to download a dataset to follow this lesson:
 
