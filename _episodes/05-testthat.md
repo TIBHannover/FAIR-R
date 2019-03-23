@@ -212,7 +212,11 @@ before working on the code. Why?
 > trigger `auto_test_package()`.
 > 
 > > ## Solution
+<<<<<<< HEAD
 > > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/](#a-function-with-default-argument-values)
+=======
+> > See the ["Defining Defaults" section in the functions episode]( {{ site.root }} /03-func-R/#a-function-with-default-argument-values).
+>>>>>>> fabb0dd... Rephrase to clarify
 > {: .solution}
 {: .challenge}
 

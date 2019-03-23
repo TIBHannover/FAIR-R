@@ -494,7 +494,7 @@ successfully apply a function and integrate it into larger analysis pipelines.
 If you are using RStudio, a nice shortcut is
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd>. Place the 
 cursor inside the function name or body, press that shortcut, 
-a roxygen comment skeleton will be inserted. Note that we are not using 
+and a roxygen comment skeleton will be inserted. Note that we are not using 
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
 You can safely ignore it for now, or delete it.
 
@@ -602,7 +602,7 @@ center2(test_data, 3)
 ~~~
 {: .output}
 
-But we can also now call `center()` with just one argument, in which case `desired` is automatically assigned the default value of `0`:
+But we can also now call `center()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
 
 
 ~~~
@@ -635,7 +635,7 @@ This is handy: if we usually want a function to work one way, but occasionally n
 
 > ## Matching Arguments
 >
-> To be precise, R has three ways that arguments are supplied
+> To be precise, R has three ways that arguments supplied
 > by you are matched to the *formal arguments* of the function definition:
 >
 > 1. by complete name,
