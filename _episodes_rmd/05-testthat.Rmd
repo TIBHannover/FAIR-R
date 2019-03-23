@@ -177,7 +177,7 @@ before working on the code. Why?
 > 
 > > ## Solution
 > > 
-> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/#defining-defaults)
+> > See the ["Defining Defaults" section in the functions episode]( {{ site.root }} /03-func-R/#defining-defaults).
 > > 
 > {: .solution}
 {: .challenge}
@@ -207,7 +207,7 @@ before working on the code. Why?
 > trigger `auto_test_package()`.
 > 
 > > ## Solution
-> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/](#a-function-with-default-argument-values)
+> > See the ["Defining Defaults" section in the functions episode]( {{ site.root }} /03-func-R/#a-function-with-default-argument-values).
 > {: .solution}
 {: .challenge}
 
