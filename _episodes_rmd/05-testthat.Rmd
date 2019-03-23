@@ -172,7 +172,7 @@ before working on the code. Why?
 >
 > Don't copy-paste the code from earlier! Try instead to rely on the safety net
 > and update the function code interactively, saving every now and then to
-> trigger `auto_test_package()`. Don't forget to update the roxygen comments with 
+> trigger `auto_test_package()`. Don't forget to update the roxygen comments 
 > and to `roxygenise()` again.
 > 
 > > ## Solution
