@@ -310,20 +310,23 @@ The descriptive tags (preceded by an `@` symbol) hold the most important details
 output. An accurate description of the in- and output data (types) helps to 
 successfully apply a function and integrate it into larger analysis pipelines.
 
-```{r challenge-more-advanced-function-analyze, eval=FALSE, include=FALSE}
-analyze <- function(filename) {
-  dat <- read.csv(file = filename, header = FALSE)
-  avg_day_inflammation <- colMeans(dat)
-  plot(avg_day_inflammation)
-}
-```
-
 > ## Functions to Create Graphs
 >
-> Write a function called `analyze` that takes a filename as an argument
-> and displays the graph produced in the [previous lesson][start-ep] (average inflammation over time).
-> `analyze("inflammation.csv")` should produce the graph already shown,
-> Be sure to document your function with roxygen comments.
+> To automate the plotting of the graphs from the
+> [previous lesson][start-ep] (average inflammation over time),
+> we have writted the following function:
+> ~~~
+> analyze <- function(filename) {
+>   # Input a character string that correspondes to a filename to 
+>   # to get the average inflammation of each day plotted.  
+>   dat <- read.csv(file = filename, header = FALSE)
+>   avg_day_inflammation <- colMeans(dat)
+>   plot(avg_day_inflammation)
+> }
+> ~~~
+> {: .r}
+> 
+> Formalise the above comments into roxygen-style function documentation.
 >
 > > ## Solution
 > > ~~~
@@ -335,11 +338,7 @@ analyze <- function(filename) {
 > > #'
 > > #' @examples 
 > > #'   analyze("inflammation.csv")
-> > analyze <- function(filename) {
-> >   dat <- read.csv(file = filename, header = FALSE)
-> >   avg_day_inflammation <- colMeans(dat)
-> >   plot(avg_day_inflammation)
-> > }
+> > analyze <- function(filename) { … }
 > > ~~~
 > > {: .r}
 > {: .solution}
