@@ -457,7 +457,7 @@ test_data <- c(1, 2, 3)
 center2(test_data, 3)
 ```
 
-But we can also now call `center()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
+But we can also now call `center2()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
 
 ```{r}
 (more_data <- 5 + test_data)
