@@ -16,23 +16,20 @@ objectives:
 - "Explain why we should divide programs into small, single-purpose functions."
 - "Write documentation comments that can be automatically compiled to R's native help and documentation format."
 keypoints:
-- "Define a function using `name <- function(...args...) {...body...}`."
-- "Call a function using `name(...values...)`."
-- "R looks for variables in the current stack frame before looking for them at the top level."
-- "Use `help(thing)` to view help for something."
-- "Use `#` to add comments to programs."
-- "Put formal roxygen2 comments at the beginning of functions to provide help for that function."
-- "Annotate your code!"
+- "Define a function using `name <- function(...arguments...) {...body...}`."
 - "Specify default values for arguments when defining a function using `name = value` in the argument list."
-- "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+- "Call a function using `name(arg1 = value, ...)`."
+- "R looks for variables in the current stack frame before looking for them at the top level."
 - "Make code more readable by passing arguments preferably by name."
+- "Arguments can be passed by matching based on name, by position, or by omitting them (in which case the default value is used)."
+- "Use `?name` or `??name` to find the help page of a function."
+- "Write formal roxygen2 comments for your functions and generate help pages from those."
 source: Rmd
 ---
 
 
 
-If we only had one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics.
-But we have twelve files to check, and may have more in the future.
+If we only have one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics.
 In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.
 
 ### Defining functions
@@ -49,8 +46,8 @@ fahrenheit_to_kelvin <- function(temp_F) {
 {: .language-r}
 
 We define `fahrenheit_to_kelvin` by assigning it to the output of `function`.
-The list of argument names are contained within parentheses.
-Next, the [body]({{ page.root }}/reference/#function-body) of the function--the statements that are executed when it runs--is contained within curly braces (`{}`).
+The arguments are listed within parentheses. In this case, it's only one.
+Next, the [body]({{ page.root }}/reference/#function-body) of the function (i.e. the statements that are executed when it runs) is surrounded by `{` curly braces `}`.
 The statements in the body are indented by two spaces, which makes the code easier to read but does not affect how the code operates.
 
 When we call the function, the values we pass to it are assigned to those variables so that we can use them inside the function.
@@ -59,7 +56,7 @@ Inside the function, we use a [return statement]({{ page.root }}/reference/#retu
 > ## Automatic Returns
 >
 > In R, it is not necessary to include the return statement.
-> R automatically returns whichever variable is on the last line of the body
+> R automatically returns the return value of last line of the body
 > of the function. While in the learning phase, we will explicitly define the
 > return statement.
 {: .callout}
@@ -123,7 +120,8 @@ kelvin_to_celsius(0)
 
 What about converting Fahrenheit to Celsius?
 We could write out the formula, but we don't need to.
-Instead, we can [compose]({{ page.root }}/reference/#function-composition) the two functions we have already created:
+Instead, we can [compose]({{ page.root }}/reference/#function-composition)
+a third function from our two previous ones:
 
 
 ~~~
@@ -147,11 +145,12 @@ fahrenheit_to_celsius(32.0)
 
 This is our first taste of how larger programs are built: we define basic
 operations, then combine them in ever-larger chunks to get the effect we want.
-Real-life functions will usually be larger than the ones shown here--typically half a dozen to a few dozen lines--but they shouldn't ever be much longer than that, or the next person who reads it won't be able to understand what's going on.
+Real-life functions will usually be larger than the ones shown here: typically half a dozen to a few dozen lines.
+However, they shouldn't ever be much longer than that, or the next person who reads them won't be able to understand what's going on.
 
 > ## Nesting Functions
 >
-> This example showed the output of `fahrenheit_to_kelvin` assigned to `temp_K`, which
+> The previous example showed the output of `fahrenheit_to_kelvin` assigned to `temp_K`, which
 > is then passed to `kelvin_to_celsius` to get the final result. It is also possible
 > to perform this calculation in one line of code, by "nesting" one function
 > inside another, like so:
@@ -426,7 +425,7 @@ this conversion in the [packaging episode]({{ page.root }}/04-making-packages-R/
 > Help pages are rendered not directly from the roxygen comments, but from 
 > `.Rd` files that use a markup language similar to [LaTeX]. 
 > [roxygen2] generates those `.Rd` files from the formal function documentation
-> comments. Therefore, R coders not have to write these LaTeX-like files separately,
+> comments. Therefore, R coders don't have to write these LaTeX-like files separately,
 > but instead document their functions alongside the code.
 {: .callout}
 
@@ -457,10 +456,10 @@ center <- function(data, desired) {
 
 Unsurprisingly, the first line should be a short, descriptive title. Additional 
 text paragraphs are possible after leaving one line blank with only a `#'`.
-The descriptive tags (preceded by an `@` symbol) hold the most important details. 
-`@param` documents a function's input parameters, while `@return` explains its 
-output. An accurate description of the in- and output data (types) helps to 
-successfully apply a function and integrate it into larger analysis pipelines.
+The descriptive tags (preceded by an `@`) hold the most important details. 
+Each `@param` documents an input parameter, while `@return` explains the function's 
+output. The more comprehensible a description of its in- and output data (types), the 
+easier a function can be integrated into larger analysis pipelines.
 
 
 
@@ -735,11 +734,11 @@ max(answer)
 {: .output}
 
 Compare both `rescale2` calls: Which is more understandable? Although passing
-arguments purely by position is very convenient, because you have to typo less,
+arguments purely by position is very convenient, because you have to type less,
 it's usually better to write the argument name. Most code is more often read,
 than edited, so the reader (maybe your future self) may loose more time 
 understanding the code (e.g. by having to look up non-obvious details) than you
-saved by typing less. Also, good IDE (integrated development environment) will
+saved by typing less. Also, a good IDE (integrated development environment) will
 reduce your typing with auto-completion. Thus, it is generally better to only omit
-very argument names like `data`, `filename`, etc. because their meaning is obvious
-from their value and/or context (`file = "path/to/file.xyz"`).
+an argument name if its value clarifies it. For example, `read.csv("path/to/file.xyz")`
+is comprehensible even without `...(file = "...` in the middle.

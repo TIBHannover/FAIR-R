@@ -177,12 +177,12 @@ before working on the code. Why?
 >
 > Don't copy-paste the code from earlier! Try instead to rely on the safety net
 > and update the function code interactively, saving every now and then to
-> trigger `auto_test_package()`. Don't forget to update the roxygen comments with 
+> trigger `auto_test_package()`. Don't forget to update the roxygen comments 
 > and to `roxygenise()` again.
 > 
 > > ## Solution
 > > 
-> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/#defining-defaults)
+> > See the ["Defining Defaults" section in the functions episode]( {{ site.root }} /03-func-R/#defining-defaults).
 > > 
 > {: .solution}
 {: .challenge}
@@ -212,11 +212,7 @@ before working on the code. Why?
 > trigger `auto_test_package()`.
 > 
 > > ## Solution
-<<<<<<< HEAD
-> > See the ["Defining Defaults" section in the functions episode]( {{ page.root }} /03-func-R/](#a-function-with-default-argument-values)
-=======
 > > See the ["Defining Defaults" section in the functions episode]( {{ site.root }} /03-func-R/#a-function-with-default-argument-values).
->>>>>>> fabb0dd... Rephrase to clarify
 > {: .solution}
 {: .challenge}
 
