@@ -109,9 +109,13 @@ met, i.e. one or more unit tests fail.
 >
 > > ## Hint
 > > 
-> > Examples are a good starting point, but not every test case will be a useful
-> > example, and vice versa. The examples help users to figure out how to apply
-> > your functions. The test cases help the package developer(s) improve the code.
+> > The examples should be instructive in order to help users to figure out how
+> > to apply your functions. The tests should be fast in order to not break the
+> > flow when programming, but there should also be enough tests to cover
+> > edge-cases, errors, etc. Also note that [examples are run during `R CMD check`](https://klutometis.github.io/roxygen/articles/rd.html#functions)
+> > and thus automatically tested as well. Therefore, duplicating them is not
+> > necessary, but acceptable if it is both an instructive example and a fast
+> > test case.
 > > 
 > {: .solution}
 {: .challenge}
