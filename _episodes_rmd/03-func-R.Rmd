@@ -314,7 +314,7 @@ successfully apply a function and integrate it into larger analysis pipelines.
 >
 > To automate the plotting of the graphs from the
 > [previous lesson][start-ep] (average inflammation over time),
-> we have writted the following function:
+> we wrote the following function:
 > ~~~
 > analyze <- function(filename) {
 >   # Input a character string that correspondes to a filename to 
