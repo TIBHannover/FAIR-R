@@ -1,14 +1,13 @@
 ---
-title: "Unit-Testing And Test-driven Development"
-teaching: 45
-exercises: 15
+title: "Packaging Tests and Test-Driven Development"
+teaching: 30
+exercises: 10
 questions:
-- "What is the benefit of unit-testing my code?"
-- "How do I create and run unit tests?"
-- "Why would I change my code after I got it to run?"
+- "How are test-cases organised in an R package?"
+- "Which tools help me organise my tests"
 objectives:
-- "Formalise documented examples as tests."
-- "Use testthat functions to create and run tests."
+- "Let the usethis package create test files and folder structures"
+- "Use RStudio or testthat shortcuts to run all tests at once"
 keypoints:
 - "Changing code is not always necessary, but often useful."
 - "Tests provide a safety net for changing code."
@@ -18,9 +17,8 @@ source: Rmd
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("05-testthat-R-")
+knitr_fig_path("06-pkg-tests-TDD-")
 ```
-
 
 Because moving the test cases into their own files in a certain way
 requires an expansion of the folder and file
@@ -52,7 +50,6 @@ in the console. Notice the hopefully all green and `OK` `Results`.
 
 To conclude this section about packaging tests, let's again commit our results,
 for example as "Span safety net for TDD".
-
 
 ### Test-driven development (TDD)
 

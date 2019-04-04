@@ -19,7 +19,7 @@ source: Rmd
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("06-tidy-data-R-")
+knitr_fig_path("07-tidy-data-R-")
 ```
 
 ## Tidying our inflammation datasets

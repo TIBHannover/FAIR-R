@@ -22,7 +22,7 @@ source: Rmd
 
 ```{r, include = FALSE}
 source("../bin/chunk-options.R")
-knitr_fig_path("04-making-packages-R-")
+knitr_fig_path("05-making-packages-R-")
 ```
 
 Why should you make your own R packages?
