@@ -542,3 +542,8 @@ saved by typing less. Also, a good IDE (integrated development environment) will
 reduce your typing with auto-completion. Thus, it is generally better to only omit
 an argument name if its value clarifies it. For example, `read.csv("path/to/file.xyz")`
 is comprehensible even without `...(file = "...` in the middle.
+
+> For the next episodes, we'll initially ignore both `2`-versions of our
+> functions. Keep them in separate files, close those and concentrate on going
+> back to the roots: `center()` and `rescale()`.
+{: .callout}
