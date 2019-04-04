@@ -35,6 +35,7 @@
 [styles]: https://github.com/swcarpentry/styles/
 [swc-releases]: https://github.com/swcarpentry/swc-releases
 [testthat]: https://testthat.r-lib.org/
+[tt-atp]: https://testthat.r-lib.org/reference/auto_test_package.html
 [usethis]: https://usethis.r-lib.org/
 [workshop-repo]: {{ site.workshop_repo }}
 [yaml]: http://yaml.org/

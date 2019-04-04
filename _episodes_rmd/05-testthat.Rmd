@@ -58,7 +58,7 @@ back then, weren't we? Of course, there are ways to automate the testing of code
 changes, which gives you quick feedback whether your changes worked, or broke
 anything.
 
-To do that, we use `testthat`'s `auto_test_package()`
+To do that, we use [`testthat`'s `auto_test_package()`][tt-atp]
 in the console, or in RStudio's `Build` pane the `More > Test Package` menu option, 
 and notice the hopefully all green and `OK` `Results`.
 
