@@ -159,3 +159,38 @@ the documentation file, what is left to do in our little personal package?
 > {: .solution}
 {: .challenge}
 
+## Checking CSVs for structural validity
+
+This was an average case of cleaning a dataset. On the one hand, we had to label
+columns (`r names(dat_long)`). On the other hand, the data itself was easily
+tidied. You have probably encountered many other `.csv` files which were messy
+in their own ways. Two useful tools to find structural problems in CSVs are
+[CSVLint.io][csvl] and [try.goodtables.io][gt].
+
+> ## Challenge: Search for structural problems in both the initial `inflammation.csv` and in your tidied version
+>
+> How many errors or warnings does that produce? Then,
+> `write.csv(dat_long, "inflammation-tidy.csv")`
+> and check that version. A few warnings may be left. If yes, which one(s)?
+> How would you approach eliminating those?
+> 
+> > ## Solutions
+> > 
+> > 1. [CSVLint.io][csvl] should report "Structural problem: Possible title row detected"
+> >   and [try.goodtables.io][gt] should report "1x Blank Header".
+> > 1. View `inflammation-tidy.csv` in RStudio, or a text editor and read `?write.csv`.
+> > 1. An empty `"",` in the beginning of the first row indicates that we need to
+> >   set `row.names = FALSE`. Row names are a bit weird, because they will often
+> >   be numbers, but not necessarily will the number you see with `tail(...)`
+> >   be equal to the number of rows. Always use `nrow(...)` to count those. We
+> >   recommend to move actually useful information about a row / observation into
+> >   its own column.
+> > 1. Depending on your operating system, you could set `eol = "\r\n"` to meet
+> >   the most common CSV format specification ([RFC 4180]).
+> > 
+> {: .solution}
+{: .challenge}
+
+[csvl]: https://csvlint.io/
+[gt]: https://try.goodtables.io/
+[RFC 4180]: https://tools.ietf.org/html/rfc4180
