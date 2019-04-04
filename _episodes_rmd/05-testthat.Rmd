@@ -85,8 +85,7 @@ test_that("centering works", {
 
 Don't worry that there is no output when you execute either one or both of the
 `expect_equal()` statements, or  the whole `test_that()` block. In good UNIX
-tradition, `testthat` does not bother you with confirming that things are working
-as expected. But there will be plenty of output when some expectations are not
+tradition, `testthat` will only bother you in case some expectations are _not_
 met, i.e. one or more unit tests fail.
 
 > ## Testing our rescaling functions
