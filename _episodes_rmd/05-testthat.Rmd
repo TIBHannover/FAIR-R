@@ -42,27 +42,27 @@ A new file should be created and the console should show:
 {: .source}
 
 The file is pre-filled with a little example. Remove it, then cut our test case
-out of `center.R` and paste it here.
+out of `center.R` and paste it here. Repeat this with the test in `rescale.R`.
+You could now execute the tests interactively, but of course, switching between
+files and manually executing the test code is not necessary.
 
+To automatically run all our packaged tests, we can use RStudio's `Build` pane the
+`More > Test Package` menu option, or [`testthat`'s `auto_test_package()`][tt-atp]
+in the console. Notice the hopefully all green and `OK` `Results`.
 
-To conclude this section about creating unit tests, let's again commit our results,
+To conclude this section about packaging tests, let's again commit our results,
 for example as "Span safety net for TDD".
 
 
 ### Test-driven development (TDD)
 
 Remember that we updated `rescale()` with lower and upper bounds and default
-values at the end of [the functions episode][ep-func]? We had to manually test that change with a
-new example back then. We were repeating ourselves a bit more often than necessary
-back then, weren't we? Of course, there are ways to automate the testing of code
-changes, which gives you quick feedback whether your changes worked, or broke
-anything.
+values at the end of [the functions episode][ep-func]? We either had to manually
+test that change with a new example, or create another test case.
+We were repeating ourselves a bit more often than necessary
+back then, weren't we? 
 
-To do that, we use [`testthat`'s `auto_test_package()`][tt-atp]
-in the console, or in RStudio's `Build` pane the `More > Test Package` menu option, 
-and notice the hopefully all green and `OK` `Results`.
-
-With this safety net enabled, we will first update `test-center.R`, and then
+With the "safety net"" enabled, we will first update `test-center.R`, and then
 update the code in `center.R` with the `desired = 0` default argument. This strategy of (re)writing (new)
 tests before (re)writing the code-to-be-tested is called
 "[test-driven design/development][TDD]". It is intended to reduce confirmation
