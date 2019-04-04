@@ -95,7 +95,13 @@ Suggestion: organize in a logical manner so that you know which file holds which
 ### `DESCRIPTION` file
 
 We used RStudio's import process to include the `.R` files we already had. However, FAIRer
-(because richer in metadata) `DESCRIPTION` files can be generated with `usethis::use_description()`:
+(because richer in metadata) `DESCRIPTION` files can be generated with a
+[helper package called `usethis`][usethis]. Again, install it with RStudio or
+the console, then load it and execute
+
+```{r use_desc, eval=FALSE}
+use_description()
+```
 
 ~~~
 Package: PackageName
@@ -237,4 +243,3 @@ your personal package. A good resource to find more guidance on packaging R code
 is [ROpenSci's onboarding guide][ROSPG].
 
 [ROSPG]: https://onboarding.ropensci.org/packaging_guide.html
-[ep-func]: {{ page.root }}/03-func-R/
