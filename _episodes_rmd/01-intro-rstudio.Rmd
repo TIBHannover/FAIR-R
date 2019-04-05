@@ -64,13 +64,13 @@ window and press <kdb>Esc</kdb>; this should help you out of trouble.
 Use `#` symbols to start a comment. Anything to the
 right of a `#` is ignored by R. However, keep in mind that code should be
 [like a joke: good without explanation](https://twitter.com/search?q=code%20joke%20explain%20good).
-This means that:
+This means that adding comments should be of lower priority than:
 
 - naming functions, arguments and variables in a self-explanatory
-manner, as well as
-- cleaning up or rewriting hard-to-understand code,
-
-should be a priority over adding comments.
+manner,
+- cleaning up or rewriting hard-to-understand code
+- adding formal documentation for your functions
+- adding automated tests for your code
 
 ### Assignment Operator
 
