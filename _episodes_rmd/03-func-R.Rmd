@@ -356,15 +356,6 @@ and a roxygen comment skeleton will be inserted. Note that we are not using
 You can safely ignore it for now, or delete it.
 
 ```{r challenge-more-advanced-function-rescale, include=FALSE}
-#' Rescaling vectors to lie in the range 0 to 1
-#'
-#' @param v A numeric vector
-#'
-#' @return The rescaled numeric vector
-#'
-#' @examples
-#'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
-#'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
 rescale <- function(v) {
   L <- min(v)
   H <- max(v)
@@ -393,7 +384,6 @@ rescale <- function(v) {
 > > #' @examples
 > > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
-> > 
 > > rescale <- function(v) {
 > >   L <- min(v)
 > >   H <- max(v)
@@ -407,14 +397,6 @@ rescale <- function(v) {
 
 [start-ep]: {{ page.root }}/02-starting-with-data/
 
-```{r rescale-test1, include=FALSE}
-answer <- rescale(dat[, 4])
-min(answer)
-max(answer)
-plot(answer)
-plot(dat[, 4], answer)  # This hasn't been introduced yet, but it may be
-                        # useful to show when explaining the answer.
-```
 
 ### Defining defaults
 
@@ -531,13 +513,9 @@ rescale2 <- function(v, lower = 0, upper = 1) {
 }
 ```
 
-```{r rescale-test2}
-answer <- rescale2(v = dat[, 4], lower = 2, upper = 5)
-min(answer)
-max(answer)
-answer <- rescale2(dat[, 4], -5, -2)
-min(answer)
-max(answer)
+```{r rescale-test}
+rescale2(v = dat[, 4], lower = 2, upper = 5))
+rescale2(dat[, 4], -5, -2))
 ```
 
 Compare both `rescale2` calls: Which is more understandable? Although passing
