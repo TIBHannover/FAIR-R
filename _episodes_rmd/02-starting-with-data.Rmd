@@ -55,7 +55,8 @@ setwd("~/Desktop/FAIR-R/")
 Just like in the Unix Shell, we type the command and then press <kbd>Return</kbd> (or <kbd>Enter</kbd>).
 Alternatively you can change the working directory using the RStudio GUI using the menu option `Session` -> `Set Working Directory` -> `Choose Directory...`
 
-The data file is located in the directory `data` inside the working directory. Now we can load the data into R using `read.csv`:
+You probably [downloaded the data file into your working directory]({{ page.root }}/setup/).
+Thus, we can load it into R using `read.csv`:
 
 ```{r, results = "hide"}
 (dat <- read.csv(file = "inflammation.csv", header = FALSE))
