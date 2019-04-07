@@ -53,8 +53,16 @@ We do that by choosing a working directory, which is possible using
 project: `File` > `New project` > `Existing Directory` > `Browse` to the
 folder you created during the [setup]({{ page.root }}/setup/).
 
+> ## `.Rproj`-fying your other work
+> If you have already worked with R before, but not with RStudio projects,
+> repeat the above steps to upgrade a few of `Existing Directory`.
+> Note how double-clicking a resulting `.Rproj` file launches RStudio right
+> in the correct working directory.
+{: .challenge}
+
 Setting the working directory correctly is very important in R.
-If it's not, we'll get an error message saying that the file does not exist.
+If it's not, we'll often get errors that files are not where we expect them to be.
+That's why the `.Rproj` files are more useful than using `setwd()` manually.
 
 Now, we can load the [downloaded data file]({{ page.root }}/setup/) into R:
 
