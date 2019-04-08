@@ -69,7 +69,7 @@ search()
 
 This means you can now take
 advantage of the console's auto-complete just like for any other package. Type
-`cen` and/or `resc`, then <kdb>Tab</kdb> and test some examples like `center(c(1, 2, 3), 0)` or 
+`cen` and/or `resc`, then <kbd>Tab</kbd> and test some examples like `center(c(1, 2, 3), 0)` or 
 `rescale(c(1, 2, 3))`.
 
 ## Folder and file structure of an R package
@@ -131,8 +131,9 @@ The package name can only contain letters and numbers and has to start with a le
 > > ## Hint
 > > 
 > > One useful resource to find the answer to such technical details is GitHub.
-> > Search for `org:ROpenSci filename:DESCRIPTION` plus
-> > [`2018`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+2018)
+> > Search for `org:ROpenSci filename:DESCRIPTION` (this restricts your search)
+> > to a community of practice and its R packages) plus
+> > [`2019`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+2019)
 > > or [`orcid`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+orcid)
 > > for example.
 > {: .solution}
@@ -179,7 +180,7 @@ After `Install and Restart`-ing again, looking up the documentation should work.
 What exactly does `roxygen2` do? It reads lines that begin with `#'` as the function documentation for your package.
 Descriptive tags are preceded with the `@` symbol. For example, `@param` has information about the input parameters for the function.
 
-### Exporting "user-level" function
+### Exporting "user-level" functions
 
 We haven't talked about the `NAMESPACE` file yet! It belongs to the package skeleton,
 and was set up by RStudio with an `exportPattern`. Any file name in `R/` that
@@ -197,7 +198,7 @@ Learn more about this from the ["R packages" book][r-pkgs-name].
 
 ### Finishing up
 
-Please take a look at RStudio's `Files` panes now. The `/man` directory should
+Please take a look at RStudio's `Files` panes now. The `man` directory should
 now contain one LaTeX-like formatted `.Rd` file for each function.
 
 In case you learned about Git already, also view the `.Rd` files in RStudio's

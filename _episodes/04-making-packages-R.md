@@ -126,8 +126,9 @@ The package name can only contain letters and numbers and has to start with a le
 > > ## Hint
 > > 
 > > One useful resource to find the answer to such technical details is GitHub.
-> > Search for `org:ROpenSci filename:DESCRIPTION` plus
-> > [`2018`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+2018)
+> > Search for `org:ROpenSci filename:DESCRIPTION` (this restricts your search)
+> > to a community of practice and its R packages) plus
+> > [`2019`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+2019)
 > > or [`orcid`](https://github.com/search?q=org%3AROpenSci+filename%3ADESCRIPTION+orcid)
 > > for example.
 > {: .solution}

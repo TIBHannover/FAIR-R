@@ -66,6 +66,7 @@ exclude:
   - bin
   - .Rproj.user
   - .Rproj.user/
+  - FAIR-R.Rproj
 
 # Turn off built-in syntax highlighting.
 highlighter: false

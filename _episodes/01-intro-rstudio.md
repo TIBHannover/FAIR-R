@@ -23,7 +23,7 @@ Let's start by learning about our tool.
 * Code and workflow are more reproducible if we can document everything that we do.
 * Our end goal is not just to "do stuff" but to do it in a way that anyone can
   easily and exactly replicate our workflow and results.
-* The best way to achieve this is to write scripts. RStudio provides an
+* The best way to achieve this is to save your coding as files. RStudio provides an
   environment that allows you to do that.
 
 ### Interacting with R
@@ -65,7 +65,7 @@ right of a `#` is ignored by R.
 
 ### Assignment Operator
 
-`<-` is the assignment operator. It assigns values on the right to objects on
+`<-` assigns values on the right to objects on
 the left. So, after executing `x <- 3`, the value of `x` is `3`. The arrow can
 be read as 3 **goes into** `x`.  You can also use `=` for assignments but not in
 all contexts so it is good practice to use `<-` for assignments. `=` should only

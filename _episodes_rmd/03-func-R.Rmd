@@ -308,7 +308,7 @@ center <- function(data, desired) {
 
 Unsurprisingly, the first line should be a short, descriptive title. Additional 
 text paragraphs are possible after leaving one line blank with only a `#'`.
-The descriptive tags (preceded by an `@` symbol) hold the most important details. 
+The descriptive tags (preceded by an `@`) hold the most important details. 
 Each `@param` documents an input parameter, while `@return` explains the function's 
 output. The more comprehensible a description of its in- and output data (types), the 
 easier a function can be integrated into larger analysis pipelines.
@@ -442,7 +442,7 @@ test_data <- c(1, 2, 3)
 center2(test_data, 3)
 ```
 
-But we can also now call `center()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
+But we can also now call `center2()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
 
 ```{r}
 (more_data <- 5 + test_data)
@@ -526,4 +526,4 @@ understanding the code (e.g. by having to look up non-obvious details) than you
 saved by typing less. Also, a good IDE (integrated development environment) will
 reduce your typing with auto-completion. Thus, it is generally better to only omit
 an argument name if its value clarifies it. For example, `read.csv("path/to/file.xyz")`
-is comprehensible even without `file = ` in front of it.
+is comprehensible even without `...(file = "...` in the middle.
