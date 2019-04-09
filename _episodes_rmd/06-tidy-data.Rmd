@@ -198,6 +198,11 @@ in their own ways. Two useful tools to find structural problems in CSVs are
 > {: .solution}
 {: .challenge}
 
+## [Reusing and citing public datasets](https://tibhannover.github.io/2018-07-09-FAIR-Data-and-Software/FAIR-remix-PANGAEA/)
+
+This is a bonus episode that shows how FAIR datasets, together with the right mindset
+of finding and reusing existing R code can help you in scientific data analyses.
+
 [csvl]: https://csvlint.io/
 [gt]: https://try.goodtables.io/
 [RFC 4180]: https://tools.ietf.org/html/rfc4180
