@@ -70,7 +70,7 @@ search()
 
 This means you can now take
 advantage of the console's auto-complete just like for any other package. Type
-`cen` and/or `resc`, then <kdb>Tab</kdb> and test some examples like `center(c(1, 2, 3))` or 
+`cen` and/or `resc`, press <kbd>Tab</kbd> and test some examples like `center(c(1, 2, 3))` or 
 `rescale(c(1, 2, 3))`.
 
 ## Folder and file structure of an R package
@@ -178,7 +178,7 @@ After `Install and Restart`-ing again, looking up the documentation should work.
 What exactly does `roxygen2` do? It reads lines that begin with `#'` as the function documentation for your package.
 Descriptive tags are preceded with the `@` symbol. For example, `@param` has information about the input parameters for the function.
 
-### Exporting "user-level" function
+### Exporting "user-level" functions
 
 We haven't talked about the `NAMESPACE` file yet! It belongs to the package skeleton,
 and was set up by RStudio with an `exportPattern`. Any file name in `R/` that
@@ -196,7 +196,7 @@ Learn more about this from the ["R packages" book][r-pkgs-name].
 
 ### Finishing up
 
-Please take a look at RStudio's `Files` panes now. The `/man` directory should
+Please take a look at RStudio's `Files` panes now. The `man` directory should
 now contain one LaTeX-like formatted `.Rd` file for each function.
 
 In case you learned about Git already, also view the `.Rd` files in RStudio's

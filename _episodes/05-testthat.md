@@ -30,7 +30,7 @@ sure our functions work fine now. It is natural to be cautious about changing
 computer code and it rightly shouldn't be done on a whim.
 
 However, as you have probably learned in the Git lesson, branching is one way to
-try out code changes in a way that allows you to recover from mistake, and only
+try out code changes in a way that allows you to recover from mistakes, and only
 merge successful changes.
 
 Unit tests are another way to "span a safety net", and in R, the [`testthat` package][testthat]
@@ -90,8 +90,7 @@ test_that("centering works", {
 
 Don't worry that there is no output when you execute either one or both of the
 `expect_equal()` statements, or  the whole `test_that()` block. In good UNIX
-tradition, `testthat` does not bother you with confirming that things are working
-as expected. But there will be plenty of output when some expectations are not
+tradition, `testthat` will only bother you in case some expectations are _not_
 met, i.e. one or more unit tests fail.
 
 > ## Testing our rescaling functions

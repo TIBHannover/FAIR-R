@@ -41,7 +41,7 @@ on if needed. You can copy-paste into the R console, but the RStudio script
 editor allows you to 'send' the current line or the currently selected text to
 the R console using the <kbd>Ctrl</kbd>+<kbd>Return</kbd> shortcut.
 
-At some point in your analysis you may want to check the content of variable or
+At some point in your analysis you may want to check the content of a variable or
 the structure of an object, without necessarily keep a record of it in your
 script. You can type these commands directly in the console. RStudio provides
 the <kbd>Ctrl</kbd>+<kbd>1</kbd> and <kbd>Ctrl</kbd>+<kbd>2</kbd> shortcuts allow you to jump between the script and the

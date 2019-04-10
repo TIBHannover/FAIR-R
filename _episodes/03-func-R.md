@@ -234,9 +234,10 @@ However, they shouldn't ever be much longer than that, or the next person who re
 
 > ## Named Variables and the Scope of Variables
 >
->  + Functions can accept arguments explicitly assigned to a variable name in
->    in the function call `functionName(variable = value)`, as well as arguments by
->    order:
+> Functions can accept arguments explicitly assigned to a variable name in
+> the function call `functionName(variable = value)`, as well as arguments by
+> order:
+>
 > 
 > ~~~
 > input_1 <- 20
@@ -271,8 +272,8 @@ center <- function(data, desired) {
 {: .language-r}
 
 We could test this on our actual data, but since we don't know what the values ought to be, it will be hard to tell if the result was correct.
-Instead, let's create a vector of 0s and then center that around 3.
-This will make it simple to see if our function is working as expected:
+Instead, let's create a small vector of integers and center it around a small integer,
+so that we can comprehend, retrace and therefore check the calculation in our head:
 
 
 ~~~
@@ -601,7 +602,7 @@ center2(test_data, 3)
 ~~~
 {: .output}
 
-But we can also now call `center()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
+But we can also now call `center2()` with its first argument only, in which case `desired` is automatically assigned the default value of `0`:
 
 
 ~~~

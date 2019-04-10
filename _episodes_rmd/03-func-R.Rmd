@@ -198,8 +198,8 @@ center <- function(data, desired) {
 ```
 
 We could test this on our actual data, but since we don't know what the values ought to be, it will be hard to tell if the result was correct.
-Instead, let's create a vector of 0s and then center that around 3.
-This will make it simple to see if our function is working as expected:
+Instead, let's create a small vector of integers and center it around a small integer,
+so that we can comprehend, retrace and therefore check the calculation in our head:
 
 ```{r, }
 (z <- c(1, 2, 3))

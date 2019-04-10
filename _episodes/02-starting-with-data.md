@@ -49,18 +49,25 @@ To do all that, we'll have to learn a little bit about programming.
 
 ### Loading Data
 
-Let's import the file called `inflammation.csv` into our R environment. To import the file, first we need to tell our computer where the file is. We do that by choosing a working directory, that is, a local directory on our computer containing the files we need. This is very important in R. If we forget this step we'll get an error message saying that the file does not exist. We can set the working directory using the function `setwd`. For this example, we change the path to our new directory at the desktop:
+Let's import the file called `inflammation.csv` into our R environment.
+To import the file, first we need to tell our computer where the file is.
+We do that by choosing a working directory, which is possible using
+`setwd("~/Desktop/FAIR-R/")`. However, a more elegant way is creating an RStudio
+project: `File` > `New project` > `Existing Directory` > `Browse` to the
+folder you created during the [setup]({{ page.root }}/setup/).
 
+> ## `.Rproj`-fying your other work
+> If you have already worked with R before, but not with RStudio projects,
+> repeat the above steps to upgrade a few of `Existing Directory`.
+> Note how double-clicking a resulting `.Rproj` file launches RStudio right
+> in the correct working directory.
+{: .challenge}
 
-~~~
-setwd("~/Desktop/FAIR-R/")
-~~~
-{: .language-r}
+Setting the working directory correctly is very important in R.
+If it's not, we'll often get errors that files are not where we expect them to be.
+That's why the `.Rproj` files are more useful than using `setwd()` manually.
 
-Just like in the Unix Shell, we type the command and then press <kbd>Return</kbd> (or <kbd>Enter</kbd>).
-Alternatively you can change the working directory using the RStudio GUI using the menu option `Session` -> `Set Working Directory` -> `Choose Directory...`
-
-The data file is located in the directory `data` inside the working directory. Now we can load the data into R using `read.csv`:
+Now, we can load the [downloaded data file]({{ page.root }}/setup/) into R:
 
 
 ~~~
@@ -68,7 +75,10 @@ The data file is located in the directory `data` inside the working directory. N
 ~~~
 {: .language-r}
 
-The expression `read.csv(...)` is a [function call]({{ page.root }}/reference/#function-call) that asks R to run the function `read.csv`.
+The expression `read.csv(...)` is a [function call]({{ page.root }}/reference/#function-call)
+that asks R to run the function `read.csv` and assign its output to a variable.
+The `(` parentheses `)` around it instructs R to not only do the above, but also
+show the function's output in the console.
 
 `read.csv` has two [arguments]({{ page.root }}/reference/#argument): the name of the file we want to read, and whether the first line of the file contains names for the columns of data.
 The filename needs to be a character string (or [string]({{ page.root }}/reference/#string) for short), so we put it in quotes. Assigning the second argument, `header`, to be `FALSE` indicates that the data file does not have column headers. In case of our `inflammation.csv` example, R auto-generates column names in the sequence `V1` (for "variable 1"), `V2`, and so on, until `V30`.
@@ -110,8 +120,9 @@ We can create a new variable and assign a value to it using `<-`.
 Once a variable is created, we can use the variable name to refer to the value it was assigned. The variable name now acts as a tag.
 
 To see the value of a variable, we can print it by typing the name of the variable and hitting <kbd>Return</kbd> (or <kbd>Enter</kbd>).
-In general, R will print to the console any object returned by a function or operation *unless* we assign it to a variable.
-
+In general, R will print to the console any object returned by a function or operation
+*unless* we assign it to a variable, or force-print the assignment's output with
+`(` parentheses around the whole epxression`)`.
 
 > ## Variable Naming Conventions
 >
