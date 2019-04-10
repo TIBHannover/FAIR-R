@@ -448,7 +448,7 @@ we used above and in the ["Analyzing Patient Data" episode]({{ page.root }}/02-s
 #' @param desired The numeric value around which the data will be centered
 #'
 #' @return A new vector containing the original data centered around the desired value.
-#'
+#' @export
 #' @examples
 #'   center(c(1, 2, 3), 0)  # should return [1] -1  0  1
 center <- function(data, desired) {
@@ -464,6 +464,8 @@ The descriptive tags (preceded by an `@`) hold the most important details.
 Each `@param` documents an input parameter, while `@return` explains the function's 
 output. The more comprehensible a description of its in- and output data (types), the 
 easier a function can be integrated into larger analysis pipelines.
+`@export` means that the function is presented to users, after we have
+[packaged it in a later episode]({{ page.root }}/reference/#packages).
 
 > ## Functions to Create Graphs
 >
@@ -490,7 +492,7 @@ easier a function can be integrated into larger analysis pipelines.
 > > #' @param filename character string of a .csv file
 > > #'
 > > #' @return Plots the average inflammation over time.
-> > #'
+> > #' @export
 > > #' @examples 
 > > #'   analyze("inflammation.csv")
 > > analyze <- function(filename) { … }
@@ -502,9 +504,7 @@ easier a function can be integrated into larger analysis pipelines.
 If you are using RStudio, a nice shortcut is
 <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>R</kbd>. Place the 
 cursor inside the function name or body, press that shortcut, 
-and a roxygen comment skeleton will be inserted. Note that we are not using 
-`@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
-You can safely ignore it for now, or delete it.
+and a roxygen comment skeleton will be inserted.
 
 ## Rescaling
 
@@ -542,7 +542,7 @@ it is mathematically correct by using `min`, `max`, and `plot`.
 > > #' @param v A numeric vector
 > > #'
 > > #' @return The rescaled numeric vector
-> > #'
+> > #' @export
 > > #' @examples
 > > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
@@ -594,7 +594,7 @@ save our `center.R` file as `center2.R` and re-define the function as follows.
 #' @param desired The numeric value around which the data should be centered (default = 0)
 #'
 #' @return A new vector containing the original data centered around the desired value.
-#'
+#' @export
 #' @examples
 #'   center2(c(1, 2, 3))  # should return [1] -1  0  1
 #'   center2(c(1, 2, 3), 1)  # should return [1] 0 1 2
@@ -680,7 +680,7 @@ This is handy: if we usually want a function to work one way, but occasionally n
 > > #' @param upper numeric (default = 1)
 > > #'
 > > #' @return The rescaled numeric vector
-> > #'
+> > #' @export
 > > #' @examples
 > > #'   rescale2(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale2(c(1, 2, 3), 1, 2)  # should return [1] 1.0 1.5 2.0

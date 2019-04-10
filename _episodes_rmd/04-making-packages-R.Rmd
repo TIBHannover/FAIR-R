@@ -188,9 +188,10 @@ and was set up by RStudio with an `exportPattern`. Any file name in `R/` that
 matches it is automatically exported, meaning offered to users of your package
 in the console's tab-completion.
 
-If you want to publish your package and keep some functions hidden (maybe
-because they only do auxiliary tasks), you should delete this default file, tag
-the functions you _do want to expose_ with `@export` and rerun `roxygenise()`.
+If you want to publish your package, but keep some functions hidden (maybe
+because they only do auxiliary tasks), you can delete this default file,
+remove the `@export` tag from the auxiliary functions, and rerun `roxygenise()`.
+It's still a good idea to retain their other roxygen tags (esp. `@param` & `@return`).
 
 Learn more about this from the ["R packages" book][r-pkgs-name].
 
