@@ -401,14 +401,6 @@ it is mathematically correct by using `min`, `max`, and `plot`.
 
 [start-ep]: {{ page.root }}/02-starting-with-data/
 
-```{r rescale-test1, include=FALSE}
-answer <- rescale(dat[, 4])
-min(answer)
-max(answer)
-plot(answer)
-plot(dat[, 4], answer)  # This hasn't been introduced yet, but it may be
-                        # useful to show when explaining the answer.
-```
 
 ### Defining defaults
 
@@ -525,13 +517,9 @@ rescale2 <- function(v, lower = 0, upper = 1) {
 }
 ```
 
-```{r rescale-test2}
-answer <- rescale2(v = dat[, 4], lower = 2, upper = 5)
-min(answer)
-max(answer)
-answer <- rescale2(dat[, 4], -5, -2)
-min(answer)
-max(answer)
+```{r rescale-test}
+rescale2(v = dat[, 4], lower = 2, upper = 5))
+rescale2(dat[, 4], -5, -2))
 ```
 
 Compare both `rescale2` calls: Which is more understandable? Although passing

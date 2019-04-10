@@ -29,6 +29,13 @@ dataset about inflammation in 60 patients measured over 40 days. Let's pretend
 we need to tidy it up for further publication alongside the package we have been
 constructing.
 
+> ## Staying in spreadsheets
+> It is not always possible to abandon Excel & Co. and switch to R or Python.
+> In order to learn more about how to organise data in spreadsheets, please read
+> [DataCarpentry.org/spreadsheets-socialsci](https://datacarpentry.org/spreadsheets-socialsci/)
+> and/or [DataCarpentry.org/spreadsheet-ecology-lesson](https://datacarpentry.org/spreadsheet-ecology-lesson/).
+{: .callout}
+
 First, run `library(usethis)` and `use_data_raw()` and note the `Next:` instructions
 in the console. In particular, copy the `inflammation.csv` file to `data-raw`
 and start a `tidy-inflammation.R` file there to which you add the necessary lines
@@ -190,6 +197,11 @@ in their own ways. Two useful tools to find structural problems in CSVs are
 > > 
 > {: .solution}
 {: .challenge}
+
+## [Reusing and citing public datasets](https://tibhannover.github.io/2018-07-09-FAIR-Data-and-Software/FAIR-remix-PANGAEA/)
+
+This is a bonus episode that shows how FAIR datasets, together with the right mindset
+of finding and reusing existing R code can help you in scientific data analyses.
 
 [csvl]: https://csvlint.io/
 [gt]: https://try.goodtables.io/

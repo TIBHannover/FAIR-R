@@ -70,7 +70,7 @@ search()
 
 This means you can now take
 advantage of the console's auto-complete just like for any other package. Type
-`cen` and/or `resc`, press <kbd>Tab</kbd> and test some examples like `center(c(1, 2, 3))` or 
+`cen` and/or `resc`, then <kbd>Tab</kbd> and test some examples like `center(c(1, 2, 3), 0)` or 
 `rescale(c(1, 2, 3))`.
 
 ## Folder and file structure of an R package
@@ -144,10 +144,9 @@ The package name can only contain letters and numbers and has to start with a le
 > > The date is added in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format:
 > > `date: 2018-07-12`.
 > > 
-> > Before inserting the ORCiD, we have to merge the `Author` and `Maintainer`
-> > fields into a machine-readable `Authors@R` field using the `person(…)`.
-> > function. Look up its help page and convert your information.
-> > Afterwards, add your ORCiD as a `comment = c(ORCID = "…")`.
+> > ORCiDs can only be added to machine-readable `Authors@R` fields
+> > that use the `person(…)` function. `use_description()` created this
+> > already, so that you can add your ORCiD as a `comment = c(ORCID = "…")`.
 > {: .solution}
 >
 > In summary: Enabling `citation()` to convert `DESCRIPTION` into a rich BibTeX

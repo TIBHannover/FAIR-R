@@ -555,7 +555,6 @@ it is mathematically correct by using `min`, `max`, and `plot`.
 [start-ep]: {{ page.root }}/02-starting-with-data/
 
 
-
 ### Defining defaults
 
 We have passed arguments to functions in two ways: directly, as in `dim(dat)`, and by name, as in `read.csv(file = "inflammation.csv", header = FALSE)`.
@@ -699,60 +698,19 @@ This is handy: if we usually want a function to work one way, but occasionally n
 
 
 ~~~
-answer <- rescale2(v = dat[, 4], lower = 2, upper = 5)
-min(answer)
+rescale2(v = dat[, 4], lower = 2, upper = 5))
+rescale2(dat[, 4], -5, -2))
 ~~~
 {: .language-r}
 
 
 
 ~~~
-[1] 2
+Error: <text>:1:45: unexpected ')'
+1: rescale2(v = dat[, 4], lower = 2, upper = 5))
+                                                ^
 ~~~
-{: .output}
-
-
-
-~~~
-max(answer)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] 5
-~~~
-{: .output}
-
-
-
-~~~
-answer <- rescale2(dat[, 4], -5, -2)
-min(answer)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] -5
-~~~
-{: .output}
-
-
-
-~~~
-max(answer)
-~~~
-{: .language-r}
-
-
-
-~~~
-[1] -2
-~~~
-{: .output}
+{: .error}
 
 Compare both `rescale2` calls: Which is more understandable? Although passing
 arguments purely by position is very convenient, because you have to type less,
