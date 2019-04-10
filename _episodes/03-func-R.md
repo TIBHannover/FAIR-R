@@ -462,14 +462,23 @@ Each `@param` documents an input parameter, while `@return` explains the functio
 output. The more comprehensible a description of its in- and output data (types), the 
 easier a function can be integrated into larger analysis pipelines.
 
-
-
 > ## Functions to Create Graphs
 >
-> Write a function called `analyze` that takes a filename as an argument
-> and displays the graph produced in the [previous lesson][start-ep] (average inflammation over time).
-> `analyze("inflammation.csv")` should produce the graph already shown,
-> Be sure to document your function with roxygen comments.
+> To automate the plotting of the graphs from the
+> [previous lesson][start-ep] (average inflammation over time),
+> we wrote the following function:
+> ~~~
+> analyze <- function(filename) {
+>   # Input a character string that correspondes to a filename to 
+>   # to get the average inflammation of each day plotted.  
+>   dat <- read.csv(file = filename, header = FALSE)
+>   avg_day_inflammation <- colMeans(dat)
+>   plot(avg_day_inflammation)
+> }
+> ~~~
+> {: .r}
+> 
+> Formalise the above comments into roxygen-style function documentation.
 >
 > > ## Solution
 > > ~~~
@@ -481,11 +490,7 @@ easier a function can be integrated into larger analysis pipelines.
 > > #'
 > > #' @examples 
 > > #'   analyze("inflammation.csv")
-> > analyze <- function(filename) {
-> >   dat <- read.csv(file = filename, header = FALSE)
-> >   avg_day_inflammation <- colMeans(dat)
-> >   plot(avg_day_inflammation)
-> > }
+> > analyze <- function(filename) { … }
 > > ~~~
 > > {: .r}
 > {: .solution}
@@ -498,18 +503,36 @@ and a roxygen comment skeleton will be inserted. Note that we are not using
 `@export` here, because it will only become relevant for [packaging]({{ page.root }}/reference/#packages).
 You can safely ignore it for now, or delete it.
 
+## Rescaling
+
+Another example of an informally documented function:
 
 
-> ## Rescaling
+~~~
+rescale <- function(v) {
+  # takes a vector as input
+  # returns a corresponding vector of values scaled to the range 0 to 1
+  # e.g.: rescale(c(1, 2, 3)) => 0.0 0.5 1.0
+  L <- min(v)
+  H <- max(v)
+  result <- (v - L) / (H - L)
+  return(result)
+}
+~~~
+{: .language-r}
+
+Please create a new file for this and save it as `rescale.R`, and test that
+it is mathematically correct by using `min`, `max`, and `plot`.
+
+> ## Rescaling documentation
 >
-> Write a function `rescale` that takes a vector as input and returns a corresponding vector of values scaled to lie in the range 0 to 1.
-> Please create a new file for this and save it as `rescale.R`.
-> (If `L` and `H` are the lowest and highest values in the original vector, then the replacement for a value `v` should be `(v-L) / (H-L)`.)
-> Be sure to document your function with roxygen comments.
->
-> Test that your `rescale` function is working properly using `min`, `max`, and `plot`.
+> Convert `rescale`'s comments into roxygen function docu! Which keyboard shortcut
+> gets you started in RStudio?
 >
 > > ## Solution
+> > 
+> > Find the keyboard shortcut above, and one possible roxygen documentation below.
+> > 
 > > ~~~
 > > #' Rescaling vectors to lie in the range 0 to 1
 > > #'
@@ -520,13 +543,7 @@ You can safely ignore it for now, or delete it.
 > > #' @examples
 > > #'   rescale(c(1, 2, 3))  # should return [1] 0.0 0.5 1.0
 > > #'   rescale(c(1, 2, 3, 4, 5))  # should return [1] 0.00 0.25 0.50 0.75 1.00
-> > 
-> > rescale <- function(v) {
-> >   L <- min(v)
-> >   H <- max(v)
-> >   result <- (v - L) / (H - L)
-> >   return(result)
-> > }
+> > rescale <- function(v) { ... }
 > > ~~~
 > > {: .r}
 > {: .solution}
