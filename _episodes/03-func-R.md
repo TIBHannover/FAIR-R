@@ -30,6 +30,9 @@ source: Rmd
 
 
 If we only have one data set to analyze, it would probably be faster to load the file into a spreadsheet and use that to plot some simple statistics.
+However, we often have multiple data files or can expect more in the future.
+That's why it's usually a good idea to prepare for this case
+and write code in a reproducible manner right away.
 In this lesson, we'll learn how to write a function so that we can repeat several operations with a single command.
 
 ### Defining functions

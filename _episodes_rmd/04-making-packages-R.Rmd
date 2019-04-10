@@ -94,16 +94,22 @@ Suggestion: organize in a logical manner so that you know which file holds which
 
 ### `DESCRIPTION` file
 
+We used RStudio's import process to include the `.R` files we already had. However, FAIRer
+(because richer in metadata) `DESCRIPTION` files can be generated with `usethis::use_description()`:
+
 ~~~
 Package: PackageName
 Type: Package
-Title: What the Package Does (Title Case)
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Title: What the Package Does (One Line, Title Case)
+Authors@R: 
+    person(given = "First",
+           family = "Last",
+           role = c("aut", "cre"),
+           email = "first.last@example.com")
+Description: What the package does (one paragraph).
     Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+License: What license it uses
 Encoding: UTF-8
 LazyData: true
 ~~~

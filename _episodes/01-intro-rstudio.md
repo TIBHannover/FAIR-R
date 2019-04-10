@@ -60,8 +60,16 @@ window and press <kdb>Esc</kdb>; this should help you out of trouble.
 
 ### Commenting
 
-Use `#` signs to comment. Comment liberally in your R scripts. Anything to the
-right of a `#` is ignored by R.
+Use `#` symbols to start a comment. Anything to the
+right of a `#` is ignored by R. However, keep in mind that code should be
+[like a joke: good without explanation](https://twitter.com/search?q=code%20joke%20explain%20good).
+This means that adding comments should be of lower priority than:
+
+- naming functions, arguments and variables in a self-explanatory
+manner,
+- cleaning up or rewriting hard-to-understand code
+- adding formal documentation for your functions
+- adding automated tests for your code
 
 ### Assignment Operator
 
