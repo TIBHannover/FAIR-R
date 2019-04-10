@@ -178,8 +178,8 @@ However, they shouldn't ever be much longer than that, or the next person who re
 > R has a built-in function to **c**ombine elements into a vector: the `c` function.
 > E.g. `x <- c("A", "B", "C")` creates a vector `x` with three elements.
 > Furthermore, we can extend that vector again using `c`, e.g. `y <- c(x, "D")` creates a vector `y` with four elements.
-> Write a function called `fence` that takes two vectors as arguments, called
-> `original` and `wrapper`, and returns a new vector that has the wrapper vector
+> Write a function called `wrapper` that takes two vectors as arguments, called
+> `original` and `highlight`, and returns a new vector that has the highlighting
 > at the beginning and end of the original:
 >
 > 
@@ -188,7 +188,7 @@ However, they shouldn't ever be much longer than that, or the next person who re
 > dry_principle <- c("Don't", "repeat", "yourself", "or", "others")
 > asterisk <- "***"  # R interprets a variable with a single value as a vector
 >                    # with one element.
-> fence(best_practice, asterisk)
+> wrapper(best_practice, asterisk)
 > ~~~
 > {: .language-r}
 > 
@@ -203,7 +203,7 @@ However, they shouldn't ever be much longer than that, or the next person who re
 > 
 > 
 > ~~~
-> fence(dry_principle, asterisk)
+> wrapper(dry_principle, asterisk)
 > ~~~
 > {: .language-r}
 > 
@@ -217,8 +217,8 @@ However, they shouldn't ever be much longer than that, or the next person who re
 >
 > > ## Solution
 > > ~~~
-> > fence <- function(original, wrapper) {
-> >   answer <- c(wrapper, original, wrapper)
+> > wrapper <- function(original, highlight) {
+> >   answer <- c(highlight, original, highlight)
 > >   return(answer)
 > > }
 > > ~~~
